@@ -55,7 +55,13 @@ class GeographyController extends Controller
             'success' => true,
             'message' => 'Settings retrieved successfully.',
             'data' => [
-                'quick_actions_enabled' => $quickActionsEnabled
+                'quick_actions_enabled' => $quickActionsEnabled,
+                'quick_action_recruit_visible' => \App\Models\Setting::get('quick_action_recruit_visible', '1') === '1',
+                'quick_action_results_visible' => \App\Models\Setting::get('quick_action_results_visible', '1') === '1',
+                'quick_action_incident_visible' => \App\Models\Setting::get('quick_action_incident_visible', '1') === '1',
+                'quick_action_voice_visible' => \App\Models\Setting::get('quick_action_voice_visible', '1') === '1',
+                'quick_action_members_visible' => \App\Models\Setting::get('quick_action_members_visible', '1') === '1',
+                'quick_action_mobilize_visible' => \App\Models\Setting::get('quick_action_mobilize_visible', '1') === '1',
             ]
         ]);
     }

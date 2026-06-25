@@ -54,6 +54,12 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
   List<dynamic> _lgas = [];
   bool _isLoadingGeo = false;
   bool _quickActionsEnabled = true;
+  bool _quickActionRecruitVisible = true;
+  bool _quickActionResultsVisible = true;
+  bool _quickActionIncidentVisible = true;
+  bool _quickActionVoiceVisible = true;
+  bool _quickActionMembersVisible = true;
+  bool _quickActionMobilizeVisible = true;
   List<dynamic> _tasks = [];
   bool _isLoadingTasks = false;
 
@@ -103,7 +109,14 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
       final response = await client.get('/settings');
       if (response.data['success'] == true) {
         setState(() {
-          _quickActionsEnabled = response.data['data']['quick_actions_enabled'] ?? true;
+          final data = response.data['data'];
+          _quickActionsEnabled = data['quick_actions_enabled'] ?? true;
+          _quickActionRecruitVisible = data['quick_action_recruit_visible'] ?? true;
+          _quickActionResultsVisible = data['quick_action_results_visible'] ?? true;
+          _quickActionIncidentVisible = data['quick_action_incident_visible'] ?? true;
+          _quickActionVoiceVisible = data['quick_action_voice_visible'] ?? true;
+          _quickActionMembersVisible = data['quick_action_members_visible'] ?? true;
+          _quickActionMobilizeVisible = data['quick_action_mobilize_visible'] ?? true;
         });
       }
     } catch (_) {}
@@ -1538,7 +1551,13 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                     ),
           const SizedBox(height: 20),
 
-          if (_quickActionsEnabled) ...[
+          if (_quickActionsEnabled &&
+              (_quickActionRecruitVisible ||
+               _quickActionResultsVisible ||
+               _quickActionIncidentVisible ||
+               _quickActionVoiceVisible ||
+               _quickActionMembersVisible ||
+               _quickActionMobilizeVisible)) ...[
             // Quick Action Grid
             const Text(
               'QUICK ACTIONS',
@@ -1559,84 +1578,90 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
               mainAxisSpacing: 10,
               childAspectRatio: 1.1,
               children: [
-                _buildQuickActionButton(
-                  icon: Icons.person_add_alt_1_rounded,
-                  label: 'Recruit',
-                  color: const Color(0xFF4361EE),
-                  onTap: () async {
-                    final result = await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const VolunteerRecruitmentScreen(),
-                      ),
-                    );
-                    if (result == true) {
-                      _loadMembers();
-                    }
-                  },
-                ),
-                _buildQuickActionButton(
-                  icon: Icons.ballot,
-                  label: 'Results',
-                  color: const Color(0xFF3451DB),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ElectionOpsScreen(initialMode: 'results'),
-                      ),
-                    );
-                  },
-                ),
-                _buildQuickActionButton(
-                  icon: Icons.report_problem,
-                  label: 'Incident',
-                  color: Colors.red,
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ElectionOpsScreen(initialMode: 'incident'),
-                      ),
-                    );
-                  },
-                ),
-                _buildQuickActionButton(
-                  icon: Icons.mic,
-                  label: 'Voice',
-                  color: const Color(0xFF3451DB),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ElectionOpsScreen(initialMode: 'voice'),
-                      ),
-                    );
-                  },
-                ),
-                _buildQuickActionButton(
-                  icon: Icons.group,
-                  label: 'Members',
-                  color: const Color(0xFF3451DB),
-                  onTap: () {
-                    setState(() {
-                      _currentIndex = 1;
-                    });
-                  },
-                ),
-                _buildQuickActionButton(
-                  icon: Icons.forum,
-                  label: 'Mobilize',
-                  color: const Color(0xFF4361EE),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const CommunicationsScreen(),
-                      ),
-                    );
-                  },
-                ),
+                if (_quickActionRecruitVisible)
+                  _buildQuickActionButton(
+                    icon: Icons.person_add_alt_1_rounded,
+                    label: 'Recruit',
+                    color: const Color(0xFF4361EE),
+                    onTap: () async {
+                      final result = await Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const VolunteerRecruitmentScreen(),
+                        ),
+                      );
+                      if (result == true) {
+                        _loadMembers();
+                      }
+                    },
+                  ),
+                if (_quickActionResultsVisible)
+                  _buildQuickActionButton(
+                    icon: Icons.ballot,
+                    label: 'Results',
+                    color: const Color(0xFF3451DB),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ElectionOpsScreen(initialMode: 'results'),
+                        ),
+                      );
+                    },
+                  ),
+                if (_quickActionIncidentVisible)
+                  _buildQuickActionButton(
+                    icon: Icons.report_problem,
+                    label: 'Incident',
+                    color: Colors.red,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ElectionOpsScreen(initialMode: 'incident'),
+                        ),
+                      );
+                    },
+                  ),
+                if (_quickActionVoiceVisible)
+                  _buildQuickActionButton(
+                    icon: Icons.mic,
+                    label: 'Voice',
+                    color: const Color(0xFF3451DB),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ElectionOpsScreen(initialMode: 'voice'),
+                        ),
+                      );
+                    },
+                  ),
+                if (_quickActionMembersVisible)
+                  _buildQuickActionButton(
+                    icon: Icons.group,
+                    label: 'Members',
+                    color: const Color(0xFF3451DB),
+                    onTap: () {
+                      setState(() {
+                        _currentIndex = 1;
+                      });
+                    },
+                  ),
+                if (_quickActionMobilizeVisible)
+                  _buildQuickActionButton(
+                    icon: Icons.forum,
+                    label: 'Mobilize',
+                    color: const Color(0xFF4361EE),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const CommunicationsScreen(),
+                        ),
+                      );
+                    },
+                  ),
               ],
             ),
           ],

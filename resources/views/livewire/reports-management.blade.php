@@ -232,6 +232,156 @@
                     <span class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out {{ $quickActionsEnabled ? 'translate-x-5' : 'translate-x-0' }}"></span>
                 </button>
             </div>
+
+            <!-- Configure Individual Quick Links -->
+            <div class="mt-8 pt-6 border-t border-zinc-200 dark:border-zinc-800 {{ !$quickActionsEnabled ? 'opacity-50 pointer-events-none select-none' : '' }} transition-opacity duration-300">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <h4 class="text-sm font-bold text-zinc-900 dark:text-white">Individual Quick Link Visibility</h4>
+                        <p class="text-xs text-zinc-550 dark:text-zinc-400 mt-0.5">Toggle visibility for specific actions inside the mobile dashboard grid.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Card: Recruit -->
+                    <div class="flex items-start justify-between p-4 rounded-xl border border-zinc-200 dark:border-zinc-750 bg-white dark:bg-zinc-900 hover:shadow-md hover:scale-[1.01] transition-all duration-200">
+                        <div class="flex gap-3">
+                            <div class="p-2 rounded-lg bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 mt-0.5">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                                </svg>
+                            </div>
+                            <div class="space-y-1">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-sm font-bold text-zinc-900 dark:text-white">Recruit</span>
+                                    <span class="inline-flex items-center px-2 py-0.5 text-[10px] font-medium rounded-full {{ $quickActionRecruitVisible ? 'bg-green-100 text-green-800 dark:bg-green-900/35 dark:text-green-400' : 'bg-zinc-100 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-400' }}">
+                                        {{ $quickActionRecruitVisible ? 'Visible' : 'Hidden' }}
+                                    </span>
+                                </div>
+                                <p class="text-[11px] leading-normal text-zinc-550 dark:text-zinc-400">Canvassers register new campaign volunteers and members.</p>
+                            </div>
+                        </div>
+                        <button wire:click="toggleQuickActionVisibility('recruit')" class="relative inline-flex h-5 w-9 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none {{ $quickActionRecruitVisible ? 'bg-green-600' : 'bg-zinc-300 dark:bg-zinc-700' }}">
+                            <span class="pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out {{ $quickActionRecruitVisible ? 'translate-x-4' : 'translate-x-0' }}"></span>
+                        </button>
+                    </div>
+
+                    <!-- Card: Results -->
+                    <div class="flex items-start justify-between p-4 rounded-xl border border-zinc-200 dark:border-zinc-750 bg-white dark:bg-zinc-900 hover:shadow-md hover:scale-[1.01] transition-all duration-200">
+                        <div class="flex gap-3">
+                            <div class="p-2 rounded-lg bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 mt-0.5">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <div class="space-y-1">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-sm font-bold text-zinc-900 dark:text-white">Results</span>
+                                    <span class="inline-flex items-center px-2 py-0.5 text-[10px] font-medium rounded-full {{ $quickActionResultsVisible ? 'bg-green-100 text-green-800 dark:bg-green-900/35 dark:text-green-400' : 'bg-zinc-100 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-400' }}">
+                                        {{ $quickActionResultsVisible ? 'Visible' : 'Hidden' }}
+                                    </span>
+                                </div>
+                                <p class="text-[11px] leading-normal text-zinc-550 dark:text-zinc-400">Tapping this opens the election results upload screen.</p>
+                            </div>
+                        </div>
+                        <button wire:click="toggleQuickActionVisibility('results')" class="relative inline-flex h-5 w-9 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none {{ $quickActionResultsVisible ? 'bg-green-600' : 'bg-zinc-300 dark:bg-zinc-700' }}">
+                            <span class="pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out {{ $quickActionResultsVisible ? 'translate-x-4' : 'translate-x-0' }}"></span>
+                        </button>
+                    </div>
+
+                    <!-- Card: Incident -->
+                    <div class="flex items-start justify-between p-4 rounded-xl border border-zinc-200 dark:border-zinc-750 bg-white dark:bg-zinc-900 hover:shadow-md hover:scale-[1.01] transition-all duration-200">
+                        <div class="flex gap-3">
+                            <div class="p-2 rounded-lg bg-red-50 dark:bg-red-950/40 text-red-600 dark:text-red-400 mt-0.5">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                </svg>
+                            </div>
+                            <div class="space-y-1">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-sm font-bold text-zinc-900 dark:text-white">Incident</span>
+                                    <span class="inline-flex items-center px-2 py-0.5 text-[10px] font-medium rounded-full {{ $quickActionIncidentVisible ? 'bg-green-100 text-green-800 dark:bg-green-900/35 dark:text-green-400' : 'bg-zinc-100 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-400' }}">
+                                        {{ $quickActionIncidentVisible ? 'Visible' : 'Hidden' }}
+                                    </span>
+                                </div>
+                                <p class="text-[11px] leading-normal text-zinc-550 dark:text-zinc-400">Tapping this opens the incident reporting screen to log issues.</p>
+                            </div>
+                        </div>
+                        <button wire:click="toggleQuickActionVisibility('incident')" class="relative inline-flex h-5 w-9 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none {{ $quickActionIncidentVisible ? 'bg-green-600' : 'bg-zinc-300 dark:bg-zinc-700' }}">
+                            <span class="pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out {{ $quickActionIncidentVisible ? 'translate-x-4' : 'translate-x-0' }}"></span>
+                        </button>
+                    </div>
+
+                    <!-- Card: Voice -->
+                    <div class="flex items-start justify-between p-4 rounded-xl border border-zinc-200 dark:border-zinc-750 bg-white dark:bg-zinc-900 hover:shadow-md hover:scale-[1.01] transition-all duration-200">
+                        <div class="flex gap-3">
+                            <div class="p-2 rounded-lg bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 mt-0.5">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                                </svg>
+                            </div>
+                            <div class="space-y-1">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-sm font-bold text-zinc-900 dark:text-white">Voice</span>
+                                    <span class="inline-flex items-center px-2 py-0.5 text-[10px] font-medium rounded-full {{ $quickActionVoiceVisible ? 'bg-green-100 text-green-800 dark:bg-green-900/35 dark:text-green-400' : 'bg-zinc-100 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-400' }}">
+                                        {{ $quickActionVoiceVisible ? 'Visible' : 'Hidden' }}
+                                    </span>
+                                </div>
+                                <p class="text-[11px] leading-normal text-zinc-550 dark:text-zinc-400">Tapping this opens the voice report screen to record audio updates.</p>
+                            </div>
+                        </div>
+                        <button wire:click="toggleQuickActionVisibility('voice')" class="relative inline-flex h-5 w-9 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none {{ $quickActionVoiceVisible ? 'bg-green-600' : 'bg-zinc-300 dark:bg-zinc-700' }}">
+                            <span class="pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out {{ $quickActionVoiceVisible ? 'translate-x-4' : 'translate-x-0' }}"></span>
+                        </button>
+                    </div>
+
+                    <!-- Card: Members -->
+                    <div class="flex items-start justify-between p-4 rounded-xl border border-zinc-200 dark:border-zinc-750 bg-white dark:bg-zinc-900 hover:shadow-md hover:scale-[1.01] transition-all duration-200">
+                        <div class="flex gap-3">
+                            <div class="p-2 rounded-lg bg-teal-50 dark:bg-teal-950/40 text-teal-650 dark:text-teal-400 mt-0.5">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                                </svg>
+                            </div>
+                            <div class="space-y-1">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-sm font-bold text-zinc-900 dark:text-white">Members</span>
+                                    <span class="inline-flex items-center px-2 py-0.5 text-[10px] font-medium rounded-full {{ $quickActionMembersVisible ? 'bg-green-100 text-green-800 dark:bg-green-900/35 dark:text-green-400' : 'bg-zinc-100 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-400' }}">
+                                        {{ $quickActionMembersVisible ? 'Visible' : 'Hidden' }}
+                                    </span>
+                                </div>
+                                <p class="text-[11px] leading-normal text-zinc-550 dark:text-zinc-400">Tapping this redirects the user to the members list tab.</p>
+                            </div>
+                        </div>
+                        <button wire:click="toggleQuickActionVisibility('members')" class="relative inline-flex h-5 w-9 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none {{ $quickActionMembersVisible ? 'bg-green-600' : 'bg-zinc-300 dark:bg-zinc-700' }}">
+                            <span class="pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out {{ $quickActionMembersVisible ? 'translate-x-4' : 'translate-x-0' }}"></span>
+                        </button>
+                    </div>
+
+                    <!-- Card: Mobilize -->
+                    <div class="flex items-start justify-between p-4 rounded-xl border border-zinc-200 dark:border-zinc-750 bg-white dark:bg-zinc-900 hover:shadow-md hover:scale-[1.01] transition-all duration-200">
+                        <div class="flex gap-3">
+                            <div class="p-2 rounded-lg bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 mt-0.5">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                                </svg>
+                            </div>
+                            <div class="space-y-1">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-sm font-bold text-zinc-900 dark:text-white">Mobilize</span>
+                                    <span class="inline-flex items-center px-2 py-0.5 text-[10px] font-medium rounded-full {{ $quickActionMobilizeVisible ? 'bg-green-100 text-green-800 dark:bg-green-900/35 dark:text-green-400' : 'bg-zinc-100 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-400' }}">
+                                        {{ $quickActionMobilizeVisible ? 'Visible' : 'Hidden' }}
+                                    </span>
+                                </div>
+                                <p class="text-[11px] leading-normal text-zinc-550 dark:text-zinc-400">Tapping this opens the group mobilization messaging tool.</p>
+                            </div>
+                        </div>
+                        <button wire:click="toggleQuickActionVisibility('mobilize')" class="relative inline-flex h-5 w-9 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none {{ $quickActionMobilizeVisible ? 'bg-green-600' : 'bg-zinc-300 dark:bg-zinc-700' }}">
+                            <span class="pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out {{ $quickActionMobilizeVisible ? 'translate-x-4' : 'translate-x-0' }}"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     @endif
 </div>

@@ -34,7 +34,7 @@ class ApiClient {
       }
       return 'http://onyedozieadmin.test:$localPort/api/v1';
     }
-    return 'https://onyedozie.olgagrp.com/api/v1';
+    return 'https://onyedozie-production-pchvwd.laravel.cloud/api/v1';
   }
 
   ApiClient(this._storageService, {String? baseUrl})

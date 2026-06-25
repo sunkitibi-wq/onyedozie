@@ -16,10 +16,22 @@ class ReportsManagement extends Component
     public $selectedIncidentId = null;
     public $incidentStatusUpdate = null;
     public $quickActionsEnabled = false;
+    public $quickActionRecruitVisible = true;
+    public $quickActionResultsVisible = true;
+    public $quickActionIncidentVisible = true;
+    public $quickActionVoiceVisible = true;
+    public $quickActionMembersVisible = true;
+    public $quickActionMobilizeVisible = true;
 
     public function mount()
     {
         $this->quickActionsEnabled = Setting::get('quick_actions_enabled', '0') === '1';
+        $this->quickActionRecruitVisible = Setting::get('quick_action_recruit_visible', '1') === '1';
+        $this->quickActionResultsVisible = Setting::get('quick_action_results_visible', '1') === '1';
+        $this->quickActionIncidentVisible = Setting::get('quick_action_incident_visible', '1') === '1';
+        $this->quickActionVoiceVisible = Setting::get('quick_action_voice_visible', '1') === '1';
+        $this->quickActionMembersVisible = Setting::get('quick_action_members_visible', '1') === '1';
+        $this->quickActionMobilizeVisible = Setting::get('quick_action_mobilize_visible', '1') === '1';
     }
 
     public function selectTab($tab)
@@ -33,6 +45,18 @@ class ReportsManagement extends Component
         $this->quickActionsEnabled = !$this->quickActionsEnabled;
         Setting::set('quick_actions_enabled', $this->quickActionsEnabled ? '1' : '0');
         session()->flash('message', 'Mobile App Quick Actions status updated successfully.');
+    }
+
+    public function toggleQuickActionVisibility($action)
+    {
+        $property = 'quickAction' . ucfirst($action) . 'Visible';
+        $settingKey = 'quick_action_' . $action . '_visible';
+        
+        if (property_exists($this, $property)) {
+            $this->$property = !$this->$property;
+            Setting::set($settingKey, $this->$property ? '1' : '0');
+            session()->flash('message', 'Mobile App Quick Link visibility updated successfully.');
+        }
     }
 
     public function viewIncident($id)
