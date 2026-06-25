@@ -118,6 +118,7 @@
                                 <th class="px-4 py-3">Status</th>
                                 <th class="px-4 py-3 text-center">Delivery Stats</th>
                                 <th class="px-4 py-3">Sent At</th>
+                                <th class="px-4 py-3 text-right">Actions</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-zinc-200 dark:divide-zinc-800">
@@ -150,10 +151,16 @@
                                     <td class="px-4 py-3 text-xs">
                                         {{ $b->created_at->format('M d, H:i') }}
                                     </td>
+                                    <td class="px-4 py-3 text-xs text-right">
+                                        <button wire:click="resendBroadcast({{ $b->id }})" 
+                                            class="px-2.5 py-1 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 rounded text-xs font-semibold transition-colors duration-150">
+                                            Resend
+                                        </button>
+                                    </td>
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="5" class="px-4 py-8 text-center text-zinc-500 italic">No broadcasts sent yet.</td>
+                                    <td colspan="6" class="px-4 py-8 text-center text-zinc-500 italic">No broadcasts sent yet.</td>
                                 </tr>
                             @endforelse
                         </tbody>

@@ -98,3 +98,43 @@ test('authenticated admins can schedule social posts', function () {
         'status' => 'scheduled',
     ]);
 });
+
+test('whatsapp service uses simulation when config is empty', function () {
+    config()->set('services.whatsapp.phone_number_id', null);
+    config()->set('services.whatsapp.access_token', null);
+
+    $service = new \App\Services\WhatsappService();
+    $result = $service->send('08012345678', 'Test message');
+    
+    expect($result)->toBeBool();
+});
+
+test('admins can resend a broadcast via livewire', function () {
+    Queue::fake();
+
+    $user = User::factory()->create();
+    $user->assignRole('Super Admin');
+    $this->actingAs($user);
+
+    $broadcast = WhatsappBroadcast::create([
+        'message' => 'Old message',
+        'audience_type' => 'all',
+        'status' => 'failed',
+        'sent_count' => 10,
+        'delivered_count' => 5,
+        'failed_count' => 5,
+    ]);
+
+    \Livewire\Livewire::test(\App\Livewire\CommunicationsManager::class)
+        ->call('resendBroadcast', $broadcast->id);
+
+    $broadcast->refresh();
+    expect($broadcast->status)->toBe('pending');
+    expect($broadcast->sent_count)->toBe(0);
+    expect($broadcast->delivered_count)->toBe(0);
+    expect($broadcast->failed_count)->toBe(0);
+
+    Queue::assertPushed(SendWhatsappBroadcastJob::class);
+});
+
+

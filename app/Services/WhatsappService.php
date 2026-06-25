@@ -2,8 +2,9 @@
 
 namespace App\Services;
 
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
+use Netflie\WhatsAppCloudApi\WhatsAppCloudApi;
+use Netflie\WhatsAppCloudApi\Message\Media\LinkID;
 
 class WhatsappService
 {
@@ -13,8 +14,8 @@ class WhatsappService
      */
     public function send(string $phone, string $message, ?string $mediaPath = null): bool
     {
-        $apiUrl = env('WHATSAPP_API_URL');
-        $apiToken = env('WHATSAPP_API_TOKEN');
+        $phoneNumberId = config('services.whatsapp.phone_number_id');
+        $accessToken = config('services.whatsapp.access_token');
 
         // Normalize phone number (strip spaces, ensure country code)
         $phone = preg_replace('/\D/', '', $phone);
@@ -23,7 +24,7 @@ class WhatsappService
             $phone = '234' . substr($phone, 1);
         }
 
-        if (empty($apiUrl) || empty($apiToken)) {
+        if (empty($phoneNumberId) || empty($accessToken)) {
             // Simulated sending
             Log::info("[WhatsappService - SIMULATION] Sent WhatsApp message to $phone. Media: " . ($mediaPath ?? 'None') . ". Body: $message");
             // Simulate 95% delivery success rate
@@ -31,19 +32,25 @@ class WhatsappService
         }
 
         try {
-            $response = Http::withHeaders([
-                'Authorization' => "Bearer $apiToken",
-                'Accept' => 'application/json',
-            ])->post($apiUrl, [
-                'phone' => $phone,
-                'message' => $message,
-                'media_url' => $mediaPath ? asset('storage/' . $mediaPath) : null,
+            $whatsapp = new WhatsAppCloudApi([
+                'from_phone_number_id' => $phoneNumberId,
+                'access_token' => $accessToken,
             ]);
 
-            return $response->successful();
+            if ($mediaPath) {
+                $mediaUrl = asset('storage/' . $mediaPath);
+                $linkId = new LinkID($mediaUrl);
+                $whatsapp->sendImage($phone, $linkId, $message);
+            } else {
+                $whatsapp->sendTextMessage($phone, $message);
+            }
+
+            Log::info("[WhatsappService] Successfully sent WhatsApp message via SDK to $phone.");
+            return true;
         } catch (\Exception $e) {
             Log::error("[WhatsappService] Failed to send WhatsApp to $phone: " . $e->getMessage());
             return false;
         }
     }
 }
+

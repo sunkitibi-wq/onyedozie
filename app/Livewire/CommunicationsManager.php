@@ -123,6 +123,20 @@ class CommunicationsManager extends Component
         session()->flash('message', 'Social Media Post has been scheduled.');
     }
 
+    public function resendBroadcast(WhatsappBroadcast $broadcast)
+    {
+        $broadcast->update([
+            'status' => 'pending',
+            'sent_count' => 0,
+            'delivered_count' => 0,
+            'failed_count' => 0,
+        ]);
+
+        SendWhatsappBroadcastJob::dispatch($broadcast);
+
+        session()->flash('message', 'WhatsApp Broadcast has been re-queued for sending.');
+    }
+
     public function render()
     {
         return view('livewire.communications-manager', [
