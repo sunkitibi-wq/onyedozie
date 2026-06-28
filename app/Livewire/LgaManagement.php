@@ -19,6 +19,11 @@ class LgaManagement extends Component
     public $wardName, $wardLgaId;
     public $puName, $puCode, $puWardId, $puLat, $puLng, $puVoters;
 
+    // Editing fields
+    public $editingLgaId, $editingLgaName;
+    public $editingWardId, $editingWardName, $editingWardLgaId;
+    public $editingPuId, $editingPuName, $editingPuCode, $editingPuWardId, $editingPuLat, $editingPuLng, $editingPuVoters;
+
     protected $rules = [
         'lgaName' => 'required|string|max:255',
         'wardName' => 'required|string|max:255',
@@ -28,14 +33,147 @@ class LgaManagement extends Component
         'puWardId' => 'required|exists:wards,id',
     ];
 
+    private function authorizeSuperAdmin()
+    {
+        if (!auth()->user() || !auth()->user()->hasRole('Super Admin')) {
+            abort(403, 'Unauthorized.');
+        }
+    }
+
     public function selectTab($tab)
     {
         $this->activeTab = $tab;
+        $this->cancelEditLga();
+        $this->cancelEditWard();
+        $this->cancelEditPu();
         $this->resetPage();
+    }
+
+    // LGA Edit Methods
+    public function editLga($id)
+    {
+        $this->authorizeSuperAdmin();
+        $lga = Lga::findOrFail($id);
+        $this->editingLgaId = $lga->id;
+        $this->editingLgaName = $lga->name;
+    }
+
+    public function cancelEditLga()
+    {
+        $this->reset(['editingLgaId', 'editingLgaName']);
+        $this->resetErrorBag();
+    }
+
+    public function updateLga()
+    {
+        $this->authorizeSuperAdmin();
+        $this->validate([
+            'editingLgaName' => 'required|string|max:255',
+        ]);
+
+        $lga = Lga::findOrFail($this->editingLgaId);
+        $oldName = $lga->name;
+        $lga->update([
+            'name' => $this->editingLgaName,
+        ]);
+
+        \App\Models\ActivityLog::log("Updated LGA: {$oldName} to {$lga->name}", $lga);
+        $this->cancelEditLga();
+        session()->flash('message', 'LGA updated successfully.');
+    }
+
+    // Ward Edit Methods
+    public function editWard($id)
+    {
+        $this->authorizeSuperAdmin();
+        $ward = Ward::findOrFail($id);
+        $this->editingWardId = $ward->id;
+        $this->editingWardName = $ward->name;
+        $this->editingWardLgaId = $ward->lga_id;
+    }
+
+    public function cancelEditWard()
+    {
+        $this->reset(['editingWardId', 'editingWardName', 'editingWardLgaId']);
+        $this->resetErrorBag();
+    }
+
+    public function updateWard()
+    {
+        $this->authorizeSuperAdmin();
+        $this->validate([
+            'editingWardName' => 'required|string|max:255',
+            'editingWardLgaId' => 'required|exists:lgas,id',
+        ]);
+
+        $ward = Ward::findOrFail($this->editingWardId);
+        $oldName = $ward->name;
+        $ward->update([
+            'name' => $this->editingWardName,
+            'lga_id' => $this->editingWardLgaId,
+        ]);
+
+        \App\Models\ActivityLog::log("Updated Ward: {$oldName} to {$ward->name}", $ward);
+        $this->cancelEditWard();
+        session()->flash('message', 'Ward updated successfully.');
+    }
+
+    // Polling Unit Edit Methods
+    public function editPu($id)
+    {
+        $this->authorizeSuperAdmin();
+        $pu = PollingUnit::findOrFail($id);
+        $this->editingPuId = $pu->id;
+        $this->editingPuName = $pu->name;
+        $this->editingPuCode = $pu->code;
+        $this->editingPuWardId = $pu->ward_id;
+        $this->editingPuLat = $pu->lat;
+        $this->editingPuLng = $pu->lng;
+        $this->editingPuVoters = $pu->registered_voters;
+    }
+
+    public function cancelEditPu()
+    {
+        $this->reset([
+            'editingPuId',
+            'editingPuName',
+            'editingPuCode',
+            'editingPuWardId',
+            'editingPuLat',
+            'editingPuLng',
+            'editingPuVoters',
+        ]);
+        $this->resetErrorBag();
+    }
+
+    public function updatePu()
+    {
+        $this->authorizeSuperAdmin();
+        $this->validate([
+            'editingPuName' => 'required|string|max:255',
+            'editingPuCode' => 'required|string|unique:polling_units,code,' . $this->editingPuId,
+            'editingPuWardId' => 'required|exists:wards,id',
+        ]);
+
+        $pu = PollingUnit::findOrFail($this->editingPuId);
+        $oldName = $pu->name;
+        $pu->update([
+            'name' => $this->editingPuName,
+            'code' => $this->editingPuCode,
+            'ward_id' => $this->editingPuWardId,
+            'lat' => $this->editingPuLat ?: null,
+            'lng' => $this->editingPuLng ?: null,
+            'registered_voters' => $this->editingPuVoters ?: 0,
+        ]);
+
+        \App\Models\ActivityLog::log("Updated Polling Unit: {$oldName} to {$pu->name} ({$pu->code})", $pu);
+        $this->cancelEditPu();
+        session()->flash('message', 'Polling Unit updated successfully.');
     }
 
     public function createLga()
     {
+        $this->authorizeSuperAdmin();
         $this->validateOnly('lgaName');
         $lga = Lga::create([
             'name' => $this->lgaName,
@@ -48,6 +186,7 @@ class LgaManagement extends Component
 
     public function createWard()
     {
+        $this->authorizeSuperAdmin();
         $this->validateOnly('wardName');
         $this->validateOnly('wardLgaId');
         $ward = Ward::create([
@@ -61,6 +200,7 @@ class LgaManagement extends Component
 
     public function createPu()
     {
+        $this->authorizeSuperAdmin();
         $this->validateOnly('puName');
         $this->validateOnly('puCode');
         $this->validateOnly('puWardId');
@@ -81,6 +221,7 @@ class LgaManagement extends Component
 
     public function deleteLga($id)
     {
+        $this->authorizeSuperAdmin();
         $lga = Lga::findOrFail($id);
         \App\Models\ActivityLog::log("Deleted LGA: {$lga->name}", $lga);
         $lga->delete();
@@ -89,6 +230,7 @@ class LgaManagement extends Component
 
     public function deleteWard($id)
     {
+        $this->authorizeSuperAdmin();
         $ward = Ward::findOrFail($id);
         \App\Models\ActivityLog::log("Deleted Ward: {$ward->name}", $ward);
         $ward->delete();
@@ -97,6 +239,7 @@ class LgaManagement extends Component
 
     public function deletePu($id)
     {
+        $this->authorizeSuperAdmin();
         $pu = PollingUnit::findOrFail($id);
         \App\Models\ActivityLog::log("Deleted Polling Unit: {$pu->name} ({$pu->code})", $pu);
         $pu->delete();
