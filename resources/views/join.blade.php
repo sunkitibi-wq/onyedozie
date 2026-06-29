@@ -29,61 +29,7 @@
                 <p class="text-on-surface-variant font-body-md mt-2">Fill out the details below to join the movement and stay updated.</p>
             </div>
             
-            <form class="space-y-6" onsubmit="event.preventDefault(); alert('Supporter registration successful! Welcome to the movement.');">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="space-y-2">
-                        <label class="text-label-md text-on-surface font-bold" for="fname">First Name</label>
-                        <input class="w-full px-4 py-3 bg-surface border border-outline focus:ring-2 focus:ring-primary/20 focus:border-primary outline-hidden transition-all rounded-lg font-body-md" id="fname" placeholder="John" type="text" required/>
-                    </div>
-                    <div class="space-y-2">
-                        <label class="text-label-md text-on-surface font-bold" for="lname">Last Name</label>
-                        <input class="w-full px-4 py-3 bg-surface border border-outline focus:ring-2 focus:ring-primary/20 focus:border-primary outline-hidden transition-all rounded-lg font-body-md" id="lname" placeholder="Doe" type="text" required/>
-                    </div>
-                </div>
-                
-                <div class="space-y-2">
-                    <label class="text-label-md text-on-surface font-bold" for="email">Email Address</label>
-                    <input class="w-full px-4 py-3 bg-surface border border-outline focus:ring-2 focus:ring-primary/20 focus:border-primary outline-hidden transition-all rounded-lg font-body-md" id="email" placeholder="john@example.com" type="email" required/>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="space-y-2">
-                        <label class="text-label-md text-on-surface font-bold" for="phone">Phone Number</label>
-                        <input class="w-full px-4 py-3 bg-surface border border-outline focus:ring-2 focus:ring-primary/20 focus:border-primary outline-hidden transition-all rounded-lg font-body-md" id="phone" placeholder="+234 000 000 0000" type="tel" required/>
-                    </div>
-                    <div class="space-y-2">
-                        <label class="text-label-md text-on-surface font-bold" for="location">Location (Ward/LGA)</label>
-                        <input class="w-full px-4 py-3 bg-surface border border-outline focus:ring-2 focus:ring-primary/20 focus:border-primary outline-hidden transition-all rounded-lg font-body-md" id="location" placeholder="Anaocha Ward 1" type="text" required/>
-                    </div>
-                </div>
-                
-                <div class="space-y-2">
-                    <label class="text-label-md text-on-surface font-bold">Area of Interest</label>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                        <label class="flex items-center gap-3 p-3 border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container transition-colors">
-                            <input class="w-5 h-5 text-primary focus:ring-primary border-outline-variant rounded-sm" type="checkbox"/>
-                            <span class="text-body-md">Community Outreach</span>
-                        </label>
-                        <label class="flex items-center gap-3 p-3 border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container transition-colors">
-                            <input class="w-5 h-5 text-primary focus:ring-primary border-outline-variant rounded-sm" type="checkbox"/>
-                            <span class="text-body-md">Media & Publicity</span>
-                        </label>
-                        <label class="flex items-center gap-3 p-3 border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container transition-colors">
-                            <input class="w-5 h-5 text-primary focus:ring-primary border-outline-variant rounded-sm" type="checkbox"/>
-                            <span class="text-body-md">Logistics</span>
-                        </label>
-                        <label class="flex items-center gap-3 p-3 border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container transition-colors">
-                            <input class="w-5 h-5 text-primary focus:ring-primary border-outline-variant rounded-sm" type="checkbox"/>
-                            <span class="text-body-md">Strategy</span>
-                        </label>
-                    </div>
-                </div>
-                
-                <button class="w-full bg-primary text-on-primary py-4 font-headline-md text-headline-md rounded-lg hover:shadow-lg transition-all active:scale-[0.98] cursor-pointer mt-6 font-bold" type="submit">
-                    Join the Movement
-                </button>
-                <p class="text-center text-label-sm text-on-surface-variant leading-relaxed">By joining, you agree to receive campaign updates and communications. You can opt-out at any time.</p>
-            </form>
+            <livewire:join-movement />
         </div>
         
         <!-- Ways to Participate Column -->
