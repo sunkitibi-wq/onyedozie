@@ -4,164 +4,374 @@
 <!-- Hero Section -->
 <section class="relative py-20 overflow-hidden pattern-bg">
     <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center relative z-10 space-y-6">
-        <span class="inline-block px-4 py-1.5 bg-primary/10 text-primary font-label-md rounded-full border border-primary/20">Legislative Record</span>
-        <h1 class="text-headline-xl font-headline-xl text-on-surface">Achievements in the <br class="hidden md:block"/> <span class="text-primary font-bold">House of Representatives</span></h1>
+        <span class="inline-block px-4 py-1.5 bg-primary/10 text-primary font-label-md rounded-full border border-primary/20">Be Informed!</span>
+        <h1 class="text-headline-xl font-headline-xl text-on-surface">Dividends of Onye Ndozi's <br class="hidden md:block"/> <span class="text-primary font-bold">Journey in the Green Chamber</span></h1>
         <p class="text-body-lg font-body-lg text-on-surface-variant max-w-3xl mx-auto leading-relaxed">
-            During his tenure representing Dunukofia, Njikoka, and Anaocha Federal Constituency, Hon. Ferdinand Dozie Nwankwo (Onyendozi) established a benchmark for public office through physical infrastructure development, high-impact bill sponsorship, and historic human capital empowerment.
+            Hon. Ferdinand Dozie Nwankwo (Onyendozi) delivered responsive legislative advocacy, human capital empowerment, and robust constituency projects across Dunukofia, Njikoka, and Anaocha.
         </p>
     </div>
     <div class="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px] -z-0"></div>
 </section>
 
-<!-- Stats Showcase -->
+<!-- Stats Grid -->
 <section class="py-12 bg-surface border-y border-outline-variant/30">
     <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-2 lg:grid-cols-5 gap-6">
             <div class="text-center p-6 bg-white rounded-xl shadow-xs border border-outline-variant/30 hover:border-primary transition-all">
-                <span class="material-symbols-outlined text-primary text-4xl mb-2">account_balance</span>
-                <p class="text-headline-xl font-headline-xl text-primary font-bold">15+</p>
+                <span class="material-symbols-outlined text-primary text-4xl mb-2">gavel</span>
+                <p class="text-headline-xl font-headline-xl text-primary font-bold">6</p>
                 <p class="text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Bills Sponsored</p>
             </div>
             <div class="text-center p-6 bg-white rounded-xl shadow-xs border border-outline-variant/30 hover:border-primary transition-all">
-                <span class="material-symbols-outlined text-primary text-4xl mb-2">add_road</span>
-                <p class="text-headline-xl font-headline-xl text-primary font-bold">25+</p>
-                <p class="text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Roads Restored</p>
+                <span class="material-symbols-outlined text-primary text-4xl mb-2">campaign</span>
+                <p class="text-headline-xl font-headline-xl text-primary font-bold">6</p>
+                <p class="text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Motions Moved</p>
             </div>
             <div class="text-center p-6 bg-white rounded-xl shadow-xs border border-outline-variant/30 hover:border-primary transition-all">
-                <span class="material-symbols-outlined text-primary text-4xl mb-2">water_drop</span>
-                <p class="text-headline-xl font-headline-xl text-primary font-bold">42</p>
-                <p class="text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Clean Water Projects</p>
+                <span class="material-symbols-outlined text-primary text-4xl mb-2">construction</span>
+                <p class="text-headline-xl font-headline-xl text-primary font-bold">22</p>
+                <p class="text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Zonal Projects</p>
             </div>
             <div class="text-center p-6 bg-white rounded-xl shadow-xs border border-outline-variant/30 hover:border-primary transition-all">
-                <span class="material-symbols-outlined text-primary text-4xl mb-2">volunteer_activism</span>
-                <p class="text-headline-xl font-headline-xl text-primary font-bold">50k+</p>
-                <p class="text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Medical Beneficiaries</p>
+                <span class="material-symbols-outlined text-primary text-4xl mb-2">medical_services</span>
+                <p class="text-headline-xl font-headline-xl text-primary font-bold">4</p>
+                <p class="text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Health Init.</p>
+            </div>
+            <div class="text-center p-6 bg-white rounded-xl shadow-xs border border-outline-variant/30 hover:border-primary transition-all col-span-2 lg:col-span-1">
+                <span class="material-symbols-outlined text-primary text-4xl mb-2">groups</span>
+                <p class="text-headline-xl font-headline-xl text-primary font-bold">4</p>
+                <p class="text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Empowerment Sects</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Detailed Achievements Section: Bento Grid layout -->
+<!-- Content Sections: Bills, Motions & Interventions -->
 <section class="py-20 bg-surface">
-    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop space-y-12">
-        <div class="max-w-2xl space-y-4">
-            <div class="accent-bar"></div>
-            <h2 class="text-headline-lg font-headline-lg text-on-surface">Delivering Tangible Development</h2>
-            <p class="text-body-md font-body-md text-on-surface-variant">Explore the key developmental categories initiated and executed to elevate the livelihood of the Anambra Central constituents.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-            <!-- Legislative Bills -->
-            <div class="md:col-span-8 bento-card bg-white border border-outline-variant/30 rounded-xl p-8 shadow-xs flex flex-col justify-between hover:shadow-md transition-all">
-                <div class="space-y-4">
-                    <div class="inline-flex p-3 bg-primary/10 rounded-lg text-primary">
-                        <span class="material-symbols-outlined text-3xl">gavel</span>
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop space-y-16">
+        
+        <!-- Tabbed Container / Spaced Sections -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+            
+            <!-- Left Column: Bills & Motions -->
+            <div class="lg:col-span-6 space-y-12">
+                <!-- Sponsored Bills -->
+                <div class="bg-white border border-outline-variant/30 rounded-xl p-8 shadow-xs space-y-6">
+                    <div class="flex items-center gap-3 border-b border-outline-variant/30 pb-4">
+                        <span class="material-symbols-outlined text-primary text-3xl">menu_book</span>
+                        <h2 class="text-headline-md font-headline-md font-bold text-primary">Sponsored Bills</h2>
                     </div>
-                    <h3 class="text-headline-md font-headline-md font-bold text-primary">Legislative Bills & Advocacy</h3>
-                    <p class="text-body-md text-on-surface-variant leading-relaxed">
-                        Sponsored over 15 major bills and motions designed to address structural challenges. Key initiatives include the National Electrification Act amendments, establishment of ICT Centers in federal constituencies, and bills promoting accessibility to credit for rural agro-businesses.
-                    </p>
-                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-body-sm text-on-surface-variant pt-2">
-                        <li class="flex items-center gap-2">
-                            <span class="material-symbols-outlined text-secondary font-bold text-lg">check</span>
-                            Rural Electrification Expansion Bill
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <span class="text-label-md text-secondary font-bold shrink-0">01</span>
+                            <div>
+                                <h4 class="font-headline-sm font-bold text-on-surface">Federal College of Agriculture (Technical) Enugwu-Ukwu</h4>
+                                <p class="text-body-sm text-on-surface-variant mt-1">Act to establish courses, instructions, and training in agricultural technology and its due administration (2021).</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="text-label-md text-secondary font-bold shrink-0">02</span>
+                            <div>
+                                <h4 class="font-headline-sm font-bold text-on-surface">Public Service Institute of Nigeria Establishment</h4>
+                                <p class="text-body-sm text-on-surface-variant mt-1">Bill for an Act to establish the Public Service Institute and for other related matters (2020).</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="text-label-md text-secondary font-bold shrink-0">03</span>
+                            <div>
+                                <h4 class="font-headline-sm font-bold text-on-surface">Nigeria Investment Promotion Commission Act Amendment</h4>
+                                <p class="text-body-sm text-on-surface-variant mt-1">Bill for an Act to amend Cap. N117, Laws of the Federation of Nigeria (2020).</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="text-label-md text-secondary font-bold shrink-0">04</span>
+                            <div>
+                                <h4 class="font-headline-sm font-bold text-on-surface">National Boundary Commission (Establishment) Amendment</h4>
+                                <p class="text-body-sm text-on-surface-variant mt-1">Bill for an Act to amend the Boundary Commission Act (2020).</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="text-label-md text-secondary font-bold shrink-0">05</span>
+                            <div>
+                                <h4 class="font-headline-sm font-bold text-on-surface">Civil Forfeiture and Proceeds of Crimes Bill</h4>
+                                <p class="text-body-sm text-on-surface-variant mt-1">Bill for an Act to manage the proceeds of crimes (2020).</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="text-label-md text-secondary font-bold shrink-0">06</span>
+                            <div>
+                                <h4 class="font-headline-sm font-bold text-on-surface">Criminal Forfeiture and Management of Crimes Bill</h4>
+                                <p class="text-body-sm text-on-surface-variant mt-1">Bill for an Act to manage criminal assets (2020).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Motions Moved -->
+                <div class="bg-white border border-outline-variant/30 rounded-xl p-8 shadow-xs space-y-6">
+                    <div class="flex items-center gap-3 border-b border-outline-variant/30 pb-4">
+                        <span class="material-symbols-outlined text-primary text-3xl">record_voice_over</span>
+                        <h2 class="text-headline-md font-headline-md font-bold text-primary">Motions Moved</h2>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-secondary font-bold shrink-0 mt-0.5">campaign</span>
+                            <span class="text-body-md text-on-surface-variant">Urgently address the ravaging gully erosion in parts of Anaocha/Njikoka/Dunukofia Federal Constituency, Anambra State.</span>
                         </li>
-                        <li class="flex items-center gap-2">
-                            <span class="material-symbols-outlined text-secondary font-bold text-lg">check</span>
-                            ICT Constituency Resource Bill
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-secondary font-bold shrink-0 mt-0.5">campaign</span>
+                            <span class="text-body-md text-on-surface-variant">Investigate the alleged use of Paracetamol and Bleach to tenderize meat and process cassava across the Federation.</span>
                         </li>
-                        <li class="flex items-center gap-2">
-                            <span class="material-symbols-outlined text-secondary font-bold text-lg">check</span>
-                            Agro-Business Loan Guarantee Act
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-secondary font-bold shrink-0 mt-0.5">campaign</span>
+                            <span class="text-body-md text-on-surface-variant">Isolate LPG/Cooking Gas refilling locations from fuel stations and other unauthorized locations.</span>
                         </li>
-                        <li class="flex items-center gap-2">
-                            <span class="material-symbols-outlined text-secondary font-bold text-lg">check</span>
-                            Youth Vocational Center Funding Motion
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-secondary font-bold shrink-0 mt-0.5">campaign</span>
+                            <span class="text-body-md text-on-surface-variant">Encourage basic medical health checkups by Nigerians.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-secondary font-bold shrink-0 mt-0.5">campaign</span>
+                            <span class="text-body-md text-on-surface-variant">Urgent National Importance: Evolve a harmonized database for economic planning in Nigeria.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-secondary font-bold shrink-0 mt-0.5">campaign</span>
+                            <span class="text-body-md text-on-surface-variant">Urgent National Importance: Monitor the distribution of post-Covid palliatives to cushion the effects on citizens.</span>
                         </li>
                     </ul>
                 </div>
-                <div class="mt-8 pt-4 border-t border-outline-variant/30 text-label-md text-primary font-bold flex items-center gap-2">
-                    Active Legislative Oversight <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                </div>
             </div>
 
-            <!-- Health Mission -->
-            <div class="md:col-span-4 bento-card bg-white border border-outline-variant/30 rounded-xl p-8 shadow-xs flex flex-col hover:shadow-md transition-all">
-                <div class="space-y-4 mb-6">
-                    <div class="inline-flex p-3 bg-primary/10 rounded-lg text-primary">
-                        <span class="material-symbols-outlined text-3xl">medical_services</span>
+            <!-- Right Column: Zonal Projects, Health, & Empowerment -->
+            <div class="lg:col-span-6 space-y-12">
+                <!-- Zonal Intervention Projects -->
+                <div class="bg-white border border-outline-variant/30 rounded-xl p-8 shadow-xs space-y-6">
+                    <div class="flex items-center gap-3 border-b border-outline-variant/30 pb-4">
+                        <span class="material-symbols-outlined text-primary text-3xl">home_work</span>
+                        <h2 class="text-headline-md font-headline-md font-bold text-primary">Zonal Intervention Projects</h2>
                     </div>
-                    <h3 class="text-headline-sm font-headline-sm font-bold text-primary">Dozie Nwankwo Medical Mission</h3>
-                    <p class="text-body-sm text-on-surface-variant leading-relaxed">
-                        Initiated the largest private-led free healthcare mission in the constituency, bringing standard medical facilities directly to local residents.
-                    </p>
-                </div>
-                <div class="mt-auto aspect-video rounded-lg overflow-hidden border border-outline-variant/30">
-                    <img class="w-full h-full object-cover" alt="Medical Mission outreach" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAU4gy1FH6XErFPdgUo6gz3jXlQoo3bghwKlMCuRWtCeHj2E5h4mLxmbi7GfACs8wk5xVmbT3IGDQgBilholFRBWtxssnwqgAjee4bYy0LJeVhgLFbMdojGcaZZn3vZdHrDNVAeHxeqhYsBkq3IbLSrHF7pYw7DXUIWgpJ_cxkGc5R5Rowt8J_aUhunYVo2wOM3XNpKlAVRnT5zUg2VWw4LMaB02FWvy5XPLnwdYrBcUhyziEyOaFk0FczILZt9LyHPDlmdWQiaPzWi"/>
-                </div>
-            </div>
-
-            <!-- Road Rehabilitation -->
-            <div class="md:col-span-4 bento-card bg-primary text-on-primary rounded-xl p-8 shadow-md flex flex-col justify-between hover:shadow-lg transition-all">
-                <div class="space-y-4">
-                    <span class="material-symbols-outlined text-4xl text-secondary-container">engineering</span>
-                    <h3 class="text-headline-sm font-headline-sm font-bold">Infrastructure & Road Restorations</h3>
-                    <p class="text-body-sm opacity-90 leading-relaxed">
-                        Facilitated the restoration of over 25 crucial rural feeder roads, linking agricultural hubs in Dunukofia, Njikoka, and Anaocha directly to main urban markets.
-                    </p>
-                </div>
-                <div class="mt-8 pt-4 border-t border-white/20">
-                    <div class="text-3xl font-bold text-secondary-container">25+ Roads</div>
-                    <div class="text-label-sm opacity-70">Completed & Restored</div>
-                </div>
-            </div>
-
-            <!-- Solar Water Boreholes -->
-            <div class="md:col-span-8 bento-card relative overflow-hidden rounded-xl shadow-xs min-h-[320px] group hover:shadow-md transition-all">
-                <div class="absolute inset-0 z-0">
-                    <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Solar irrigation water project" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrOXHxaRMrrDoSg8U4ASs6r-1Hsuynbdg_yEX_viyBu5tM2lzekPKFCKHYWK2Bg7awnTIIPNTK5sLodU7XyHXapBL-hIS6wTJt-8_-P0aKB85VtntV1iZh-YFiE98SxA9dWowMZcqPVPo24IjKHKQ5pAZQrlD1W38GqjVRJBRqviDH5ZQqIhUHMSVgb0fR-lU-V5raNTsb82OFhnYYbPVKwJ22SHcATnpII-4hy2voPO2iP0pw87du7usytsPkx43HgmX4OlCHzDAh"/>
-                    <div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/60 to-transparent"></div>
-                </div>
-                <div class="relative z-10 p-8 flex flex-col justify-end h-full text-white space-y-2">
-                    <span class="inline-block px-3 py-1 bg-secondary-container text-on-secondary-container font-label-sm rounded-full w-fit">Utility Infrastructure</span>
-                    <h3 class="text-headline-md font-headline-md font-bold">Solar-Powered Borehole Facilities</h3>
-                    <p class="text-body-md text-white/90 max-w-xl leading-relaxed">
-                        Installed solar-powered clean water distribution stations across 42 distinct communities, giving clean drinking water access to over 150,000 households previously reliant on streams.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Education and ICT -->
-            <div class="md:col-span-6 bento-card bg-white border border-outline-variant/30 rounded-xl p-8 shadow-xs flex flex-col justify-between hover:shadow-md transition-all">
-                <div class="space-y-4">
-                    <div class="inline-flex p-3 bg-primary/10 rounded-lg text-primary">
-                        <span class="material-symbols-outlined text-3xl">school</span>
+                    <div class="max-h-[600px] overflow-y-auto pr-2 space-y-4 text-body-md text-on-surface-variant scrollbar-thin">
+                        <div class="p-3 bg-surface rounded-lg border border-outline-variant/20 hover:border-primary/30 transition-colors">
+                            <strong class="text-primary">01. Nneameka Community Sec. School Hall</strong>
+                            <p class="text-sm mt-0.5">Completion and furnishing of school hall in Ifitedunu, Dunukofia LGA (Attracted).</p>
+                        </div>
+                        <div class="p-3 bg-surface rounded-lg border border-outline-variant/20 hover:border-primary/30 transition-colors">
+                            <strong class="text-primary">02. Obiechi Primary School</strong>
+                            <p class="text-sm mt-0.5">Renovation of 3 Classroom Blocks in Umunnachi, Dunukofia LGA.</p>
+                        </div>
+                        <div class="p-3 bg-surface rounded-lg border border-outline-variant/20 hover:border-primary/30 transition-colors">
+                            <strong class="text-primary">03. Community Secondary School Nimo (Girls)</strong>
+                            <p class="text-sm mt-0.5">Renovation of Classroom Blocks in Nimo, Njikoka LGA (Attracted).</p>
+                        </div>
+                        <div class="p-3 bg-surface rounded-lg border border-outline-variant/20 hover:border-primary/30 transition-colors">
+                            <strong class="text-primary">04. Community Secondary School Obeledu</strong>
+                            <p class="text-sm mt-0.5">Construction of Hostel Blocks in Obeledu, Anaocha LGA.</p>
+                        </div>
+                        <div class="p-3 bg-surface rounded-lg border border-outline-variant/20 hover:border-primary/30 transition-colors">
+                            <strong class="text-primary">05. Girls Secondary School Adazi Nnukwu</strong>
+                            <p class="text-sm mt-0.5">Renovation of Hostel Blocks in Adazi Nnukwu, Anaocha LGA.</p>
+                        </div>
+                        <div class="p-3 bg-surface rounded-lg border border-outline-variant/20 hover:border-primary/30 transition-colors">
+                            <strong class="text-primary">06. Aguluzigbo Clean Water Station</strong>
+                            <p class="text-sm mt-0.5">Drilling of Solar Powered Borehole, Construction of Surface and Overhead Tanks, and Reticulation in Aguluzigbo, Anaocha LGA.</p>
+                        </div>
+                        <div class="p-3 bg-surface rounded-lg border border-outline-variant/20 hover:border-primary/30 transition-colors">
+                            <strong class="text-primary">07. NYSC Corpers Accommodation Ichida</strong>
+                            <p class="text-sm mt-0.5">Construction of modern corpers accommodation in Ichida, Anaocha LGA (Ongoing).</p>
+                        </div>
+                        <div class="p-3 bg-surface rounded-lg border border-outline-variant/20 hover:border-primary/30 transition-colors">
+                            <strong class="text-primary">08. Nawfia Street Lighting Project</strong>
+                            <p class="text-sm mt-0.5">Installation of streetlights in Nawfia from opposite St. Michaels Anglican Church to Uruoji, Njikoka LGA.</p>
+                        </div>
+                        <div class="p-3 bg-surface rounded-lg border border-outline-variant/20 hover:border-primary/30 transition-colors">
+                            <strong class="text-primary">09. Solar Powered Borehole Adaku-Enu</strong>
+                            <p class="text-sm mt-0.5">Drilling of solar water supply center in Adaku-Enu.</p>
+                        </div>
+                        <div class="p-3 bg-surface rounded-lg border border-outline-variant/20 hover:border-primary/30 transition-colors">
+                            <strong class="text-primary">10. Skills Acquisition Centre Adazi Ani</strong>
+                            <p class="text-sm mt-0.5">Solar Powered Borehole near Umuru Hall in Adazi Ani, Anaocha LGA.</p>
+                        </div>
+                        <div class="p-3 bg-surface rounded-lg border border-outline-variant/20 hover:border-primary/30 transition-colors">
+                            <strong class="text-primary">11. Principal Quarters Nawgu</strong>
+                            <p class="text-sm mt-0.5">Construction of Principal Quarters in Nawgu, Dunukofia LGA (Ongoing).</p>
+                        </div>
+                        <div class="p-3 bg-surface rounded-lg border border-outline-variant/20 hover:border-primary/30 transition-colors">
+                            <strong class="text-primary">12. Ifite Civic Center Furnishing</strong>
+                            <p class="text-sm mt-0.5">Provided Air Conditioners, furniture sets, and a 60KVA backup generator for Ifite Village Civic Center in Aguluzigbo, Anaocha LGA.</p>
+                        </div>
+                        <div class="p-3 bg-surface rounded-lg border border-outline-variant/20 hover:border-primary/30 transition-colors">
+                            <strong class="text-primary">13. Enuagu Hall Enugwu-Ukwu</strong>
+                            <p class="text-sm mt-0.5">Construction and furnishing of Enuagu Hall in Enugwu-Ukwu, Njikoka LGA.</p>
+                        </div>
+                        <div class="p-3 bg-surface rounded-lg border border-outline-variant/20 hover:border-primary/30 transition-colors">
+                            <strong class="text-primary">14. Arinze Primary School</strong>
+                            <p class="text-sm mt-0.5">Construction and furnishing of classroom block with toilet building in Enugwu-Ukwu, Njikoka LGA.</p>
+                        </div>
+                        <div class="p-3 bg-surface rounded-lg border border-outline-variant/20 hover:border-primary/30 transition-colors">
+                            <strong class="text-primary">15. Ide Secondary School</strong>
+                            <p class="text-sm mt-0.5">Construction and furnishing of classroom blocks in Enugwu-Ukwu, Njikoka LGA.</p>
+                        </div>
+                        <div class="p-3 bg-surface rounded-lg border border-outline-variant/20 hover:border-primary/30 transition-colors">
+                            <strong class="text-primary">16. Urunnebo Community Primary School</strong>
+                            <p class="text-sm mt-0.5">Construction, classroom furnishing, and supply of computer sets in Enugwu-Ukwu, Njikoka LGA (Ongoing).</p>
+                        </div>
+                        <div class="p-3 bg-surface rounded-lg border border-outline-variant/20 hover:border-primary/30 transition-colors">
+                            <strong class="text-primary">17. Awovu Village Street Lighting</strong>
+                            <p class="text-sm mt-0.5">Installation of extensive solar streetlights in Awovu village, Enugwu-Ukwu, Njikoka LGA.</p>
+                        </div>
+                        <div class="p-3 bg-surface rounded-lg border border-outline-variant/20 hover:border-primary/30 transition-colors">
+                            <strong class="text-primary">18. Nnamdi Azikiwe Secondary School Abagana</strong>
+                            <p class="text-sm mt-0.5">Renovation of the main school hall in Abagana, Njikoka LGA.</p>
+                        </div>
+                        <div class="p-3 bg-surface rounded-lg border border-outline-variant/20 hover:border-primary/30 transition-colors">
+                            <strong class="text-primary">19. Center for Development & ICT Enugwu-Ukwu</strong>
+                            <p class="text-sm mt-0.5">Construction of state-of-the-art ICT Development Center in Enugwu-Ukwu, Njikoka LGA.</p>
+                        </div>
+                        <div class="p-3 bg-surface rounded-lg border border-outline-variant/20 hover:border-primary/30 transition-colors">
+                            <strong class="text-primary">20. Federal College of Agriculture & Technical (Campus)</strong>
+                            <p class="text-sm mt-0.5">Establishment of Ishiagu-Enugwu-Ukwu Campus, Njikoka LGA.</p>
+                        </div>
+                        <div class="p-3 bg-surface rounded-lg border border-outline-variant/20 hover:border-primary/30 transition-colors">
+                            <strong class="text-primary">21. Njikoka Road Projects</strong>
+                            <p class="text-sm mt-0.5">Construction of primary accessibility roads in selected towns of Njikoka LGA.</p>
+                        </div>
+                        <div class="p-3 bg-surface rounded-lg border border-outline-variant/20 hover:border-primary/30 transition-colors">
+                            <strong class="text-primary">22. Nimo and Enugwu-Agidi Classroom Blocks</strong>
+                            <p class="text-sm mt-0.5">Construction of two modern 6-classroom blocks in Nimo and Enugwu-Agidi respectively.</p>
+                        </div>
                     </div>
-                    <h3 class="text-headline-md font-headline-md font-bold text-primary">Educational Grants & ICT Centres</h3>
-                    <p class="text-body-md text-on-surface-variant leading-relaxed">
-                        Constructed and equipped ICT resource centers in local schools, ensuring students gain digital literacy. Provided yearly scholarships and learning aids for over 5,000 students.
-                    </p>
                 </div>
-                <div class="mt-6 aspect-video rounded-lg overflow-hidden border border-outline-variant/30">
-                    <img class="w-full h-full object-cover" alt="Empowering students" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQDyq6rDLkK0k3MJnUuYhDVXHbq6eOjuLiIkvMmqJ2kRz7NBL3aDneLPe8KVCbt-WgDQqKXGBQTwZb3KlQmsBTQ0P-LYsD5wTqT2LXi0AfPal4jP9t7wqEnCJhXuG04mudWwZA-sMiBVORaB8yGdFGdVheDsET-Cu6vwla66mQ63kA3yGMQpDyBZHbigF1YxR7rOaBY6r1e9SNtDV7c0iNXXWoYCE30qdqJ6ASJKkebWE3u50zRl5xnkd_C-rGbT6-0UMtvjpzeWP_"/>
-                </div>
-            </div>
 
-            <!-- Agriculture & Agro Grants -->
-            <div class="md:col-span-6 bento-card bg-white border border-outline-variant/30 rounded-xl p-8 shadow-xs flex flex-col justify-between hover:shadow-md transition-all">
-                <div class="space-y-4">
-                    <div class="inline-flex p-3 bg-primary/10 rounded-lg text-primary">
-                        <span class="material-symbols-outlined text-3xl">agriculture</span>
+                <!-- Healthcare -->
+                <div class="bg-white border border-outline-variant/30 rounded-xl p-8 shadow-xs space-y-6">
+                    <div class="flex items-center gap-3 border-b border-outline-variant/30 pb-4">
+                        <span class="material-symbols-outlined text-primary text-3xl">healing</span>
+                        <h2 class="text-headline-md font-headline-md font-bold text-primary">Healthcare</h2>
                     </div>
-                    <h3 class="text-headline-md font-headline-md font-bold text-primary">Agro-Grants & Seed Supplies</h3>
-                    <p class="text-body-md text-on-surface-variant leading-relaxed">
-                        Supported over 10,000 local cooperative farmers with high-yield hybrid seedlings, modern agricultural tools, fertilizer distribution, and low-interest capital grants.
-                    </p>
+                    <ul class="space-y-4 text-body-md text-on-surface-variant">
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-secondary font-bold shrink-0 mt-0.5">verified</span>
+                            <span>Construction of the Neni Primary Health Center at Neni, Anaocha LGA.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-secondary font-bold shrink-0 mt-0.5">verified</span>
+                            <span>Construction of 1 Block of 2-bedroom flats, semidetached Doctors' Quarters at Enugu-Agidi Primary Health Center, Njikoka LGA (Ongoing).</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-secondary font-bold shrink-0 mt-0.5">verified</span>
+                            <span>Construction of Primary Health Care facilities at Ukwulu, Dunukofia LGA (Ongoing).</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-secondary font-bold shrink-0 mt-0.5">verified</span>
+                            <span>Distribution of comprehensive Covid-19 Relief Materials in Anaocha, Njikoka, and Dunukofia local governments.</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="mt-6 aspect-video rounded-lg overflow-hidden border border-outline-variant/30">
-                    <img class="w-full h-full object-cover" alt="Agro-Entrepreneurship" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7egPGBAvlSZLOKj5VpqEjwQh3wHwMRccK0_ZZNd-jP-VOtxO8y-nIvAsFyi81PwnjPFJHyEnIKlHPXm_G760aB1N-CzWEKbXf9pzLWb-FQEd1Nr4t-R-ng-vVVQrE__BTdcNSUsK_loDStdtRAEIY81D3m3kK7Eaual53bYjHZpboCeTR7S_7XxZETuOum7SLrmpyyUzCrYq6WGsaHcDc4K5NlDnlFGPUxD8vYj5RyjmQwY5YWc_Dy4sZWRH5XjLAmwusNClOi58h"/>
+
+                <!-- Empowerments -->
+                <div class="bg-white border border-outline-variant/30 rounded-xl p-8 shadow-xs space-y-6">
+                    <div class="flex items-center gap-3 border-b border-outline-variant/30 pb-4">
+                        <span class="material-symbols-outlined text-primary text-3xl">stars</span>
+                        <h2 class="text-headline-md font-headline-md font-bold text-primary">Empowerments</h2>
+                    </div>
+                    <ul class="space-y-4 text-body-md text-on-surface-variant">
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-secondary font-bold shrink-0 mt-0.5">payments</span>
+                            <span>Skill acquisition and vocational trainings for selected women and youth in Anambra State.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-secondary font-bold shrink-0 mt-0.5">payments</span>
+                            <span>Cash grants disbursed directly to more than 270 women from Anaocha/Njikoka/Dunukofia Federal Constituency.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-secondary font-bold shrink-0 mt-0.5">payments</span>
+                            <span>Facilitated federal employment placements for 80 constituents in MDAs.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-secondary font-bold shrink-0 mt-0.5">payments</span>
+                            <span>Continuous secondary and tertiary academic scholarships for underprivileged youths.</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- Photo Gallery Section -->
+<section class="py-20 bg-surface-container-low border-t border-outline-variant/30" x-data="{ lightbox: false, activeSrc: '' }">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop space-y-12">
+        <div class="text-center max-w-2xl mx-auto space-y-4">
+            <div class="accent-bar mx-auto"></div>
+            <h2 class="text-headline-lg font-headline-lg text-primary font-bold">Project Gallery</h2>
+            <p class="text-body-md text-on-surface-variant">Browse through physical project sites, equipment distributions, health checkups, and empowerment assemblies.</p>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            @php
+                $galleryImages = [
+                    'WhatsApp Image 2026-06-29 at 10.55.43 (1).jpeg',
+                    'WhatsApp Image 2026-06-29 at 10.55.43 (2).jpeg',
+                    'WhatsApp Image 2026-06-29 at 10.55.43.jpeg',
+                    'WhatsApp Image 2026-06-29 at 10.55.44 (1).jpeg',
+                    'WhatsApp Image 2026-06-29 at 10.55.44 (2).jpeg',
+                    'WhatsApp Image 2026-06-29 at 10.55.44 (3).jpeg',
+                    'WhatsApp Image 2026-06-29 at 10.55.44.jpeg',
+                    'WhatsApp Image 2026-06-29 at 10.55.45 (1).jpeg',
+                    'WhatsApp Image 2026-06-29 at 10.55.45 (2).jpeg',
+                    'WhatsApp Image 2026-06-29 at 10.55.45 (3).jpeg',
+                    'WhatsApp Image 2026-06-29 at 10.55.45.jpeg',
+                    'WhatsApp Image 2026-06-29 at 10.55.46 (1).jpeg',
+                    'WhatsApp Image 2026-06-29 at 10.55.46 (2).jpeg',
+                    'WhatsApp Image 2026-06-29 at 10.55.46 (3).jpeg',
+                    'WhatsApp Image 2026-06-29 at 10.55.46.jpeg',
+                    'WhatsApp Image 2026-06-29 at 10.55.47 (1).jpeg',
+                    'WhatsApp Image 2026-06-29 at 10.55.47 (2).jpeg',
+                    'WhatsApp Image 2026-06-29 at 10.55.47 (3).jpeg',
+                    'WhatsApp Image 2026-06-29 at 10.55.47.jpeg',
+                    'WhatsApp Image 2026-06-29 at 10.55.48 (1).jpeg',
+                    'WhatsApp Image 2026-06-29 at 10.55.48.jpeg',
+                ];
+            @endphp
+
+            @foreach ($galleryImages as $image)
+                <div class="relative aspect-square overflow-hidden rounded-xl group border border-outline-variant/30 bg-white cursor-pointer shadow-xs hover:shadow-md hover:border-primary transition-all"
+                     @click="activeSrc = '{{ asset('images/gallery/' . $image) }}'; lightbox = true">
+                    <img src="{{ asset('images/gallery/' . $image) }}" 
+                         alt="Onyendozi constituency project image" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 loading=lazy">
+                    <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white text-3xl">zoom_in</span>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div class="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4"
+         x-show="lightbox"
+         x-transition:enter="transition ease-out duration-200"
+         x-transition:enter-start="opacity-0 scale-95"
+         x-transition:enter-end="opacity-100 scale-100"
+         x-transition:leave="transition ease-in duration-150"
+         x-transition:leave-start="opacity-100 scale-100"
+         x-transition:leave-end="opacity-0 scale-95"
+         @click.self="lightbox = false"
+         style="display: none;"
+         @keydown.escape.window="lightbox = false">
+        
+        <div class="relative max-w-4xl max-h-[90vh] flex flex-col items-center">
+            <!-- Close Button -->
+            <button class="absolute -top-12 right-0 text-white hover:text-secondary-container transition-colors flex items-center gap-1 cursor-pointer"
+                    @click="lightbox = false">
+                <span class="material-symbols-outlined text-3xl">close</span>
+                <span class="font-label-md hidden sm:inline">Close</span>
+            </button>
+            
+            <!-- Image inside Lightbox -->
+            <img :src="activeSrc" alt="Full screen preview" class="w-full h-auto max-h-[80vh] object-contain rounded-lg shadow-2xl">
         </div>
     </div>
 </section>
