@@ -26,6 +26,118 @@
     --color-accent: var(--color-neutral-800);
     --color-accent-content: var(--color-neutral-800);
     --color-accent-foreground: var(--color-white);
+
+    /* Onyendozi Connect Theme Config */
+    --color-primary: #004900;
+    --color-primary-container: #006400;
+    --color-on-primary: #ffffff;
+    --color-on-primary-container: #86df72;
+    --color-primary-fixed: #9df888;
+    --color-primary-fixed-dim: #82db6f;
+    --color-on-primary-fixed: #002200;
+    --color-on-primary-fixed-variant: #005300;
+
+    --color-secondary: #705d00;
+    --color-secondary-container: #fcd400;
+    --color-on-secondary: #ffffff;
+    --color-on-secondary-container: #6e5c00;
+    --color-secondary-fixed: #ffe16d;
+    --color-secondary-fixed-dim: #e9c400;
+    --color-on-secondary-fixed: #221b00;
+    --color-on-secondary-fixed-variant: #544600;
+
+    --color-tertiary: #3e3e3e;
+    --color-tertiary-container: #565555;
+    --color-on-tertiary: #ffffff;
+    --color-on-tertiary-container: #cccac9;
+    --color-tertiary-fixed: #e5e2e1;
+    --color-tertiary-fixed-dim: #c8c6c5;
+    --color-on-tertiary-fixed: #1c1b1b;
+    --color-on-tertiary-fixed-variant: #474746;
+
+    --color-surface: #f8f9fa;
+    --color-surface-dim: #d9dadb;
+    --color-surface-bright: #f8f9fa;
+    --color-surface-tint: #126e0c;
+    --color-surface-variant: #e1e3e4;
+    --color-surface-container: #edeeef;
+    --color-surface-container-lowest: #ffffff;
+    --color-surface-container-low: #f3f4f5;
+    --color-surface-container-high: #e7e8e9;
+    --color-surface-container-highest: #e1e3e4;
+
+    --color-on-surface: #191c1d;
+    --color-on-surface-variant: #404a3b;
+    --color-inverse-surface: #2e3132;
+    --color-inverse-on-surface: #f0f1f2;
+    --color-inverse-primary: #82db6f;
+    --color-outline: #707a6a;
+    --color-outline-variant: #bfcab7;
+
+    --color-error: #ba1a1a;
+    --color-on-error: #ffffff;
+    --color-error-container: #ffdad6;
+    --color-on-error-container: #93000a;
+
+    --font-body-lg: "Inter", sans-serif;
+    --font-body-md: "Inter", sans-serif;
+    --font-headline-lg: "Montserrat", sans-serif;
+    --font-headline-lg-mobile: "Montserrat", sans-serif;
+    --font-headline-md: "Montserrat", sans-serif;
+    --font-headline-xl: "Montserrat", sans-serif;
+    --font-label-sm: "Inter", sans-serif;
+    --font-label-md: "Inter", sans-serif;
+
+    /* Spacing Scale */
+    --spacing-container-max: 1200px;
+    --spacing-stack-md: 16px;
+    --spacing-margin-desktop: 48px;
+    --spacing-stack-lg: 32px;
+    --spacing-base: 8px;
+    --spacing-stack-sm: 8px;
+    --spacing-gutter: 24px;
+    --spacing-margin-mobile: 16px;
+
+    /* Border Radii */
+    --radius-DEFAULT: 0.125rem;
+    --radius-lg: 0.25rem;
+    --radius-xl: 0.5rem;
+    --radius-full: 0.75rem;
+
+    /* Custom Typographic Sizes & Line Heights */
+    --text-body-lg: 18px;
+    --text-body-lg--line-height: 28px;
+    --text-body-lg--font-weight: 400;
+
+    --text-body-md: 16px;
+    --text-body-md--line-height: 24px;
+    --text-body-md--font-weight: 400;
+
+    --text-headline-lg: 32px;
+    --text-headline-lg--line-height: 40px;
+    --text-headline-lg--letter-spacing: -0.01em;
+    --text-headline-lg--font-weight: 700;
+
+    --text-headline-lg-mobile: 28px;
+    --text-headline-lg-mobile--line-height: 34px;
+    --text-headline-lg-mobile--font-weight: 700;
+
+    --text-headline-md: 24px;
+    --text-headline-md--line-height: 32px;
+    --text-headline-md--font-weight: 600;
+
+    --text-headline-xl: 48px;
+    --text-headline-xl--line-height: 56px;
+    --text-headline-xl--letter-spacing: -0.02em;
+    --text-headline-xl--font-weight: 700;
+
+    --text-label-sm: 12px;
+    --text-label-sm--line-height: 16px;
+    --text-label-sm--font-weight: 500;
+
+    --text-label-md: 14px;
+    --text-label-md--line-height: 20px;
+    --text-label-md--font-weight: 600;
 }
 
 @layer theme {
@@ -64,3 +176,27 @@ select:focus[data-flux-control] {
 /* \[:where(&)\]:size-4 {
     @apply size-4;
 } */
+
+@utility pattern-bg {
+    background-color: var(--color-surface);
+    background-image: radial-gradient(var(--color-outline-variant) 0.5px, transparent 0.5px);
+    background-size: 24px 24px;
+}
+
+@utility bento-card {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    &:hover {
+        transform: translateY(-4px);
+    }
+}
+
+@utility accent-bar {
+    height: 4px;
+    width: 40px;
+    background-color: var(--color-secondary-container);
+    border-radius: 2px;
+}
+
+@utility vibrant-yellow-accent {
+    border-top: 4px solid var(--color-secondary-container);
+}

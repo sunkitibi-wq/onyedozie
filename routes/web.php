@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome')->name('home');
+Route::view('about', 'about')->name('about');
+Route::view('vision', 'vision')->name('vision');
+Route::view('join', 'join')->name('join');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard');
