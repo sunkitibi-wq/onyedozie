@@ -42,6 +42,7 @@
                     <a class="font-label-md {{ Route::is('home') ? 'text-primary font-bold' : 'text-on-surface hover:text-primary' }} transition-all" href="{{ route('home') }}">Home</a>
                     <a class="font-label-md {{ Route::is('about') ? 'text-primary font-bold' : 'text-on-surface hover:text-primary' }} transition-all" href="{{ route('about') }}">Meet Onyendozi</a>
                     <a class="font-label-md {{ Route::is('vision') ? 'text-primary font-bold' : 'text-on-surface hover:text-primary' }} transition-all" href="{{ route('vision') }}">Our Vision</a>
+                    <a class="font-label-md {{ Route::is('achievements') ? 'text-primary font-bold' : 'text-on-surface hover:text-primary' }} transition-all" href="{{ route('achievements') }}">Achievements</a>
                     <a class="font-label-md {{ Route::is('join') ? 'text-primary font-bold' : 'text-on-surface hover:text-primary' }} transition-all" href="{{ route('join') }}">Join the Movement</a>
                 </div>
 
@@ -70,6 +71,7 @@
             <a class="font-headline-md text-headline-md {{ Route::is('home') ? 'text-primary font-bold' : 'text-on-surface' }}" @click="mobileMenuOpen = false" href="{{ route('home') }}">Home</a>
             <a class="font-headline-md text-headline-md {{ Route::is('about') ? 'text-primary font-bold' : 'text-on-surface' }}" @click="mobileMenuOpen = false" href="{{ route('about') }}">Meet Onyendozi</a>
             <a class="font-headline-md text-headline-md {{ Route::is('vision') ? 'text-primary font-bold' : 'text-on-surface' }}" @click="mobileMenuOpen = false" href="{{ route('vision') }}">Our Vision</a>
+            <a class="font-headline-md text-headline-md {{ Route::is('achievements') ? 'text-primary font-bold' : 'text-on-surface' }}" @click="mobileMenuOpen = false" href="{{ route('achievements') }}">Achievements</a>
             <a class="font-headline-md text-headline-md {{ Route::is('join') ? 'text-primary font-bold' : 'text-on-surface' }}" @click="mobileMenuOpen = false" href="{{ route('join') }}">Join the Movement</a>
             <hr class="border-outline-variant/30">
             <a href="{{ route('login') }}" class="text-center bg-primary text-on-primary py-3 font-label-md hover:bg-primary-container transition-all">
@@ -107,6 +109,7 @@
                         <li><a href="{{ route('home') }}" class="hover:text-primary transition-colors">Home</a></li>
                         <li><a href="{{ route('about') }}" class="hover:text-primary transition-colors">Meet Hon. Dozie</a></li>
                         <li><a href="{{ route('vision') }}" class="hover:text-primary transition-colors">Our Vision Document</a></li>
+                        <li><a href="{{ route('achievements') }}" class="hover:text-primary transition-colors">Achievements</a></li>
                         <li><a href="{{ route('join') }}" class="hover:text-primary transition-colors">Volunteer & Join</a></li>
                     </ul>
                 </div>

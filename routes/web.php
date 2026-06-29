@@ -6,6 +6,7 @@ Route::view('/', 'welcome')->name('home');
 Route::view('about', 'about')->name('about');
 Route::view('vision', 'vision')->name('vision');
 Route::view('join', 'join')->name('join');
+Route::view('achievements', 'achievements')->name('achievements');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard');

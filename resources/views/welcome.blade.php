@@ -63,7 +63,7 @@
                 </div>
                 <div class="lg:col-span-5 relative mt-12 lg:mt-0">
                     <div class="aspect-square bg-surface-container-high relative overflow-hidden shadow-2xl rounded-2xl border-4 border-white">
-                        <img class="object-cover w-full h-full" alt="Hon. Dozie Nwankwo campaign portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtfMFAn4qYlNstX-EBjBsMozimwC7PI4ysXwW9ab3dWCHYRIpBk5ftrdKXXbp6G7rQAqQZju_WRD8ZbE5Lya5mQB-L_jkw6QYlSgqTyu5EC90Dd62cRp-LYvP4K8ENCuXGkJS9f5CNuhITuM4aRwi1-gCqwx-oByJW-o0fFhAGpS8UqgygE85Hi-6-MOgOHwYVqNiZMGD1vKfDEDxJZGn_WR9sNowJzhx6Cg1Ergk_A7Ag0hMkewvRl6KOR2CWzOkKLm4pSqL5BlC7"/>
+                        <img class="object-cover w-full h-full" alt="Hon. Dozie Nwankwo campaign portrait" src="{{ asset('images/dozie.jpeg') }}"/>
                         <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-primary/95 via-primary/50 to-transparent text-on-primary">
                             <p class="font-headline-md text-headline-md italic">"Leadership is Service."</p>
                             <p class="font-label-md">— Hon. Dozie Nwankwo</p>
@@ -345,30 +345,11 @@
                 Become a part of the change we want to see. Sign up today to receive campaign updates, volunteer for events, or contribute to our mission.
             </p>
             
-            <form class="space-y-4 pt-4" onsubmit="event.preventDefault(); alert('Supporter signup successful! Thank you.');">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <input class="w-full px-4 py-3 bg-surface border border-outline focus:ring-2 focus:ring-primary/20 focus:border-primary outline-hidden transition-all rounded-lg font-body-md" placeholder="Full Name" type="text" required/>
-                    <input class="w-full px-4 py-3 bg-surface border border-outline focus:ring-2 focus:ring-primary/20 focus:border-primary outline-hidden transition-all rounded-lg font-body-md" placeholder="Email Address" type="email" required/>
-                </div>
-                <input class="w-full px-4 py-3 bg-surface border border-outline focus:ring-2 focus:ring-primary/20 focus:border-primary outline-hidden transition-all rounded-lg font-body-md" placeholder="Phone Number" type="tel" required/>
-                <select class="w-full px-4 py-3 bg-surface border border-outline focus:ring-2 focus:ring-primary/20 focus:border-primary outline-hidden transition-all rounded-lg font-body-md" required>
-                    <option value="">Select LGA</option>
-                    <option value="Awka North">Awka North</option>
-                    <option value="Awka South">Awka South</option>
-                    <option value="Dunukofia">Dunukofia</option>
-                    <option value="Anaocha">Anaocha</option>
-                    <option value="Njikoka">Njikoka</option>
-                    <option value="Idemili North">Idemili North</option>
-                    <option value="Idemili South">Idemili South</option>
-                </select>
-                <button class="w-full bg-secondary-container text-on-secondary-container py-4 font-headline-md text-xl hover:opacity-90 transition-all shadow-md rounded-lg font-bold cursor-pointer" type="submit">
-                    SUBMIT MEMBERSHIP
-                </button>
-            </form>
+            <livewire:join-movement />
         </div>
         
         <div class="hidden lg:block relative">
-            <img class="w-full h-full object-cover" alt="Anambra Central community collage" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9dLfV1Sumbog0T5KUBs9Cnhvp9xLPhsz8BnLZ3WXMeEaDQO_cF4h-ekfXViTW9xLZS4BPKctGC2trKqtY2f85IM847ds6c6S8fDkfAYob5P865rt2XX1aFMDxhxJ95uModE-_XUWx8iH3gpZq_hg3tE-vqgDuTMN4Z5GtmdKGwK8APR_WRs3NzvaSbUvfBof43rpveTJYhy3g2ob_EtDuv5VcLnMm4GAK2Ai6j5E64xu5L6Yg1GOkneTmADLUl828waCNKKLJUw44"/>
+            <img class="w-full h-full object-cover" alt="Anambra Central community collage" src="{{ asset('images/hero.jpeg') }}"/>
             <div class="absolute inset-0 bg-primary/20 flex items-center justify-center">
                 <div class="text-white text-center p-12 bg-primary/80 backdrop-blur-md max-w-md rounded-lg">
                     <h3 class="font-headline-lg text-headline-lg font-bold mb-2">Together, We Can.</h3>
