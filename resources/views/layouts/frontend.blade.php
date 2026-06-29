@@ -25,7 +25,7 @@
             }
         </style>
     </head>
-    <body class="bg-surface text-on-surface font-body-md overflow-x-hidden" x-data="{ mobileMenuOpen: false }">
+    <body class="bg-surface text-on-surface font-body-md text-label-sm overflow-x-hidden" x-data="{ mobileMenuOpen: false }">
         
         <!-- Top Navigation Bar -->
         <nav class="bg-surface shadow-sm sticky top-0 z-50 h-20 flex items-center border-b border-outline-variant/30">
@@ -146,6 +146,7 @@
             
             <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-12 pt-6 border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-4 text-on-surface-variant font-label-sm">
                 <p>&copy; {{ date('Y') }} Onyendozi Connect. All rights reserved.</p>
+                <p>Powered By: <a href="https://www.henmarkltd.com" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors font-bold">Henmark Info-Tech Ltd.</a></p>
                 <div class="flex gap-6">
                     <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
                     <a href="#" class="hover:text-primary transition-colors">Terms of Service</a>
