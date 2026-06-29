@@ -32,9 +32,7 @@
             <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto h-full">
                 <!-- Logo & Brand -->
                 <a href="{{ route('home') }}" class="flex items-center gap-3">
-                    <div class="h-12 w-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold border border-primary/20">
-                        OC
-                    </div>
+                    <img src="{{ asset('images/logo.jpg') }}" alt="Onyendozi Connect Logo" class="h-12 w-12 rounded-full object-cover shadow-sm">
                     <span class="text-headline-md font-headline-md font-bold text-primary hidden sm:block">Hon. Dozie Nwankwo</span>
                     <span class="text-headline-md font-headline-md font-bold text-primary sm:hidden">Dozie Nwankwo</span>
                 </a>
@@ -89,9 +87,7 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-stack-lg max-w-container-max mx-auto">
                 <div class="space-y-4">
                     <div class="flex items-center gap-3">
-                        <div class="h-10 w-10 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold border border-primary/20">
-                            OC
-                        </div>
+                        <img src="{{ asset('images/logo.jpg') }}" alt="Logo" class="h-10 w-10 rounded-full object-cover shadow-sm">
                         <span class="font-headline-md text-headline-md font-bold text-primary">Onyendozi Connect</span>
                     </div>
                     <p class="text-on-surface-variant font-body-md leading-relaxed">
