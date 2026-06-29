@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome')->name('home');
 Route::view('about', 'about')->name('about');
+Route::view('founder', 'founder')->name('founder');
 Route::view('vision', 'vision')->name('vision');
 Route::view('join', 'join')->name('join');
 Route::view('achievements', 'achievements')->name('achievements');

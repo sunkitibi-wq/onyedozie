@@ -108,7 +108,7 @@
                 </div>
                 <div class="lg:col-span-5 relative mt-12 lg:mt-0">
                     <div class="aspect-square bg-surface-container-high relative overflow-hidden shadow-2xl rounded-2xl border-4 border-white">
-                        <img class="object-cover w-full h-full" alt="Medical mission in rural community" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAU4gy1FH6XErFPdgUo6gz3jXlQoo3bghwKlMCuRWtCeHj2E5h4mLxmbi7GfACs8wk5xVmbT3IGDQgBilholFRBWtxssnwqgAjee4bYy0LJeVhgLFbMdojGcaZZn3vZdHrDNVAeHxeqhYsBkq3IbLSrHF7pYw7DXUIWgpJ_cxkGc5R5Rowt8J_aUhunYVo2wOM3XNpKlAVRnT5zUg2VWw4LMaB02VWvy5XPLnwdYrBcUhyziEyOaFk0FczILZt9LyHPDlmdWQiaPzWi"/>
+                        <img class="object-cover w-full h-full" alt="Medical mission in rural community" src="{{ asset('images/gallery/medical.jpeg') }}"/>
                         <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-primary/95 via-primary/50 to-transparent text-on-primary">
                             <p class="font-headline-md text-headline-md italic">"Every constituent deserves standard care."</p>
                         </div>
