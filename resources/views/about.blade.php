@@ -29,7 +29,7 @@
             <div class="aspect-[4/5] rounded-xl overflow-hidden shadow-xl border-4 border-white">
                 <img class="w-full h-full object-cover" alt="Hon. Dozie Nwankwo portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrO0p8wSsKrZOM8H6USE5KP7XyfC1DLblNVW4Jvty8T_r8Q74mWnVzMzxY1C-1sc8Wt5eiWRsnIJNVXjrWjftuYObDMsbcXSjAAxOaOYPUaAQsWEyZ4khY-DJUd466fzbSWp1bAnYLx5feM0epCm1Xpy8U3YlO_bRKXVNt_U7IUsaWKVF0_1PpCNn1cGipHs5UC2s6qhQNW6LbAYjHE78LfLz4mm2TbrYP2bjs7m8N32ghA-L3RjZyj3fijJQQvxYimwjCs0tFJ56K"/>
             </div>
-            <div class="absolute -bottom-6 -left-6 bg-secondary-container p-6 rounded-lg shadow-lg max-w-[240px]">
+            <div class="absolute -bottom-6 left-4 right-4 sm:left-auto sm:right-auto sm:-left-6 bg-secondary-container p-6 rounded-lg shadow-lg max-w-[280px] sm:max-w-[240px]">
                 <span class="material-symbols-outlined text-on-secondary-container mb-2" style="font-variation-settings: 'FILL' 1;">format_quote</span>
                 <p class="text-on-secondary-container font-headline-md italic leading-tight">
                     "When people succeed, communities prosper."

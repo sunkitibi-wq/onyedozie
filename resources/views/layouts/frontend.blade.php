@@ -33,8 +33,7 @@
                 <!-- Logo & Brand -->
                 <a href="{{ route('home') }}" class="flex items-center gap-3">
                     <img src="{{ asset('images/logo.jpg') }}" alt="Onyendozi Connect Logo" class="h-12 w-12 rounded-full object-cover shadow-sm">
-                    <span class="text-headline-md font-headline-md font-bold text-primary hidden sm:block">Hon. Dozie Nwankwo</span>
-                    <span class="text-headline-md font-headline-md font-bold text-primary sm:hidden">Dozie Nwankwo</span>
+                    <span class="text-headline-md font-headline-md font-bold text-primary hidden sm:block">Onyendozi Connect</span>
                 </a>
 
                 <!-- Desktop Nav Links -->
@@ -145,6 +144,7 @@
                         <li><a href="{{ route('vision') }}" class="hover:text-primary transition-colors">Our Vision Document</a></li>
                         <li><a href="{{ route('achievements') }}" class="hover:text-primary transition-colors">Achievements</a></li>
                         <li><a href="{{ route('join') }}" class="hover:text-primary transition-colors">Volunteer & Join</a></li>
+                        <li><a href="{{ route('privacy') }}" class="hover:text-primary transition-colors">Privacy Policy</a></li>
                     </ul>
                 </div>
 
@@ -182,7 +182,7 @@
                 <p>&copy; {{ date('Y') }} Onyendozi Connect. All rights reserved.</p>
                 <p>Powered By: <a href="https://www.henmarkltd.com" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors font-bold">Henmark Info-Tech Ltd.</a></p>
                 <div class="flex gap-6">
-                    <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
+                    <a href="{{ route('privacy') }}" class="hover:text-primary transition-colors">Privacy Policy</a>
                     <a href="#" class="hover:text-primary transition-colors">Terms of Service</a>
                     <a href="{{ route('login') }}" class="hover:text-primary transition-colors">Staff Portal</a>
                 </div>

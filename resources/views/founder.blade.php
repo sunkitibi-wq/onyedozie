@@ -30,7 +30,7 @@
             <div class="aspect-[4/5] rounded-xl overflow-hidden shadow-xl border-4 border-white max-w-[400px] mx-auto">
                 <img class="w-full h-full object-cover" alt="Dr. Henry Obiozor portrait" src="{{ asset('images/henry.jpeg') }}"/>
             </div>
-            <div class="absolute -bottom-6 -left-6 bg-secondary-container p-6 rounded-lg shadow-lg max-w-[240px]">
+            <div class="absolute -bottom-6 left-4 right-4 sm:left-auto sm:right-auto sm:-left-6 bg-secondary-container p-6 rounded-lg shadow-lg max-w-[280px] sm:max-w-[240px]">
                 <span class="material-symbols-outlined text-on-secondary-container mb-2" style="font-variation-settings: 'FILL' 1;">format_quote</span>
                 <p class="text-on-secondary-container font-headline-md italic leading-tight">
                     "When people succeed, communities prosper."

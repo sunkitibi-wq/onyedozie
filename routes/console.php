@@ -9,3 +9,4 @@ Artisan::command('inspire', function () {
 })->purpose('Display an inspiring quote');
 
 Schedule::job(new \App\Jobs\SendScheduledPostsJob)->everyMinute();
+Schedule::command('queue:work --stop-when-empty')->everyMinute()->withoutOverlapping();

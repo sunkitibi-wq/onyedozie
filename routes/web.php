@@ -8,6 +8,31 @@ Route::view('founder', 'founder')->name('founder');
 Route::view('vision', 'vision')->name('vision');
 Route::view('join', 'join')->name('join');
 Route::view('achievements', 'achievements')->name('achievements');
+Route::view('privacy-policy', 'privacy')->name('privacy');
+
+Route::get('queue-work', function (\Illuminate\Http\Request $request) {
+    $secret = env('QUEUE_WEB_KEY');
+    if (!$secret || $request->query('key') !== $secret) {
+        abort(403, 'Unauthorized');
+    }
+    
+    try {
+        \Illuminate\Support\Facades\Artisan::call('queue:work', [
+            '--stop-when-empty' => true,
+            '--timeout' => 60,
+        ]);
+        
+        return response()->json([
+            'status' => 'success',
+            'output' => \Illuminate\Support\Facades\Artisan::output(),
+        ]);
+    } catch (\Exception $e) {
+        return response()->json([
+            'status' => 'error',
+            'message' => $e->getMessage(),
+        ], 500);
+    }
+})->name('queue.work');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard');
