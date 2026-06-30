@@ -311,36 +311,57 @@
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             @php
                 $galleryImages = [
-                    'WhatsApp Image 2026-06-29 at 10.55.43 (1).jpeg',
-                    'WhatsApp Image 2026-06-29 at 10.55.43 (2).jpeg',
-                    'WhatsApp Image 2026-06-29 at 10.55.43.jpeg',
-                    'WhatsApp Image 2026-06-29 at 10.55.44 (1).jpeg',
-                    'WhatsApp Image 2026-06-29 at 10.55.44 (2).jpeg',
-                    'WhatsApp Image 2026-06-29 at 10.55.44 (3).jpeg',
-                    'WhatsApp Image 2026-06-29 at 10.55.44.jpeg',
-                    'WhatsApp Image 2026-06-29 at 10.55.45 (1).jpeg',
-                    'WhatsApp Image 2026-06-29 at 10.55.45 (2).jpeg',
-                    'WhatsApp Image 2026-06-29 at 10.55.45 (3).jpeg',
-                    'WhatsApp Image 2026-06-29 at 10.55.45.jpeg',
-                    'WhatsApp Image 2026-06-29 at 10.55.46 (1).jpeg',
-                    'WhatsApp Image 2026-06-29 at 10.55.46 (2).jpeg',
-                    'WhatsApp Image 2026-06-29 at 10.55.46 (3).jpeg',
-                    'WhatsApp Image 2026-06-29 at 10.55.46.jpeg',
-                    'WhatsApp Image 2026-06-29 at 10.55.47 (1).jpeg',
-                    'WhatsApp Image 2026-06-29 at 10.55.47 (2).jpeg',
-                    'WhatsApp Image 2026-06-29 at 10.55.47 (3).jpeg',
-                    'WhatsApp Image 2026-06-29 at 10.55.47.jpeg',
-                    'WhatsApp Image 2026-06-29 at 10.55.48 (1).jpeg',
-                    'WhatsApp Image 2026-06-29 at 10.55.48.jpeg',
+                    asset('images/gallery/WhatsApp Image 2026-06-29 at 10.55.43 (1).jpeg'),
+                    asset('images/gallery/WhatsApp Image 2026-06-29 at 10.55.43 (2).jpeg'),
+                    asset('images/gallery/WhatsApp Image 2026-06-29 at 10.55.43.jpeg'),
+                    asset('images/gallery/WhatsApp Image 2026-06-29 at 10.55.44 (1).jpeg'),
+                    asset('images/gallery/WhatsApp Image 2026-06-29 at 10.55.44 (2).jpeg'),
+                    asset('images/gallery/WhatsApp Image 2026-06-29 at 10.55.44 (3).jpeg'),
+                    asset('images/gallery/WhatsApp Image 2026-06-29 at 10.55.44.jpeg'),
+                    asset('images/gallery/WhatsApp Image 2026-06-29 at 10.55.45 (1).jpeg'),
+                    asset('images/gallery/WhatsApp Image 2026-06-29 at 10.55.45 (2).jpeg'),
+                    asset('images/gallery/WhatsApp Image 2026-06-29 at 10.55.45 (3).jpeg'),
+                    asset('images/gallery/WhatsApp Image 2026-06-29 at 10.55.45.jpeg'),
+                    asset('images/gallery/WhatsApp Image 2026-06-29 at 10.55.46 (1).jpeg'),
+                    asset('images/gallery/WhatsApp Image 2026-06-29 at 10.55.46 (2).jpeg'),
+                    asset('images/gallery/WhatsApp Image 2026-06-29 at 10.55.46 (3).jpeg'),
+                    asset('images/gallery/WhatsApp Image 2026-06-29 at 10.55.46.jpeg'),
+                    asset('images/gallery/WhatsApp Image 2026-06-29 at 10.55.47 (1).jpeg'),
+                    asset('images/gallery/WhatsApp Image 2026-06-29 at 10.55.47 (2).jpeg'),
+                    asset('images/gallery/WhatsApp Image 2026-06-29 at 10.55.47 (3).jpeg'),
+                    asset('images/gallery/WhatsApp Image 2026-06-29 at 10.55.47.jpeg'),
+                    asset('images/gallery/WhatsApp Image 2026-06-29 at 10.55.48 (1).jpeg'),
+                    asset('images/gallery/WhatsApp Image 2026-06-29 at 10.55.48.jpeg'),
+                    
+                    // Henry Gallery Images
+                    asset('images/henry/1.jpeg'),
+                    asset('images/henry/2.jpeg'),
+                    asset('images/henry/3.jpeg'),
+                    asset('images/henry/4.jpeg'),
+                    asset('images/henry/5.jpeg'),
+                    asset('images/henry/6.jpeg'),
+                    asset('images/henry/7.jpeg'),
+                    asset('images/henry/8.jpeg'),
+                    asset('images/henry/9.jpeg'),
+                    asset('images/henry/10.jpeg'),
+                    asset('images/henry/11.jpeg'),
+                    asset('images/henry/12.jpeg'),
+                    asset('images/henry/13.jpeg'),
+                    asset('images/henry/14.jpeg'),
+                    asset('images/henry/15.jpeg'),
+                    asset('images/henry/16.jpeg'),
+                    asset('images/henry/17.jpeg'),
+                    asset('images/henry/18.jpeg'),
                 ];
             @endphp
 
             @foreach ($galleryImages as $image)
                 <div class="relative aspect-square overflow-hidden rounded-xl group border border-outline-variant/30 bg-white cursor-pointer shadow-xs hover:shadow-md hover:border-primary transition-all"
-                     @click="activeSrc = '{{ asset('images/gallery/' . $image) }}'; lightbox = true">
-                    <img src="{{ asset('images/gallery/' . $image) }}" 
+                     @click="activeSrc = '{{ $image }}'; lightbox = true">
+                    <img src="{{ $image }}" 
                          alt="Onyendozi constituency project image" 
-                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 loading=lazy">
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                         loading="lazy">
                     <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <span class="material-symbols-outlined text-white text-3xl">zoom_in</span>
                     </div>

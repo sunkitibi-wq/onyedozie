@@ -12,6 +12,12 @@ test('returns a successful response for about', function () {
     $response->assertOk();
 });
 
+test('returns a successful response for achievements', function () {
+    $response = $this->get(route('achievements'));
+
+    $response->assertOk();
+});
+
 test('returns a successful response for contact', function () {
     $response = $this->get(route('contact'));
 

@@ -107,7 +107,7 @@
             <a class="font-headline-md text-headline-md {{ Route::is('join') ? 'text-primary font-bold' : 'text-on-surface' }}" @click="mobileMenuOpen = false" href="{{ route('join') }}">Join the Movement</a>
             <hr class="border-outline-variant/30">
             <a href="{{ route('login') }}" class="text-center bg-primary text-on-primary py-3 font-label-md hover:bg-primary-container transition-all">
-                Staff Login
+                Portal Login
             </a>
         </div>
 

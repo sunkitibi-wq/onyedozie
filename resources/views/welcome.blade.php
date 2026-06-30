@@ -283,7 +283,7 @@
         
         <div class="grid grid-cols-2 gap-4 relative mt-12 lg:mt-0">
             <div class="pt-12">
-                <img class="w-full aspect-[3/4] object-cover shadow-xl rounded-xl border-4 border-white" alt="Dozie Nwankwo engaging elders" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmf_tRmFvvmDjS4NJDPg-lZClbobEK-PhzUUk5w-j-N7LuIam4T0j_ZGQtr5k7W6VhW-440PNuWbfE6gDYL0RKp09FuVzvd5iD_FrY47DbD0h97GjMntShqAnD_YjfsgJp6kLzGNqMcorRLEegvxnrCTisURQg65kM1jKQLyD8uo9RrBc01bxZfzG5-NRtAGurSxU73fLTNRpiQ_XK1slYv-1a6lxO6N4DaOtO4IcCxpprfYRoK47k9rmMjy54Snf2fVfVCH6jXHIl"/>
+                <img class="w-full aspect-[3/4] object-cover shadow-xl rounded-xl border-4 border-white" alt="Dozie Nwankwo engaging elders" src="{{ asset('images/gallery/medical.jpeg') }}"/>
             </div>
             <div>
                 <img class="w-full aspect-[3/4] object-cover shadow-xl rounded-xl border-4 border-white" alt="Dozie Nwankwo addressing youth" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-t0EQXbM3ai6Yup-PQ4DTeKx5PMDkTrDrK8755f-otVcQx5fIwFgetJhPgrYj2hWRM4EAhWZSBol2ZohjC0HpH6xFaZn-Bkx0O4OQ5i8g_fTt0P4Du-F4o76fU72OPtEGjo09uTkpaOHb6I7awhBrz3p1inx9RZ6c_ReIGFMjtVqsjOteMCvRDoWVRBi7a7oXcS5LUWXng9PHAQMotucA3g6BA1lzwNOKPRo9IczNx_VWxQmQMzs3jTkKH2CFQY9euO3-GJo-mCyI"/>
