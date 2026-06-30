@@ -26,6 +26,10 @@ Route::prefix('v1')->group(function () {
     Route::get('geography/polling-units', [GeographyController::class, 'pollingUnits']);
     Route::get('settings', [GeographyController::class, 'settings']);
 
+    // WhatsApp Webhooks
+    Route::get('webhooks/whatsapp', [\App\Http\Controllers\Api\v1\WhatsAppWebhookController::class, 'verify']);
+    Route::post('webhooks/whatsapp', [\App\Http\Controllers\Api\v1\WhatsAppWebhookController::class, 'handle']);
+
     // Authenticated routes
     Route::middleware('auth:sanctum')->group(function () {
         // Auth
