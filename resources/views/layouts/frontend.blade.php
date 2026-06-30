@@ -133,6 +133,12 @@
                         <a href="#" class="text-primary hover:text-secondary transition-colors"><span class="material-symbols-outlined">share</span></a>
                         <a href="#" class="text-primary hover:text-secondary transition-colors"><span class="material-symbols-outlined">chat</span></a>
                     </div>
+                    <div class="pt-2">
+                        <a href="{{ asset('downloads/onyendozi.apk') }}" class="inline-flex items-center gap-2 bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md hover:bg-primary-container transition-all shadow-xs" download>
+                            <span class="material-symbols-outlined text-xl">android</span>
+                            <span>Onyendozi Connect App</span>
+                        </a>
+                    </div>
                 </div>
 
                 <div class="space-y-4">

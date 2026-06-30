@@ -116,46 +116,7 @@
                 </div>
             </div>
 
-            <!-- Slide 3: Sustainable Agriculture & Infrastructure -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center" 
-                 x-show="activeSlide === 3" 
-                 x-transition:enter="transition ease-out duration-1000 transform"
-                 x-transition:enter-start="opacity-0 translate-x-12"
-                 x-transition:enter-end="opacity-100 translate-x-0"
-                 x-transition:leave="transition ease-in duration-500 transform absolute inset-x-0"
-                 x-transition:leave-start="opacity-100 translate-x-0"
-                 x-transition:leave-end="opacity-0 -translate-x-12"
-                 style="display: none;">
-                <div class="lg:col-span-7 space-y-6">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 text-primary rounded-full">
-                        <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                        <span class="font-label-md uppercase tracking-wider">Modern Agriculture</span>
-                    </div>
-                    <h1 class="font-headline-xl text-headline-xl text-primary leading-tight font-bold">
-                        Solar-Powered Water & Farm Irrigation Systems
-                    </h1>
-                    <p class="font-headline-md text-headline-md text-on-surface-variant border-l-4 border-secondary-container pl-4">
-                        Investing in <span class="text-primary font-bold">sustainable green technology</span> to support local farmers and ensure food security in Anambra Central.
-                    </p>
-                    <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-                        Through solar-powered boreholes and irrigation schemes, we are transforming farm yields, supplying clean drinking water to over 42 communities, and driving structural rural development.
-                    </p>
-                    <div class="flex flex-wrap gap-4 pt-4">
-                        <a href="{{ route('vision') }}#infrastructure" class="bg-primary text-on-primary px-8 py-4 font-label-md hover:bg-primary-container transition-all flex items-center gap-3 shadow-lg rounded-xl">
-                            Our Infrastructure Projects
-                            <span class="material-symbols-outlined">water_drop</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="lg:col-span-5 relative mt-12 lg:mt-0">
-                    <div class="aspect-square bg-surface-container-high relative overflow-hidden shadow-2xl rounded-2xl border-4 border-white">
-                        <img class="object-cover w-full h-full" alt="Solar-powered water irrigation scheme" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrOXHxaRMrrDoSg8U4ASs6r-1Hsuynbdg_yEX_viyBu5tM2lzekPKFCKHYWK2Bg7awnTIIPNTK5sLodU7XyHXapBL-hIS6wTJt-8_-P0aKB85VtntV1iZh-YFiE98SxA9dWowMZcqPVPo24IjKHKQ5pAZQrlD1W38GqjVRJBRqviDH5ZQqIhUHMSVgb0fR-lU-V5raNTsb82OFhnYYbPVKwJ22SHcATnpII-4hy2voPO2iP0pw87du7usytsPkx43HgmX4OlCHzDAh"/>
-                        <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-primary/95 via-primary/50 to-transparent text-on-primary">
-                            <p class="font-headline-md text-headline-md italic">"Harnessing clean energy for prosperity."</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+         
 
             <!-- Slide 4: Youth Empowerment & Education -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center" 
@@ -334,6 +295,159 @@
             Explore Full Vision Documents
             <span class="material-symbols-outlined">menu_book</span>
         </a>
+    </div>
+</section>
+
+<!-- App Promotion Section -->
+<section id="app-download-section" class="py-24 bg-surface-container-low border-t border-outline-variant/30">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+        <!-- Text Column -->
+        <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 text-primary rounded-full">
+                <span class="material-symbols-outlined text-sm">cell_tower</span>
+                <span class="font-label-md uppercase tracking-wider font-semibold">Join the Movement. Stay Connected. Get Involved.</span>
+            </div>
+            
+            <h2 class="font-headline-lg text-headline-lg text-primary font-bold leading-tight">
+                Download the Onyendozi Connect App Today
+            </h2>
+            
+            <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                Download the Onyendozi Connect App today and become part of a growing community connecting the people of Anambra Central to Federal Government development opportunities.
+            </p>
+            
+            <div class="space-y-4 py-2">
+                <div class="flex items-start gap-3">
+                    <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
+                        <span class="material-symbols-outlined text-sm font-bold">check</span>
+                    </span>
+                    <div>
+                        <h4 class="font-label-md text-on-surface font-bold">Receive the latest updates and announcements</h4>
+                        <p class="text-label-sm text-on-surface-variant font-medium">Get instant push notifications and alerts on critical constituency news directly on your mobile device.</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start gap-3">
+                    <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
+                        <span class="material-symbols-outlined text-sm font-bold">check</span>
+                    </span>
+                    <div>
+                        <h4 class="font-label-md text-on-surface font-bold">Register for empowerment and intervention programmes</h4>
+                        <p class="text-label-sm text-on-surface-variant font-medium">Apply for training grants, student scholarships, and business support programs easily.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                    <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
+                        <span class="material-symbols-outlined text-sm font-bold">check</span>
+                    </span>
+                    <div>
+                        <h4 class="font-label-md text-on-surface font-bold">Stay informed about community development initiatives</h4>
+                        <p class="text-label-sm text-on-surface-variant font-medium">Track local projects, clean water stations, and school infrastructure improvements in real-time.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                    <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
+                        <span class="material-symbols-outlined text-sm font-bold">check</span>
+                    </span>
+                    <div>
+                        <h4 class="font-label-md text-on-surface font-bold">Connect directly with the Onyendozi Connect network</h4>
+                        <p class="text-label-sm text-on-surface-variant font-medium">Engage with team coordinators, participate in surveys, and make your voice heard.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="font-body-md text-body-md text-on-surface font-semibold leading-relaxed">
+                Download the Onyendozi Connect App today and be part of the journey toward a better Anambra Central!
+            </p>
+            
+            <p class="font-body-sm text-body-sm text-on-surface-variant italic">
+                Onyendozi Connect – Connecting Anambra Central Citizens to Federal Government Developmental Projects.
+            </p>
+
+            <div class="flex flex-wrap gap-4 pt-4">
+                <a href="{{ asset('downloads/onyendozi.apk') }}" class="bg-primary text-on-primary px-8 py-4 font-label-md hover:bg-primary-container transition-all flex items-center gap-3 shadow-lg rounded-xl" download>
+                    <span class="material-symbols-outlined text-2xl">android</span>
+                    <div>
+                        <span class="block text-left text-[10px] uppercase font-bold tracking-wider opacity-85 leading-none">Download for Android</span>
+                        <span class="block font-bold text-base leading-tight mt-0.5">Onyendozi Connect APK</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Mockup Column -->
+        <div class="lg:col-span-5 flex justify-center">
+            <!-- Sleek CSS Phone Mockup -->
+            <div class="relative border-slate-900 bg-slate-900 border-[12px] rounded-[2.5rem] h-[560px] w-[280px] shadow-2xl overflow-hidden flex flex-col">
+                <!-- Speaker and Camera notch -->
+                <div class="absolute top-0 inset-x-0 h-6 bg-slate-900 flex justify-center items-center z-40">
+                    <div class="w-16 h-4 bg-black rounded-b-xl flex justify-center items-center">
+                        <div class="w-2 h-2 bg-slate-800 rounded-full mr-2"></div>
+                        <div class="w-6 h-1 bg-slate-800 rounded-full"></div>
+                    </div>
+                </div>
+                
+                <!-- Simulated Phone Screen content -->
+                <div class="flex-1 bg-surface flex flex-col pt-6 overflow-hidden">
+                    <!-- App Top Nav -->
+                    <div class="bg-primary text-on-primary p-4 flex items-center gap-2.5 shadow-sm shrink-0">
+                        <img src="{{ asset('images/logo.jpg') }}" alt="Logo" class="h-6 w-6 rounded-full object-cover">
+                        <span class="text-xs font-bold font-headline-md tracking-wider">Onyendozi Connect</span>
+                    </div>
+                    
+                    <!-- Dashboard Scrollable list -->
+                    <div class="flex-1 overflow-y-auto p-3 space-y-3 scrollbar-none text-[10px] text-on-surface">
+                        <!-- Welcome User Card -->
+                        <div class="bg-primary/5 p-3 rounded-lg border border-primary/10">
+                            <p class="font-bold text-primary">Welcome to Onyendozi Connect</p>
+                            <p class="text-[9px] text-on-surface-variant mt-0.5">Connecting Anambra Central to development opportunities.</p>
+                        </div>
+                        
+                        <!-- Mini News Item -->
+                        <div class="bg-white p-2.5 rounded-lg border border-outline-variant/30 space-y-1.5 shadow-2xs">
+                            <span class="px-1.5 py-0.5 bg-secondary-container/20 text-on-secondary-container rounded-sm font-bold text-[8px] uppercase tracking-wider">ANNOUNCEMENT</span>
+                            <p class="font-bold">Ferdinand Dozie Nwankwo Foundation Scholarship Scheme</p>
+                            <p class="text-[9px] text-on-surface-variant">Annual scholarship for over 4,500 students. Application forms are now available.</p>
+                            <a href="#" class="text-primary font-bold text-[8px] block">APPLY NOW &rarr;</a>
+                        </div>
+                        
+                        <!-- Project Update Card -->
+                        <div class="bg-white p-2.5 rounded-lg border border-outline-variant/30 space-y-1.5 shadow-2xs">
+                            <span class="px-1.5 py-0.5 bg-blue-50 text-blue-700 rounded-sm font-bold text-[8px] uppercase tracking-wider">INFRASTRUCTURE</span>
+                            <p class="font-bold">New Motorized Borehole Project</p>
+                            <p class="text-[9px] text-on-surface-variant">Completed solar-powered clean water borehole at Aguluzigbo, Anaocha LGA.</p>
+                        </div>
+
+                        <!-- Quick Action Button -->
+                        <div class="bg-secondary text-on-secondary text-center py-2.5 rounded-lg font-bold shadow-xs cursor-pointer hover:bg-secondary-container">
+                            Register as a Volunteer
+                        </div>
+                    </div>
+
+                    <!-- Bottom Nav Bar mockup -->
+                    <div class="bg-white border-t border-outline-variant/30 p-2 flex justify-around items-center shrink-0">
+                        <div class="flex flex-col items-center text-primary">
+                            <span class="material-symbols-outlined text-lg">home</span>
+                            <span class="text-[8px] font-bold">Home</span>
+                        </div>
+                        <div class="flex flex-col items-center text-on-surface-variant">
+                            <span class="material-symbols-outlined text-lg">campaign</span>
+                            <span class="text-[8px]">Updates</span>
+                        </div>
+                        <div class="flex flex-col items-center text-on-surface-variant">
+                            <span class="material-symbols-outlined text-lg">volunteer_activism</span>
+                            <span class="text-[8px]">Empower</span>
+                        </div>
+                        <div class="flex flex-col items-center text-on-surface-variant">
+                            <span class="material-symbols-outlined text-lg">person</span>
+                            <span class="text-[8px]">Profile</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
