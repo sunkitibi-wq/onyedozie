@@ -5,7 +5,7 @@
 <section class="relative min-h-[80vh] flex items-center overflow-hidden bg-surface border-b border-outline-variant/30"
          x-data="{ 
              activeSlide: 1, 
-             slidesCount: 4, 
+             slidesCount: 3, 
              autoPlayInterval: null,
              startAutoPlay() {
                  this.autoPlayInterval = setInterval(() => {
@@ -115,6 +115,9 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Slide 3: -->
+
 
          
 
