@@ -27,7 +27,7 @@
         </div>
         <div class="lg:col-span-5 relative mt-12 lg:mt-0">
             <div class="aspect-[4/5] rounded-xl overflow-hidden shadow-xl border-4 border-white">
-                <img class="w-full h-full object-cover" alt="Hon. Dozie Nwankwo portrait" src="{{ asset('images/dozie.jpeg') }}"/>
+                <img class="w-full h-full object-cover" alt="Hon. Dozie Nwankwo portrait" src="{{ asset('images/dozie.jpg') }}"/>
             </div>
             <div class="absolute -bottom-6 left-4 right-4 sm:left-auto sm:right-auto sm:-left-6 bg-secondary-container p-6 rounded-lg shadow-lg max-w-[280px] sm:max-w-[240px]">
                 <span class="material-symbols-outlined text-on-secondary-container mb-2" style="font-variation-settings: 'FILL' 1;">format_quote</span>

@@ -63,7 +63,7 @@
                 </div>
                 <div class="lg:col-span-5 relative mt-12 lg:mt-0">
                     <div class="aspect-square bg-surface-container-high relative overflow-hidden shadow-2xl rounded-2xl border-4 border-white">
-                        <img class="object-cover w-full h-full" alt="Hon. Dozie Nwankwo campaign portrait" src="{{ asset('images/dozie.jpeg') }}"/>
+                        <img class="object-cover w-full h-full" alt="Hon. Dozie Nwankwo campaign portrait" src="{{ asset('images/dozie.jpg') }}"/>
                         <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-primary/95 via-primary/50 to-transparent text-on-primary">
                             <p class="font-headline-md text-headline-md italic">"Leadership is Service."</p>
                             <p class="font-label-md">— Hon. Dozie Nwankwo</p>
@@ -115,10 +115,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Slide 3: -->
-
-
          
 
             <!-- Slide 4: Youth Empowerment & Education -->
@@ -250,7 +246,7 @@
                 <img class="w-full aspect-[3/4] object-cover shadow-xl rounded-xl border-4 border-white" alt="Dozie Nwankwo engaging elders" src="{{ asset('images/gallery/medical.jpeg') }}"/>
             </div>
             <div>
-                <img class="w-full aspect-[3/4] object-cover shadow-xl rounded-xl border-4 border-white" alt="Dozie Nwankwo addressing youth" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-t0EQXbM3ai6Yup-PQ4DTeKx5PMDkTrDrK8755f-otVcQx5fIwFgetJhPgrYj2hWRM4EAhWZSBol2ZohjC0HpH6xFaZn-Bkx0O4OQ5i8g_fTt0P4Du-F4o76fU72OPtEGjo09uTkpaOHb6I7awhBrz3p1inx9RZ6c_ReIGFMjtVqsjOteMCvRDoWVRBi7a7oXcS5LUWXng9PHAQMotucA3g6BA1lzwNOKPRo9IczNx_VWxQmQMzs3jTkKH2CFQY9euO3-GJo-mCyI"/>
+                <img class="w-full aspect-[3/4] object-cover shadow-xl rounded-xl border-4 border-white" alt="Dozie Nwankwo addressing youth" src="{{ asset('images/do2.jpg')}}"/>
             </div>
             <div class="absolute -bottom-8 -right-8 w-48 h-48 bg-secondary-container/10 -z-10 pattern-bg rounded-xl"></div>
         </div>
