@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
+use Illuminate\Auth\Events\Registered;
 
 class AuthController extends Controller
 {
@@ -57,6 +58,8 @@ class AuthController extends Controller
         ]);
 
         $user->assignRole($request->role);
+
+        event(new Registered($user));
 
         $otpService->issue($user->phone, SmsOtpService::PURPOSE_PHONE_VERIFICATION);
 

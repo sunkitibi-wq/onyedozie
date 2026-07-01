@@ -77,18 +77,18 @@
                     <p class="text-body-sm text-on-surface-variant">Initiated the multi-million naira Medical Mission providing free surgeries and treatments to over 50,000 constituents.</p>
                 </div>
                 <div class="mt-6 aspect-video rounded-lg overflow-hidden">
-                    <img class="w-full h-full object-cover" alt="Medical Mission outreach" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAU4gy1FH6XErFPdgUo6gz3jXlQoo3bghwKlMCuRWtCeHj2E5h4mLxmbi7GfACs8wk5xVmbT3IGDQgBilholFRBWtxssnwqgAjee4bYy0LJeVhgLFbMdojGcaZZn3vZdHrDNVAeHxeqhYsBkq3IbLSrHF7pYw7DXUIWgpJ_cxkGc5R5Rowt8J_aUhunYVo2wOM3XNpKlAVRnT5zUg2VWw4LMaB02FWvy5XPLnwdYrBcUhyziEyOaFk0FczILZt9LyHPDlmdWQiaPzWi"/>
+                    <img class="w-full h-full object-cover" alt="Medical Mission outreach" src="{{ asset('images/gallery/WhatsApp Image 2026-06-29 at 10.55.46 (1).jpeg') }}"/>
                 </div>
             </div>
 
             <div class="md:col-span-2 bento-card relative overflow-hidden rounded-xl h-full min-h-[300px]">
                 <div class="absolute inset-0 z-0">
-                    <img class="w-full h-full object-cover" alt="Solar irrigation project" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrOXHxaRMrrDoSg8U4ASs6r-1Hsuynbdg_yEX_viyBu5tM2lzekPKFCKHYWK2Bg7awnTIIPNTK5sLodU7XyHXapBL-hIS6wTJt-8_-P0aKB85VtntV1iZh-YFiE98SxA9dWowMZcqPVPo24IjKHKQ5pAZQrlD1W38GqjVRJBRqviDH5ZQqIhUHMSVgb0fR-lU-V5raNTsb82OFhnYYbPVKwJ22SHcATnpII-4hy2voPO2iP0pw87du7usytsPkx43HgmX4OlCHzDAh"/>
+                    <img class="w-full h-full object-cover" alt="ICT center building" src="{{ asset('images/henry/2.jpeg') }}"/>
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                 </div>
                 <div class="relative z-10 p-8 flex flex-col justify-end h-full">
                     <h3 class="text-headline-md font-headline-md text-white mb-2">Sustainable Infrastructure</h3>
-                    <p class="text-body-md text-white/90 max-w-lg">Oversaw the installation of solar-powered water boreholes across 42 communities, ensuring clean water access for thousands of families.</p>
+                    <p class="text-body-md text-white/90 max-w-lg">Oversaw the construction of the ultra-modern ICT center building to equip constituents with digital skills and technological access.</p>
                 </div>
             </div>
         </div>
@@ -396,7 +396,7 @@
             <div class="grid grid-cols-2 gap-4">
                 <div class="pt-12">
                     <div class="rounded-xl overflow-hidden shadow-lg aspect-[4/5] mb-4">
-                        <img class="w-full h-full object-cover" alt="Empowering students" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQDyq6rDLkK0k3MJnUuYhDVXHbq6eOjuLiIkvMmqJ2kRz7NBL3aDneLPe8KVCbt-WgDQqKXGBQTwZb3KlQmsBTQ0P-LYsD5wTqT2LXi0AfPal4jP9t7wqEnCJhXuG04mudWwZA-sMiBVORaB8yGdFGdVheDsET-Cu6vwla66mQ63kA3yGMQpDyBZHbigF1YxR7rOaBY6r1e9SNtDV7c0iNXXWoYCE30qdqJ6ASJKkebWE3u50zRl5xnkd_C-rGbT6-0UMtvjpzeWP_"/>
+                        <img class="w-full h-full object-cover" alt="Empowering students" src="{{ asset('images/gallery/WhatsApp Image 2026-06-29 at 10.55.48.jpeg') }}"/>
                     </div>
                     <div class="bg-surface-container p-4 rounded-lg text-center">
                         <p class="font-label-md text-primary">Empowering the Future</p>
@@ -407,7 +407,7 @@
                         <p class="font-label-md">Building Legacies</p>
                     </div>
                     <div class="rounded-xl overflow-hidden shadow-lg aspect-[4/5]">
-                        <img class="w-full h-full object-cover" alt="Grassroots market renovation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7egPGBAvlSZLOKj5VpqEjwQh3wHwMRccK0_ZZNd-jP-VOtxO8y-nIvAsFyi81PwnjPFJHyEnIKlHPXm_G760aB1N-CzWEKbXf9pzLWb-FQEd1Nr4t-R-ng-vVVQrE__BTdcNSUsK_loDStdtRAEIY81D3m3kK7Eaual53bYjHZpboCeTR7S_7XxZETuOum7SLrmpyyUzCrYq6WGsaHcDc4K5NlDnlFGPUxD8vYj5RyjmQwY5YWc_Dy4sZWRH5XjLAmwusNClOi58h"/>
+                        <img class="w-full h-full object-cover" alt="Grassroots market renovation" src="{{ asset('images/gallery/WhatsApp Image 2026-06-29 at 10.55.47 (3).jpeg')}}"/>
                     </div>
                 </div>
             </div>

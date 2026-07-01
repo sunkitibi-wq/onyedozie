@@ -10,6 +10,7 @@ use App\Models\ActivityLog;
 use Livewire\Component;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\Registered;
 
 class JoinMovement extends Component
 {
@@ -72,6 +73,8 @@ class JoinMovement extends Component
         if ($this->selectedRole) {
             $user->syncRoles([$this->selectedRole]);
         }
+
+        event(new Registered($user));
 
         ActivityLog::log(
             "New campaign supporter registered via web signup: {$user->name} as {$this->selectedRole}",
