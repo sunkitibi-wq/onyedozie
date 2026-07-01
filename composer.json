@@ -21,6 +21,8 @@
         "livewire/livewire": "^4.1",
         "maatwebsite/excel": "*",
         "netflie/whatsapp-cloud-api": "*",
+        "resend/resend-laravel": "^1.4",
+        "resend/resend-php": "^1.4",
         "spatie/laravel-permission": "*"
     },
     "require-dev": {
