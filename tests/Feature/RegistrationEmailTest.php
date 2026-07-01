@@ -32,13 +32,13 @@ test('emails are sent to admin and registrant when email is provided', function 
     event(new Registered($user));
 
     // Assert a mail was sent to the admin
-    Mail::assertQueued(NewSupporterAdminMail::class, function ($mail) use ($user) {
+    Mail::assertSent(NewSupporterAdminMail::class, function ($mail) use ($user) {
         return $mail->hasTo('info@onyendoziconnect.org') &&
                $mail->user->id === $user->id;
     });
 
     // Assert a mail was sent to the registrant
-    Mail::assertQueued(WelcomeSupporterMail::class, function ($mail) use ($user) {
+    Mail::assertSent(WelcomeSupporterMail::class, function ($mail) use ($user) {
         return $mail->hasTo('john@example.com') &&
                $mail->user->id === $user->id;
     });
@@ -64,11 +64,11 @@ test('only admin email is sent when registrant has no email', function () {
     event(new Registered($user));
 
     // Assert a mail was sent to the admin
-    Mail::assertQueued(NewSupporterAdminMail::class, function ($mail) use ($user) {
+    Mail::assertSent(NewSupporterAdminMail::class, function ($mail) use ($user) {
         return $mail->hasTo('info@onyendoziconnect.org') &&
                $mail->user->id === $user->id;
     });
 
     // Assert no welcome email was sent
-    Mail::assertNotQueued(WelcomeSupporterMail::class);
+    Mail::assertNotSent(WelcomeSupporterMail::class);
 });
