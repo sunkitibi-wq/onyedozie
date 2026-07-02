@@ -148,7 +148,7 @@
             
             <div class="lg:w-1/2 w-full">
                 <div class="grid grid-cols-2 gap-4">
-                    <div class="h-80 bg-cover bg-center rounded-xl shadow-md border-4 border-white" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAS8cqBHHjzn9i6dUOPR_872ELLYX5lHeBbqCOAsjpHxPXqjJpUFQBvM-WLyhnRfYNLzhBcDT7BVyEFCRxuoOe8mZUqdVPB6Dda8Oxu0GT3U6z3AYJjubmszekcan0X-JGIs-_ipTEP_0DPrxrmpXU6uZJoled4hRIVaAFPR4GRJqFJBooT8NbxV6O2Sq-DjfFNCtopUTiH2bS_KfWXwPHKIGO4pDRhejX0O6xQcq5Mfz7hkvd0bVOqkFsB8uNLVyQ8N9k-TsJ77C7v')"></div>
+                    <div class="h-80 bg-cover bg-center rounded-xl shadow-md border-4 border-white" style="background-image: url('{{ asset('images/dozie_vision.jpg') }}')"></div>
                     <div class="flex flex-col gap-4">
                         <div class="h-36 bg-primary rounded-xl flex items-center justify-center p-6 text-center shadow-md">
                             <p class="text-on-primary font-headline-md text-headline-md font-bold">10+ Years Experience</p>
