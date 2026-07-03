@@ -99,6 +99,45 @@ test('authenticated admins can schedule social posts', function () {
     ]);
 });
 
+test('whatsapp webhook rejects requests with an invalid signature', function () {
+    config()->set('services.whatsapp.app_secret', 'test-webhook-secret');
+
+    $response = $this->withHeaders([
+        'X-Hub-Signature-256' => 'sha256=invalid-signature',
+    ])->postJson('/api/v1/webhooks/whatsapp', [
+        'object' => 'whatsapp_business_account',
+        'entry' => [],
+    ]);
+
+    $response->assertStatus(403);
+});
+
+test('whatsapp webhook accepts requests with a valid signature', function () {
+    config()->set('services.whatsapp.app_secret', 'test-webhook-secret');
+
+    $body = [
+        'object' => 'whatsapp_business_account',
+        'entry' => [[
+            'id' => '123456789',
+            'changes' => [[
+                'value' => ['messaging_product' => 'whatsapp'],
+                'field' => 'messages',
+            ]],
+        ]],
+    ];
+
+    $payload = json_encode($body);
+    $signature = 'sha256=' . hash_hmac('sha256', $payload, 'test-webhook-secret');
+
+    $response = $this->withHeaders([
+        'X-Hub-Signature-256' => $signature,
+        'Content-Type' => 'application/json',
+    ])->postJson('/api/v1/webhooks/whatsapp', $body);
+
+    $response->assertStatus(200)
+        ->assertJsonPath('status', 'success');
+});
+
 test('whatsapp service uses simulation when config is empty', function () {
     config()->set('services.whatsapp.phone_number_id', null);
     config()->set('services.whatsapp.access_token', null);
