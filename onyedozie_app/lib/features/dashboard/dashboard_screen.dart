@@ -9,7 +9,8 @@ import '../recruitment/volunteer_recruitment_screen.dart';
 import '../canvassing/canvassing_screen.dart';
 import '../canvassing/canvassing_provider.dart';
 import '../communications/communications_screen.dart';
-
+import '../news/news_screen.dart';
+import '../news/news_detail_screen.dart';
 int? _toInt(dynamic val) {
   if (val == null) return null;
   if (val is int) return val;
@@ -1662,6 +1663,19 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                       );
                     },
                   ),
+                _buildQuickActionButton(
+                  icon: Icons.newspaper,
+                  label: 'News',
+                  color: const Color(0xFF3451DB),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const NewsScreen(),
+                      ),
+                    );
+                  },
+                ),
               ],
             ),
           ],
@@ -2030,58 +2044,89 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           // Breaking news hero slides
-          Container(
-            height: 180,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              color: const Color(0xFF3451DB),
-            ),
-            child: Stack(
-              children: [
-                Positioned.fill(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [Colors.black.withOpacity(0.8), Colors.transparent],
-                        begin: Alignment.bottomCenter,
-                        end: Alignment.topCenter,
+          GestureDetector(
+            onTap: () {
+              if (_newsList.isNotEmpty) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => NewsDetailScreen(newsItem: _newsList[0]),
+                  ),
+                );
+              }
+            },
+            child: Container(
+              height: 180,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                color: const Color(0xFF3451DB),
+              ),
+              child: Stack(
+                children: [
+                  Positioned.fill(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [Colors.black.withOpacity(0.8), Colors.transparent],
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.topCenter,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: _isLoadingNews
-                      ? const Center(child: CircularProgressIndicator(color: Colors.white))
-                      : Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                              decoration: BoxDecoration(
-                                color: const Color(0xFFFF8C00),
-                                borderRadius: BorderRadius.circular(999),
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: _isLoadingNews
+                        ? const Center(child: CircularProgressIndicator(color: Colors.white))
+                        : Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                                    decoration: BoxDecoration(
+                                      color: const Color(0xFFFF8C00),
+                                      borderRadius: BorderRadius.circular(999),
+                                    ),
+                                    child: const Text(
+                                      'BREAKING',
+                                      style: TextStyle(fontFamily: 'Inter', fontSize: 10, fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => const NewsScreen(),
+                                        ),
+                                      );
+                                    },
+                                    child: const Text(
+                                      'See All News',
+                                      style: TextStyle(fontFamily: 'Inter', fontSize: 12, color: Colors.white70, decoration: TextDecoration.underline),
+                                    ),
+                                  ),
+                                ],
                               ),
-                              child: const Text(
-                                'BREAKING',
-                                style: TextStyle(fontFamily: 'Inter', fontSize: 10, fontWeight: FontWeight.bold),
+                              const SizedBox(height: 8),
+                              Text(
+                                _newsList.isNotEmpty ? _newsList[0]['title'] : 'No news published yet.',
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'Inter',
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
-                            const SizedBox(height: 8),
-                            Text(
-                              _newsList.isNotEmpty ? _newsList[0]['title'] : 'No news published yet.',
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontFamily: 'Inter',
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                ),
-              ],
+                            ],
+                          ),
+                  ),
+                ],
+              ),
             ),
           ),
           const SizedBox(height: 16),

@@ -63,6 +63,7 @@
 
                     <a class="font-label-md {{ Route::is('vision') ? 'text-primary font-bold' : 'text-on-surface hover:text-primary' }} transition-all" href="{{ route('vision') }}">Our Vision</a>
                     <a class="font-label-md {{ Route::is('achievements') ? 'text-primary font-bold' : 'text-on-surface hover:text-primary' }} transition-all" href="{{ route('achievements') }}">Achievements</a>
+                    <a class="font-label-md {{ Route::is('updates') || Route::is('updates.detail') ? 'text-primary font-bold' : 'text-on-surface hover:text-primary' }} transition-all" href="{{ route('updates') }}">News & Updates</a>
                     <a class="font-label-md {{ Route::is('join') ? 'text-primary font-bold' : 'text-on-surface hover:text-primary' }} transition-all" href="{{ route('join') }}">Join the Movement</a>
                 </div>
 
@@ -104,6 +105,7 @@
 
             <a class="font-headline-md text-headline-md {{ Route::is('vision') ? 'text-primary font-bold' : 'text-on-surface' }}" @click="mobileMenuOpen = false" href="{{ route('vision') }}">Our Vision</a>
             <a class="font-headline-md text-headline-md {{ Route::is('achievements') ? 'text-primary font-bold' : 'text-on-surface' }}" @click="mobileMenuOpen = false" href="{{ route('achievements') }}">Achievements</a>
+            <a class="font-headline-md text-headline-md {{ Route::is('updates') || Route::is('updates.detail') ? 'text-primary font-bold' : 'text-on-surface' }}" @click="mobileMenuOpen = false" href="{{ route('updates') }}">News & Updates</a>
             <a class="font-headline-md text-headline-md {{ Route::is('join') ? 'text-primary font-bold' : 'text-on-surface' }}" @click="mobileMenuOpen = false" href="{{ route('join') }}">Join the Movement</a>
             <hr class="border-outline-variant/30">
             <a href="{{ route('login') }}" class="text-center bg-primary text-on-primary py-3 font-label-md hover:bg-primary-container transition-all">
@@ -114,6 +116,7 @@
         <!-- Main slot -->
         <main>
             @yield('content')
+            {{ $slot ?? '' }}
         </main>
 
         <!-- Footer -->
@@ -149,6 +152,7 @@
                         <li><a href="{{ route('founder') }}" class="hover:text-primary transition-colors">About the President & Founder</a></li>
                         <li><a href="{{ route('vision') }}" class="hover:text-primary transition-colors">Our Vision Document</a></li>
                         <li><a href="{{ route('achievements') }}" class="hover:text-primary transition-colors">Achievements</a></li>
+                        <li><a href="{{ route('updates') }}" class="hover:text-primary transition-colors">News & Updates</a></li>
                         <li><a href="{{ route('join') }}" class="hover:text-primary transition-colors">Volunteer & Join</a></li>
                         <li><a href="{{ route('privacy') }}" class="hover:text-primary transition-colors">Privacy Policy</a></li>
                     </ul>

@@ -9,6 +9,8 @@ Route::view('vision', 'vision')->name('vision');
 Route::view('join', 'join')->name('join');
 Route::view('achievements', 'achievements')->name('achievements');
 Route::view('privacy-policy', 'privacy')->name('privacy');
+Route::get('updates', \App\Livewire\PublicNews::class)->name('updates');
+Route::get('updates/{id}', \App\Livewire\PublicNewsDetail::class)->name('updates.detail');
 
 Route::get('queue-work', function (\Illuminate\Http\Request $request) {
     $secret = env('QUEUE_WEB_KEY');
@@ -49,6 +51,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('candidate-dashboard', 'pages.candidate-dashboard')->name('candidate-dashboard');
     Route::view('notifications', 'pages.notifications')->name('notifications');
     Route::view('communications', 'pages.communications')->name('communications');
+    Route::view('news', 'pages.news')->name('news');
 });
 
 Route::get('share/dashboard/{token}', \App\Livewire\CandidateDashboard::class)->name('candidate.public-share');

@@ -35,6 +35,9 @@
                     <flux:sidebar.item icon="chat-bubble-left-right" :href="route('communications')" :current="request()->routeIs('communications')" wire:navigate>
                         {{ __('Communications') }}
                     </flux:sidebar.item>
+                    <flux:sidebar.item icon="newspaper" :href="route('news')" :current="request()->routeIs('news')" wire:navigate>
+                        {{ __('News & Updates') }}
+                    </flux:sidebar.item>
                     <flux:sidebar.item icon="key" :href="route('rbac')" :current="request()->routeIs('rbac')" wire:navigate>
                         {{ __('Roles & Permissions') }}
                     </flux:sidebar.item>

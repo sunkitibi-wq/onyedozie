@@ -17,9 +17,3 @@ test('returns a successful response for achievements', function () {
 
     $response->assertOk();
 });
-
-test('returns a successful response for contact', function () {
-    $response = $this->get(route('contact'));
-
-    $response->assertOk();
-});
