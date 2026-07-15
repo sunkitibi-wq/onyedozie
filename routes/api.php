@@ -24,6 +24,7 @@ Route::prefix('v1')->group(function () {
     Route::get('geography/lgas', [GeographyController::class, 'lgas']);
     Route::get('geography/wards', [GeographyController::class, 'wards']);
     Route::get('geography/polling-units', [GeographyController::class, 'pollingUnits']);
+    Route::get('geography/roles', [GeographyController::class, 'roles']);
     Route::get('settings', [GeographyController::class, 'settings']);
 
     // WhatsApp Webhooks

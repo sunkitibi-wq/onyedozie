@@ -48,6 +48,23 @@ class GeographyController extends Controller
         ]);
     }
 
+    public function roles()
+    {
+        $roles = \Spatie\Permission\Models\Role::whereIn('name', [
+            'Volunteer',
+            'Supporter',
+            'Canvaser',
+            'Patron',
+            'Financial Supporter'
+        ])->get();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Roles retrieved successfully.',
+            'data' => $roles
+        ]);
+    }
+
     public function settings()
     {
         $quickActionsEnabled = \App\Models\Setting::get('quick_actions_enabled', '1') === '1';

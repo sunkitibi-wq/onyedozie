@@ -17,13 +17,8 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
   final _passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
-  String _selectedRole = 'Volunteer';
-  final List<String> _roles = [
-    'Volunteer',
-    'Polling Unit Coordinator',
-    'Ward Coordinator',
-    'LGA Coordinator',
-  ];
+  String? _selectedRole;
+  List<String> _roles = [];
 
   List<dynamic> _lgas = [];
   List<dynamic> _wards = [];
@@ -36,7 +31,31 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
   @override
   void initState() {
     super.initState();
+    _loadRoles();
     _loadLgas();
+  }
+
+  Future<void> _loadRoles() async {
+    setState(() {
+      _isLoadingGeo = true;
+    });
+    try {
+      final client = ref.read(apiClientProvider);
+      final response = await client.get('/geography/roles');
+      final data = response.data is Map ? response.data : <String, dynamic>{};
+      if (data['success'] == true && data['data'] is List) {
+        final List<dynamic> rolesData = data['data'];
+        setState(() {
+          _roles = rolesData.map((e) => e['name'].toString()).toList();
+        });
+      }
+    } catch (e) {
+      debugPrint('[RegisterRoles] Error loading roles: $e');
+    } finally {
+      setState(() {
+        _isLoadingGeo = false;
+      });
+    }
   }
 
   Future<void> _loadLgas() async {
@@ -121,7 +140,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
             email: _emailController.text.trim(),
             phone: _phoneController.text.trim(),
             password: _passwordController.text.trim(),
-            role: _selectedRole,
+            role: _selectedRole ?? '',
             lgaId: _selectedLgaId,
             wardId: _selectedRole == 'LGA Coordinator' ? null : _selectedWardId,
             puId: (_selectedRole == 'Polling Unit Coordinator' || _selectedRole == 'Volunteer') ? _selectedPuId : null,
@@ -293,7 +312,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                 ),
                 const SizedBox(height: 16),
                 DropdownButtonFormField<String>(
-                  value: _selectedRole,
+                  value: _roles.contains(_selectedRole) ? _selectedRole : null,
                   decoration: const InputDecoration(
                     labelText: 'Campaign Role',
                     prefixIcon: Icon(Icons.badge),
@@ -305,6 +324,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                       child: Text(role),
                     );
                   }).toList(),
+                  validator: (value) => value == null ? 'Please select a Role' : null,
                   onChanged: (val) {
                     if (val != null) {
                       setState(() {
