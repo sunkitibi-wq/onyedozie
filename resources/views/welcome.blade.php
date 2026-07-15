@@ -117,9 +117,9 @@
             </div>
          
 
-            <!-- Slide 4: Youth Empowerment & Education -->
+            <!-- Slide 3: Community Development -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center" 
-                 x-show="activeSlide === 4" 
+                 x-show="activeSlide === 3" 
                  x-transition:enter="transition ease-out duration-1000 transform"
                  x-transition:enter-start="opacity-0 translate-x-12"
                  x-transition:enter-end="opacity-100 translate-x-0"
@@ -130,36 +130,37 @@
                 <div class="lg:col-span-7 space-y-6">
                     <div class="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 text-primary rounded-full">
                         <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                        <span class="font-label-md uppercase tracking-wider">Education & Youth</span>
+                        <span class="font-label-md uppercase tracking-wider">Community Development</span>
                     </div>
                     <h1 class="font-headline-xl text-headline-xl text-primary leading-tight font-bold">
-                        Securing the Future: Investing in Quality Education
+                        Empowering Our People: Grassroots Development
                     </h1>
                     <p class="font-headline-md text-headline-md text-on-surface-variant border-l-4 border-secondary-container pl-4">
-                        Empowering the next generation through <span class="text-primary font-bold">scholarships, school supplies, and vocational training</span>.
+                        Driving <span class="text-primary font-bold">sustainable growth and opportunity</span> across Anambra Central.
                     </p>
                     <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-                        Under the Ferdinand Dozie Nwankwo Foundation, over 2,000 students receive support annually. We are building computer laboratories and providing digital learning tools to secondary schools.
+                        We are dedicated to uplifting our communities through targeted interventions, support for local businesses, and infrastructure that connects and serves our people.
                     </p>
                     <div class="flex flex-wrap gap-4 pt-4">
-                        <a href="{{ route('about') }}#foundation" class="bg-primary text-on-primary px-8 py-4 font-label-md hover:bg-primary-container transition-all flex items-center gap-3 shadow-lg rounded-xl">
-                            Our Legacy Projects
-                            <span class="material-symbols-outlined">school</span>
+                        <a href="{{ route('vision') }}" class="bg-primary text-on-primary px-8 py-4 font-label-md hover:bg-primary-container transition-all flex items-center gap-3 shadow-lg rounded-xl">
+                            Our Development Vision
+                            <span class="material-symbols-outlined">groups</span>
                         </a>
                         <a href="{{ route('join') }}" class="bg-white text-primary border-2 border-primary px-8 py-4 font-label-md hover:bg-primary/5 transition-all rounded-xl">
-                            Join Youth Wing
+                            Support the Cause
                         </a>
                     </div>
                 </div>
                 <div class="lg:col-span-5 relative mt-12 lg:mt-0">
                     <div class="aspect-square bg-surface-container-high relative overflow-hidden shadow-2xl rounded-2xl border-4 border-white">
-                        <img class="object-cover w-full h-full" alt="Students with scholarships and notebooks" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQDyq6rDLkK0k3MJnUuYhDVXHbq6eOjuLiIkvMmqJ2kRz7NBL3aDneLPe8KVCbt-WgDQqKXGBQTwZb3KlQmsBTQ0P-LYsD5wTqT2LXi0AfPal4jP9t7wqEnCJhXuG04mudWwZA-sMiBVORaB8yGdFGdVheDsET-Cu6vwla66mQ63kA3yGMQpDyBZHbigF1YxR7rOaBY6r1e9SNtDV7c0iNXXWoYCE30qdqJ6ASJKkebWE3u50zRl5xnkd_C-rGbT6-0UMtvjpzeWP_"/>
+                        <img class="object-cover w-full h-full" alt="Community development initiatives" src="{{ asset('images/3rdslide.jpeg') }}"/>
                         <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-primary/95 via-primary/50 to-transparent text-on-primary">
-                            <p class="font-headline-md text-headline-md italic">"Education is the ticket to global competitiveness."</p>
+                            <p class="font-headline-md text-headline-md italic">"Progress starts at the grassroots."</p>
                         </div>
                     </div>
                 </div>
             </div>
+
 
             <!-- Slide Navigation Indicators (dots) -->
             <div class="flex justify-center gap-3 mt-12 relative z-30">
