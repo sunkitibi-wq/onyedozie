@@ -11,6 +11,8 @@ class ApiClient {
   /// The AuthNotifier wires this up to trigger a logout state transition.
   void Function()? onUnauthorized;
 
+  String get baseUrl => dio.options.baseUrl;
+
   static String get _defaultBaseUrl {
     const String envUrl = String.fromEnvironment('API_URL');
     if (envUrl.isNotEmpty) {

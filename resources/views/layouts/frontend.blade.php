@@ -163,7 +163,7 @@
                     <ul class="space-y-2 font-body-md text-on-surface-variant">
                         <li class="flex items-start gap-2">
                             <span class="material-symbols-outlined text-primary text-xl">location_on</span>
-                            <span>Campaign Headquarters, Awka, Anambra State</span>
+                            <span> Hon. Ferdinand Dozie Nwankwo ICT Centre Enugwu Ukwu Njikoka LGA Anambra State.</span>
                         </li>
                         <li class="flex items-start gap-2">
                             <span class="material-symbols-outlined text-primary text-xl">mail</span>
@@ -171,7 +171,7 @@
                         </li>
                         <li class="flex items-start gap-2">
                             <span class="material-symbols-outlined text-primary text-xl">call</span>
-                            <span>+234 (0) 800 ONYENDOZI</span>
+                            <span>+234(0)8036052303 .</span>
                         </li>
                     </ul>
                 </div>
