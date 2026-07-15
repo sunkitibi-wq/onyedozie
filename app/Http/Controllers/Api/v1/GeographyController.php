@@ -53,6 +53,7 @@ class GeographyController extends Controller
         $roles = \Spatie\Permission\Models\Role::whereIn('name', [
             'Volunteer',
             'Supporter',
+            'Polling Unit Coordinator',
             'Canvaser',
             'Patron',
             'Financial Supporter'
