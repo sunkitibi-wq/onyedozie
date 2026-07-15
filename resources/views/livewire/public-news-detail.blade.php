@@ -26,13 +26,38 @@
     <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-12">
         <!-- Main Article Content -->
         <article class="lg:col-span-8 space-y-8 bg-white p-6 md:p-10 rounded-xl shadow-sm border border-outline-variant/30">
-            @if($news->image_path)
+            @if($news->video_path)
+                <video src="{{ asset('storage/' . $news->video_path) }}" controls class="w-full h-auto rounded-xl shadow-md mb-8 bg-black"></video>
+            @elseif($news->image_path)
                 <img src="{{ asset('storage/' . $news->image_path) }}" alt="{{ $news->title }}" class="w-full h-auto rounded-xl shadow-md mb-8">
             @endif
             
             <div class="prose prose-lg prose-zinc max-w-none prose-headings:font-headline-md prose-headings:text-primary prose-a:text-primary">
                 {!! nl2br(e($news->body)) !!}
             </div>
+
+            @php
+                $photos = is_array($news->photos) ? $news->photos : (json_decode($news->photos, true) ?? []);
+                $videos = is_array($news->videos) ? $news->videos : (json_decode($news->videos, true) ?? []);
+            @endphp
+            
+            @if(!empty($photos) || !empty($videos))
+                <div class="mt-12">
+                    <h3 class="font-headline-sm text-headline-sm font-bold text-primary mb-6">Media Gallery</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        @foreach($photos as $photo)
+                            <a href="{{ asset('storage/' . $photo) }}" target="_blank" class="block aspect-square overflow-hidden rounded-xl shadow-sm border border-outline-variant/30">
+                                <img src="{{ asset('storage/' . $photo) }}" alt="Gallery Image" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                            </a>
+                        @endforeach
+                        @foreach($videos as $vid)
+                            <div class="aspect-square overflow-hidden rounded-xl shadow-sm border border-outline-variant/30 bg-black">
+                                <video src="{{ asset('storage/' . $vid) }}" controls class="w-full h-full object-cover"></video>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
             
             <hr class="border-outline-variant/50 my-10">
             

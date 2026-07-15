@@ -132,6 +132,43 @@
                         @error('image') <span class="text-xs text-red-600 mt-1 block">{{ $message }}</span> @enderror
                     </div>
 
+                    <div>
+                        <label class="block text-xs font-semibold text-zinc-500 uppercase">Main Video</label>
+                        @if($videoPath && !$video)
+                            <div class="mb-2">
+                                <video src="{{ asset('storage/' . $videoPath) }}" controls class="w-full h-32 rounded-lg object-cover border border-zinc-200 dark:border-zinc-700"></video>
+                            </div>
+                        @endif
+                        <input type="file" wire:model="video" accept="video/*" class="w-full mt-1 px-3 py-1.5 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-750 rounded-lg text-xs text-zinc-900 dark:text-white focus:outline-none">
+                        @error('video') <span class="text-xs text-red-600 mt-1 block">{{ $message }}</span> @enderror
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-zinc-500 uppercase">Additional Photos</label>
+                        @if(!empty($existingPhotos))
+                            <div class="mb-2 grid grid-cols-4 gap-2">
+                                @foreach($existingPhotos as $photo)
+                                    <img src="{{ asset('storage/' . $photo) }}" class="w-full h-16 rounded object-cover border border-zinc-200 dark:border-zinc-700" alt="Additional Photo">
+                                @endforeach
+                            </div>
+                        @endif
+                        <input type="file" wire:model="multiplePhotos" multiple accept="image/*" class="w-full mt-1 px-3 py-1.5 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-750 rounded-lg text-xs text-zinc-900 dark:text-white focus:outline-none">
+                        @error('multiplePhotos.*') <span class="text-xs text-red-600 mt-1 block">{{ $message }}</span> @enderror
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-zinc-500 uppercase">Additional Videos</label>
+                        @if(!empty($existingVideos))
+                            <div class="mb-2 grid grid-cols-2 gap-2">
+                                @foreach($existingVideos as $vid)
+                                    <video src="{{ asset('storage/' . $vid) }}" controls class="w-full h-24 rounded object-cover border border-zinc-200 dark:border-zinc-700"></video>
+                                @endforeach
+                            </div>
+                        @endif
+                        <input type="file" wire:model="multipleVideos" multiple accept="video/*" class="w-full mt-1 px-3 py-1.5 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-750 rounded-lg text-xs text-zinc-900 dark:text-white focus:outline-none">
+                        @error('multipleVideos.*') <span class="text-xs text-red-600 mt-1 block">{{ $message }}</span> @enderror
+                    </div>
+
                     <div class="flex items-center gap-2">
                         <input type="checkbox" wire:model="is_breaking" id="is_breaking" class="rounded text-green-600 focus:ring-green-500 bg-zinc-50 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700">
                         <label for="is_breaking" class="text-sm font-semibold text-zinc-700 dark:text-zinc-300">Mark as Breaking News</label>

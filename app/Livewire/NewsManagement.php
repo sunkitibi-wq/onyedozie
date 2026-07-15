@@ -22,6 +22,15 @@ class NewsManagement extends Component
     public $title, $body, $category, $is_breaking, $published_at;
     public $image;
     public $imagePath;
+    
+    public $video;
+    public $videoPath;
+    
+    public $multiplePhotos = [];
+    public $existingPhotos = [];
+    
+    public $multipleVideos = [];
+    public $existingVideos = [];
 
     protected function rules()
     {
@@ -32,6 +41,9 @@ class NewsManagement extends Component
             'is_breaking' => 'boolean',
             'published_at' => 'nullable|date',
             'image' => 'nullable|image|max:2048', // 2MB max
+            'video' => 'nullable|mimes:mp4,mov,ogg,qt|max:51200', // 50MB max
+            'multiplePhotos.*' => 'image|max:2048',
+            'multipleVideos.*' => 'mimes:mp4,mov,ogg,qt|max:51200',
         ];
     }
 
@@ -47,6 +59,9 @@ class NewsManagement extends Component
             $this->is_breaking = $news->is_breaking;
             $this->published_at = $news->published_at ? $news->published_at->format('Y-m-d\TH:i') : null;
             $this->imagePath = $news->image_path;
+            $this->videoPath = $news->video_path;
+            $this->existingPhotos = is_array($news->photos) ? $news->photos : json_decode($news->photos, true) ?? [];
+            $this->existingVideos = is_array($news->videos) ? $news->videos : json_decode($news->videos, true) ?? [];
         }
     }
 
@@ -70,7 +85,13 @@ class NewsManagement extends Component
             'is_breaking',
             'published_at',
             'image',
-            'imagePath'
+            'imagePath',
+            'video',
+            'videoPath',
+            'multiplePhotos',
+            'existingPhotos',
+            'multipleVideos',
+            'existingVideos'
         ]);
         $this->resetErrorBag();
     }
@@ -84,6 +105,25 @@ class NewsManagement extends Component
             $path = $this->image->store('news', 'public');
         }
 
+        $videoPath = null;
+        if ($this->video) {
+            $videoPath = $this->video->store('news/videos', 'public');
+        }
+
+        $photosPaths = [];
+        if (!empty($this->multiplePhotos)) {
+            foreach ($this->multiplePhotos as $photo) {
+                $photosPaths[] = $photo->store('news/photos', 'public');
+            }
+        }
+
+        $videosPaths = [];
+        if (!empty($this->multipleVideos)) {
+            foreach ($this->multipleVideos as $vid) {
+                $videosPaths[] = $vid->store('news/videos', 'public');
+            }
+        }
+
         News::create([
             'title' => $this->title,
             'body' => $this->body,
@@ -91,6 +131,9 @@ class NewsManagement extends Component
             'is_breaking' => $this->is_breaking ? true : false,
             'published_at' => $this->published_at ? Carbon::parse($this->published_at) : null,
             'image_path' => $path,
+            'video_path' => $videoPath,
+            'photos' => $photosPaths,
+            'videos' => $videosPaths,
         ]);
 
         session()->flash('message', 'News article created successfully.');
@@ -108,6 +151,25 @@ class NewsManagement extends Component
                 $path = $this->image->store('news', 'public');
             }
 
+            $videoPath = $news->video_path;
+            if ($this->video) {
+                $videoPath = $this->video->store('news/videos', 'public');
+            }
+
+            $photosPaths = is_array($news->photos) ? $news->photos : json_decode($news->photos, true) ?? [];
+            if (!empty($this->multiplePhotos)) {
+                foreach ($this->multiplePhotos as $photo) {
+                    $photosPaths[] = $photo->store('news/photos', 'public');
+                }
+            }
+
+            $videosPaths = is_array($news->videos) ? $news->videos : json_decode($news->videos, true) ?? [];
+            if (!empty($this->multipleVideos)) {
+                foreach ($this->multipleVideos as $vid) {
+                    $videosPaths[] = $vid->store('news/videos', 'public');
+                }
+            }
+
             $news->update([
                 'title' => $this->title,
                 'body' => $this->body,
@@ -115,6 +177,9 @@ class NewsManagement extends Component
                 'is_breaking' => $this->is_breaking ? true : false,
                 'published_at' => $this->published_at ? Carbon::parse($this->published_at) : null,
                 'image_path' => $path,
+                'video_path' => $videoPath,
+                'photos' => $photosPaths,
+                'videos' => $videosPaths,
             ]);
 
             session()->flash('message', 'News article updated successfully.');

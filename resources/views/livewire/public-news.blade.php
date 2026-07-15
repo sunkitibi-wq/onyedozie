@@ -52,6 +52,13 @@
                                         Breaking
                                     </div>
                                 @endif
+                                @if($news->video_path)
+                                    <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors pointer-events-none">
+                                        <div class="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center text-primary shadow-lg">
+                                            <span class="material-symbols-outlined text-2xl ml-1">play_arrow</span>
+                                        </div>
+                                    </div>
+                                @endif
                             </div>
                             <div class="p-6 flex-1 flex flex-col">
                                 <div class="flex items-center gap-3 mb-3 text-xs text-on-surface-variant">
