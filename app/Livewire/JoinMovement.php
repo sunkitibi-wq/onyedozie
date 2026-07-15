@@ -102,9 +102,10 @@ class JoinMovement extends Component
         // Fetch only campaign role levels for public signup
         $roles = Role::whereIn('name', [
             'Volunteer',
-            'Polling Unit Coordinator',
-            'Ward Coordinator',
-            'LGA Coordinator'
+            'Supporter',
+            'Cavanser',
+            'Patron',
+            'Financial Supporter'
         ])->get();
 
         return view('livewire.join-movement', [
