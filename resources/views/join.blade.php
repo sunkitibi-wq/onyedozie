@@ -21,9 +21,9 @@
 
 <!-- Main Content Area: Bento Grid Layout -->
 <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pb-24 bg-surface" id="form">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 lg:gap-gutter lg:items-start">
         <!-- Registration Form Column -->
-        <div class="lg:col-span-7 bg-white p-8 md:p-12 shadow-sm border border-outline-variant/30 rounded-xl space-y-8">
+        <div class="lg:col-span-7 lg:self-start bg-white p-8 md:p-12 shadow-sm border border-outline-variant/30 rounded-xl space-y-8">
             <div>
                 <h2 class="font-headline-lg text-headline-lg text-primary font-bold">Supporter Registration</h2>
                 <p class="text-on-surface-variant font-body-md mt-2">Fill out the details below to join the movement and stay updated.</p>
@@ -33,15 +33,15 @@
         </div>
         
         <!-- Ways to Participate Column -->
-        <div class="lg:col-span-5 space-y-6">
-            <div class="bg-primary text-on-primary p-8 md:p-10 shadow-sm rounded-xl space-y-6">
-                <h3 class="font-headline-md text-headline-md mb-6 flex items-center gap-3 font-bold border-b border-white/20 pb-4">
+        <div class="lg:col-span-5 lg:self-start space-y-6">
+            <div class="bg-primary text-on-primary p-6 sm:p-8 md:p-10 shadow-sm rounded-xl space-y-4 sm:space-y-6">
+                <h3 class="font-headline-md text-headline-md mb-4 sm:mb-6 flex items-center gap-3 font-bold border-b border-white/20 pb-3 sm:pb-4">
                     <span class="material-symbols-outlined">how_to_reg</span>
                     Ways to Participate
                 </h3>
-                <ul class="space-y-6">
-                    <li class="flex items-start gap-4 p-4 bg-white/10 border border-white/20 rounded-xl hover:bg-white/15 transition-colors">
-                        <div class="w-10 h-10 flex items-center justify-center bg-secondary-container text-on-secondary-container rounded-lg shrink-0">
+                <ul class="space-y-3 sm:space-y-4 md:space-y-6">
+                    <li class="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 bg-white/10 border border-white/20 rounded-xl hover:bg-white/15 transition-colors">
+                        <div class="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center bg-secondary-container text-on-secondary-container rounded-lg shrink-0">
                             <span class="material-symbols-outlined">person_add</span>
                         </div>
                         <div>
@@ -49,8 +49,17 @@
                             <p class="text-on-primary/80 text-body-md">Be recognized as a formal member of the Onyendozi network.</p>
                         </div>
                     </li>
-                    <li class="flex items-start gap-4 p-4 bg-white/10 border border-white/20 rounded-xl hover:bg-white/15 transition-colors">
-                        <div class="w-10 h-10 flex items-center justify-center bg-secondary-container text-on-secondary-container rounded-lg shrink-0">
+                    <li class="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 bg-white/10 border border-white/20 rounded-xl hover:bg-white/15 transition-colors">
+                        <div class="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center bg-secondary-container text-on-secondary-container rounded-lg shrink-0">
+                            <span class="material-symbols-outlined">payments</span>
+                        </div>
+                        <div>
+                            <h4 class="font-label-md text-label-md mb-1 font-bold">Financial Supporter</h4>
+                            <p class="text-on-primary/80 text-body-md">Become a financial supporter of Onyendozi Connect Ambassadors and help drive grassroots mobilization, youth empowerment, and community development.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 bg-white/10 border border-white/20 rounded-xl hover:bg-white/15 transition-colors">
+                        <div class="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center bg-secondary-container text-on-secondary-container rounded-lg shrink-0">
                             <span class="material-symbols-outlined">volunteer_activism</span>
                         </div>
                         <div>
@@ -58,8 +67,8 @@
                             <p class="text-on-primary/80 text-body-md">Dedicate your time and skills to campaign operations and field activities.</p>
                         </div>
                     </li>
-                    <li class="flex items-start gap-4 p-4 bg-white/10 border border-white/20 rounded-xl hover:bg-white/15 transition-colors">
-                        <div class="w-10 h-10 flex items-center justify-center bg-secondary-container text-on-secondary-container rounded-lg shrink-0">
+                    <li class="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 bg-white/10 border border-white/20 rounded-xl hover:bg-white/15 transition-colors">
+                        <div class="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center bg-secondary-container text-on-secondary-container rounded-lg shrink-0">
                             <span class="material-symbols-outlined">groups</span>
                         </div>
                         <div>
@@ -67,8 +76,17 @@
                             <p class="text-on-primary/80 text-body-md">Lead at the grassroots level and mobilize your local community.</p>
                         </div>
                     </li>
-                    <li class="flex items-start gap-4 p-4 bg-white/10 border border-white/20 rounded-xl hover:bg-white/15 transition-colors">
-                        <div class="w-10 h-10 flex items-center justify-center bg-secondary-container text-on-secondary-container rounded-lg shrink-0">
+                    <li class="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 bg-white/10 border border-white/20 rounded-xl hover:bg-white/15 transition-colors">
+                        <div class="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center bg-secondary-container text-on-secondary-container rounded-lg shrink-0">
+                            <span class="material-symbols-outlined">handshake</span>
+                        </div>
+                        <div>
+                            <h4 class="font-label-md text-label-md mb-1 font-bold">Local Government Patron</h4>
+                            <p class="text-on-primary/80 text-body-md">Become a patron and help mentor young people, strengthen grassroots participation, and support community development in your local government.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 bg-white/10 border border-white/20 rounded-xl hover:bg-white/15 transition-colors">
+                        <div class="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center bg-secondary-container text-on-secondary-container rounded-lg shrink-0">
                             <span class="material-symbols-outlined">forum</span>
                         </div>
                         <div>
@@ -80,7 +98,7 @@
             </div>
             
             <!-- Side Card - Community Stats -->
-            <div class="bg-white border border-outline-variant/30 p-8 shadow-sm rounded-xl overflow-hidden relative">
+            <div class="bg-white border border-outline-variant/30 p-6 sm:p-8 shadow-sm rounded-xl overflow-hidden relative">
                 <div class="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full"></div>
                 <h4 class="font-headline-md text-headline-md text-primary mb-6 font-bold">Our Presence</h4>
                 <div class="grid grid-cols-2 gap-4">
@@ -101,34 +119,34 @@
 <!-- Campaign Values Section -->
 <section class="bg-surface-container-high py-20 border-t border-outline-variant/50">
     <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-        <div class="text-center mb-12 space-y-4">
-            <h2 class="font-headline-lg text-headline-lg text-on-surface font-bold">Our Campaign Values</h2>
-            <div class="w-24 h-1 bg-secondary-container mx-auto"></div>
+        <div class="text-center mb-8 sm:mb-12 space-y-3 sm:space-y-4">
+            <h2 class="font-headline-md sm:font-headline-lg text-headline-md sm:text-headline-lg text-on-surface font-bold">Our Campaign Values</h2>
+            <div class="w-20 sm:w-24 h-1 bg-secondary-container mx-auto"></div>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-            <div class="bg-white p-6 border-t-4 border-primary shadow-sm hover:shadow-md transition-all rounded-xl flex items-center gap-4 group">
-                <span class="material-symbols-outlined text-primary text-3xl group-hover:scale-110 transition-transform">verified</span>
-                <span class="font-headline-md text-headline-md text-on-surface font-semibold">Integrity</span>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            <div class="bg-white p-4 sm:p-6 border-t-4 border-primary shadow-sm hover:shadow-md transition-all rounded-xl flex items-center gap-3 sm:gap-4 group min-h-[76px]">
+                <span class="material-symbols-outlined text-primary text-2xl sm:text-3xl shrink-0 group-hover:scale-110 transition-transform">verified</span>
+                <span class="font-body-lg sm:font-headline-md text-body-lg sm:text-headline-md text-on-surface font-semibold leading-tight">Integrity</span>
             </div>
-            <div class="bg-white p-6 border-t-4 border-primary shadow-sm hover:shadow-md transition-all rounded-xl flex items-center gap-4 group">
-                <span class="material-symbols-outlined text-primary text-3xl group-hover:scale-110 transition-transform">volunteer_activism</span>
-                <span class="font-headline-md text-headline-md text-on-surface font-semibold">Service</span>
+            <div class="bg-white p-4 sm:p-6 border-t-4 border-primary shadow-sm hover:shadow-md transition-all rounded-xl flex items-center gap-3 sm:gap-4 group min-h-[76px]">
+                <span class="material-symbols-outlined text-primary text-2xl sm:text-3xl shrink-0 group-hover:scale-110 transition-transform">volunteer_activism</span>
+                <span class="font-body-lg sm:font-headline-md text-body-lg sm:text-headline-md text-on-surface font-semibold leading-tight">Service</span>
             </div>
-            <div class="bg-white p-6 border-t-4 border-primary shadow-sm hover:shadow-md transition-all rounded-xl flex items-center gap-4 group">
-                <span class="material-symbols-outlined text-primary text-3xl group-hover:scale-110 transition-transform">join_inner</span>
-                <span class="font-headline-md text-headline-md text-on-surface font-semibold">Unity</span>
+            <div class="bg-white p-4 sm:p-6 border-t-4 border-primary shadow-sm hover:shadow-md transition-all rounded-xl flex items-center gap-3 sm:gap-4 group min-h-[76px]">
+                <span class="material-symbols-outlined text-primary text-2xl sm:text-3xl shrink-0 group-hover:scale-110 transition-transform">join_inner</span>
+                <span class="font-body-lg sm:font-headline-md text-body-lg sm:text-headline-md text-on-surface font-semibold leading-tight">Unity</span>
             </div>
-            <div class="bg-white p-6 border-t-4 border-primary shadow-sm hover:shadow-md transition-all rounded-xl flex items-center gap-4 group">
-                <span class="material-symbols-outlined text-primary text-3xl group-hover:scale-110 transition-transform">visibility</span>
-                <span class="font-headline-md text-headline-md text-on-surface font-semibold">Transparency</span>
+            <div class="bg-white p-4 sm:p-6 border-t-4 border-primary shadow-sm hover:shadow-md transition-all rounded-xl flex items-center gap-3 sm:gap-4 group min-h-[76px]">
+                <span class="material-symbols-outlined text-primary text-2xl sm:text-3xl shrink-0 group-hover:scale-110 transition-transform">visibility</span>
+                <span class="font-body-lg sm:font-headline-md text-body-lg sm:text-headline-md text-on-surface font-semibold leading-tight">Transparency</span>
             </div>
-            <div class="bg-white p-6 border-t-4 border-primary shadow-sm hover:shadow-md transition-all rounded-xl flex items-center gap-4 group">
-                <span class="material-symbols-outlined text-primary text-3xl group-hover:scale-110 transition-transform">diversity_3</span>
-                <span class="font-headline-md text-headline-md text-on-surface font-semibold">Inclusiveness</span>
+            <div class="bg-white p-4 sm:p-6 border-t-4 border-primary shadow-sm hover:shadow-md transition-all rounded-xl flex items-center gap-3 sm:gap-4 group min-h-[76px]">
+                <span class="material-symbols-outlined text-primary text-2xl sm:text-3xl shrink-0 group-hover:scale-110 transition-transform">diversity_3</span>
+                <span class="font-body-lg sm:font-headline-md text-body-lg sm:text-headline-md text-on-surface font-semibold leading-tight">Inclusiveness</span>
             </div>
-            <div class="bg-white p-6 border-t-4 border-primary shadow-sm hover:shadow-md transition-all rounded-xl flex items-center gap-4 group">
-                <span class="material-symbols-outlined text-primary text-3xl group-hover:scale-110 transition-transform">trending_up</span>
-                <span class="font-headline-md text-headline-md text-on-surface font-semibold">Development</span>
+            <div class="bg-white p-4 sm:p-6 border-t-4 border-primary shadow-sm hover:shadow-md transition-all rounded-xl flex items-center gap-3 sm:gap-4 group min-h-[76px]">
+                <span class="material-symbols-outlined text-primary text-2xl sm:text-3xl shrink-0 group-hover:scale-110 transition-transform">trending_up</span>
+                <span class="font-body-lg sm:font-headline-md text-body-lg sm:text-headline-md text-on-surface font-semibold leading-tight">Development</span>
             </div>
         </div>
     </div>
