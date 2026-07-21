@@ -38,6 +38,7 @@ Route::get('queue-work', function (\Illuminate\Http\Request $request) {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard');
+    Route::view('recruitment-statistics', 'pages.recruitment-statistics')->name('recruitment-statistics');
     Route::view('lgas', 'pages.lgas')->name('lgas');
     Route::view('users', 'pages.users')->name('users');
     Route::view('rbac', 'pages.rbac')->name('rbac');
