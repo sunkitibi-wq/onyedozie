@@ -6,7 +6,7 @@
     <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
         <div class="lg:col-span-7 z-10 space-y-6">
             <span class="text-primary font-bold tracking-widest text-label-md uppercase">Meet the President & Founder</span>
-            <h1 class="text-headline-xl font-headline-xl text-on-surface">Dr. Henry <span class="text-primary font-bold">Obiozor</span>, PhD</h1>
+            <h1 class="text-headline-xl font-headline-xl text-on-surface">Dr. Henry <span class="text-primary font-bold">Obiozor</span></h1>
             <p class="text-secondary font-headline-md font-bold text-headline-md mt-1">President & Founder, Onyendozi Connect</p>
             <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
                 Dr. Henry Obiozor is the visionary founder and President of Onyendozi Connect, a digital grassroots engagement platform established to bridge the gap between the people of Anambra Central Senatorial District and responsive leadership. Guided by the philosophy of service, innovation, and inclusive participation, he founded Onyendozi Connect to create a technology-driven platform that empowers citizens, promotes civic engagement, and connects communities to opportunities for growth and development.
