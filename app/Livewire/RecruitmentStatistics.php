@@ -53,6 +53,16 @@ class RecruitmentStatistics extends Component
                 $q->whereDate('earned_at', now()->toDateString());
             }
         }])
+        ->withSum(['leaderboardPoints as total_points' => function ($q) {
+            $q->where('source_type', 'recruitment');
+            
+            if ($this->timeframe === 'month') {
+                $q->whereMonth('earned_at', now()->month)
+                  ->whereYear('earned_at', now()->year);
+            } elseif ($this->timeframe === 'today') {
+                $q->whereDate('earned_at', now()->toDateString());
+            }
+        }], 'points')
         ->orderByDesc('recruits_count')
         ->paginate(15);
 

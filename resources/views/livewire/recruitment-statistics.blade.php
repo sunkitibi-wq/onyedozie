@@ -67,6 +67,7 @@
                         <th class="py-2">Phone</th>
                         <th class="py-2">Role(s)</th>
                         <th class="py-2 text-right">Recruits Count</th>
+                        <th class="py-2 text-right">Points</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -91,10 +92,15 @@
                                     {{ $recruiter->recruits_count }}
                                 </span>
                             </td>
+                            <td class="py-3 text-right">
+                                <span class="font-bold text-purple-600 dark:text-purple-400">
+                                    {{ number_format($recruiter->total_points ?? 0) }}
+                                </span>
+                            </td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="5" class="py-8 text-center text-zinc-500">
+                            <td colspan="6" class="py-8 text-center text-zinc-500">
                                 No recruitment data found for this timeframe/search.
                             </td>
                         </tr>

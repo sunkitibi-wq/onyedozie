@@ -20,9 +20,11 @@
                     <flux:sidebar.item icon="users" :href="route('users')" :current="request()->routeIs('users')" wire:navigate>
                         {{ __('Campaign Members') }}
                     </flux:sidebar.item>
-                    <flux:sidebar.item icon="chart-bar" :href="route('recruitment-statistics')" :current="request()->routeIs('recruitment-statistics')" wire:navigate>
-                        {{ __('Recruitment Stats') }}
-                    </flux:sidebar.item>
+                    @if(auth()->user()->hasRole('Super Admin'))
+                        <flux:sidebar.item icon="chart-bar" :href="route('recruitment-statistics')" :current="request()->routeIs('recruitment-statistics')" wire:navigate>
+                            {{ __('Recruitment Stats') }}
+                        </flux:sidebar.item>
+                    @endif
                     <flux:sidebar.item icon="map-pin" :href="route('lgas')" :current="request()->routeIs('lgas')" wire:navigate>
                         {{ __('Geographic Hierarchy') }}
                     </flux:sidebar.item>

@@ -19,6 +19,10 @@ class DashboardOverview extends Component
     public $recentResults = [];
     public $topRecruiters = [];
     public $monthlyTopRecruiters = [];
+    
+    // Current user's stats
+    public $myPoints = 0;
+    public $myRecruits = 0;
 
     public function mount()
     {
@@ -89,6 +93,12 @@ class DashboardOverview extends Component
             ->orderByDesc('recruits_count')
             ->limit(5)
             ->get();
+
+        // Current user stats
+        $this->myPoints = auth()->user()->points;
+        $this->myRecruits = \App\Models\LeaderboardPoint::where('user_id', auth()->id())
+            ->where('source_type', 'recruitment')
+            ->count();
     }
 
     public function approveUser($userId)

@@ -6,6 +6,19 @@
         </div>
     @endif
 
+    <!-- User Points Banner -->
+    <div class="p-4 bg-gradient-to-r from-green-600 to-green-500 rounded-xl shadow-sm flex items-center justify-between text-white">
+        <div class="flex items-center gap-4">
+            <div class="p-3 bg-white/20 rounded-lg">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold">{{ number_format($myPoints ?? 0) }} Campaign Points</h3>
+                <p class="text-green-100 text-sm font-medium">You have recruited {{ number_format($myRecruits ?? 0) }} members</p>
+            </div>
+        </div>
+    </div>
+
     <!-- Metric Cards Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <!-- Card 1 -->
