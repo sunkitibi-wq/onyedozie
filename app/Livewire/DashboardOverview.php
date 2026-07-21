@@ -19,6 +19,7 @@ class DashboardOverview extends Component
     public $recentResults = [];
     public $topRecruiters = [];
     public $monthlyTopRecruiters = [];
+    public $recruitmentChartData = [];
     
     // Current user's stats
     public $myPoints = 0;
@@ -103,6 +104,20 @@ class DashboardOverview extends Component
                 ->orderByDesc('recruits_count')
                 ->limit(5)
                 ->get();
+
+            // Recruitment Chart Data (Last 7 Days)
+            $this->recruitmentChartData = collect(range(6, 0))->map(function ($daysAgo) {
+                $date = now()->subDays($daysAgo);
+                $count = clone \App\Models\LeaderboardPoint::query()
+                    ->where('source_type', 'recruitment')
+                    ->whereDate('earned_at', $date->toDateString())
+                    ->count();
+                return [
+                    'label' => $date->format('D'), // Mon, Tue etc.
+                    'full_date' => $date->format('M d, Y'),
+                    'count' => $count
+                ];
+            })->toArray();
         } else {
             // General stats should be empty
             $this->stats = [];

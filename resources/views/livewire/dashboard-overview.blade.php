@@ -236,6 +236,44 @@
     <!-- Recruitment Statistics Section -->
     <div class="mt-6">
         <h2 class="text-lg font-bold text-zinc-900 dark:text-white mb-4">Recruitment Statistics</h2>
+        
+        <!-- Recruitment Activity Chart -->
+        <div class="mb-6 p-5 bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm">
+            <h3 class="text-sm font-bold text-zinc-900 dark:text-white mb-4">Recruitment Activity (Last 7 Days)</h3>
+            
+            @php
+                $maxCount = count($recruitmentChartData) > 0 ? max(array_column($recruitmentChartData, 'count')) : 0;
+                $maxCount = $maxCount > 0 ? $maxCount : 1; // Prevent division by zero
+            @endphp
+            
+            <div class="flex items-end h-48 gap-2 sm:gap-4 pb-2 border-b border-zinc-100 dark:border-zinc-800">
+                @foreach($recruitmentChartData as $data)
+                    @php
+                        $heightPercent = ($data['count'] / $maxCount) * 100;
+                    @endphp
+                    <div class="flex-1 flex flex-col items-center justify-end h-full group relative">
+                        <!-- Tooltip -->
+                        <div class="absolute bottom-full mb-2 hidden group-hover:block bg-zinc-800 text-white text-[10px] py-1 px-2 rounded whitespace-nowrap z-10 shadow-lg pointer-events-none">
+                            <p class="font-bold">{{ $data['full_date'] }}</p>
+                            <p>{{ number_format($data['count']) }} recruits</p>
+                            <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-zinc-800"></div>
+                        </div>
+                        
+                        <!-- Value at top of bar -->
+                        <span class="text-[10px] font-bold text-zinc-500 mb-1 opacity-0 group-hover:opacity-100 transition-opacity">{{ $data['count'] > 0 ? $data['count'] : '' }}</span>
+                        
+                        <!-- Bar -->
+                        <div class="w-full max-w-[40px] bg-purple-500/20 dark:bg-purple-900/30 rounded-t group-hover:bg-purple-500/30 dark:group-hover:bg-purple-900/50 transition-colors relative flex items-end justify-center" style="height: {{ max(1, $heightPercent) }}%">
+                            <div class="w-full bg-purple-500 dark:bg-purple-600 rounded-t transition-all duration-500" style="height: 100%"></div>
+                        </div>
+                        
+                        <!-- Label -->
+                        <div class="mt-2 text-[10px] font-medium text-zinc-500">{{ $data['label'] }}</div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <!-- Overall Stats Summary -->
             <div class="p-5 bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm flex flex-col justify-center">
