@@ -6,6 +6,7 @@
         </div>
     @endif
 
+    @if(!auth()->user()->hasRole('Super Admin'))
     <!-- User Points Banner -->
     <div class="p-4 bg-gradient-to-r from-green-600 to-green-500 rounded-xl shadow-sm flex items-center justify-between text-white">
         <div class="flex items-center gap-4">
@@ -18,6 +19,7 @@
             </div>
         </div>
     </div>
+    @endif
 
     @if(auth()->user()->hasRole('Super Admin'))
     <!-- Metric Cards Grid -->
