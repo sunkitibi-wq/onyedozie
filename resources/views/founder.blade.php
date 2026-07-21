@@ -181,7 +181,7 @@
                 "Onyendozi Connect is more than a political platform; it is a movement dedicated to connecting people with opportunities, empowering communities through technology, and ensuring that every citizen of Anambra Central has a voice in shaping our collective future. Together, we will connect Anambra Central to the centre of national development and build a stronger, more prosperous society for generations to come."
             </h3>
             <div class="pt-4 space-y-1">
-                <p class="text-headline-sm font-bold text-secondary-container">Dr. Henry Obiozor, PhD</p>
+                <p class="text-headline-sm font-bold text-secondary-container">Dr. Henry Obiozor</p>
                 <p class="text-label-sm text-white/80">President & Founder, Onyendozi Connect</p>
             </div>
         </div>
