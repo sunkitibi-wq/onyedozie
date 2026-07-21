@@ -108,7 +108,7 @@ class DashboardOverview extends Component
             // Recruitment Chart Data (Last 7 Days)
             $this->recruitmentChartData = collect(range(6, 0))->map(function ($daysAgo) {
                 $date = now()->subDays($daysAgo);
-                $count = clone \App\Models\LeaderboardPoint::query()
+                $count = \App\Models\LeaderboardPoint::query()
                     ->where('source_type', 'recruitment')
                     ->whereDate('earned_at', $date->toDateString())
                     ->count();
