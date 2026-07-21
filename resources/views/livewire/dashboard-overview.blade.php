@@ -19,6 +19,7 @@
         </div>
     </div>
 
+    @if(auth()->user()->hasRole('Super Admin'))
     <!-- Metric Cards Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <!-- Card 1 -->
@@ -69,6 +70,7 @@
             </div>
         </div>
     </div>
+    @endif
 
     <!-- Quick Links -->
     <div class="p-5 bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm mb-6">
@@ -100,6 +102,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <!-- Main Column: Approvals and Results -->
         <div class="lg:col-span-2 space-y-6">
+            @if(auth()->user()->hasRole('Super Admin'))
             <!-- Pending Coordinator Approvals -->
             <div class="p-5 bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm">
                 <h3 class="text-base font-bold text-zinc-900 dark:text-white mb-4">Pending Coordinator Approvals</h3>
@@ -142,10 +145,13 @@
                     </div>
                 @endif
             </div>
+            @endif
 
             <!-- Election Day Live Result Feeds -->
             <div class="p-5 bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm">
-                <h3 class="text-base font-bold text-zinc-900 dark:text-white mb-4">Live Polling Unit Results Feed</h3>
+                <h3 class="text-base font-bold text-zinc-900 dark:text-white mb-4">
+                    {{ auth()->user()->hasRole('Super Admin') ? 'Live Polling Unit Results Feed' : 'My Recent Results' }}
+                </h3>
 
                 @if($recentResults->isEmpty())
                     <div class="text-center py-8 text-zinc-500 text-sm">
@@ -181,7 +187,9 @@
         <div class="space-y-6">
             <!-- Incidents & Alerts -->
             <div class="p-5 bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm">
-                <h3 class="text-base font-bold text-zinc-900 dark:text-white mb-4">Critical Incidents & Alerts</h3>
+                <h3 class="text-base font-bold text-zinc-900 dark:text-white mb-4">
+                    {{ auth()->user()->hasRole('Super Admin') ? 'Critical Incidents & Alerts' : 'My Reported Incidents' }}
+                </h3>
 
                 @if($recentIncidents->isEmpty())
                     <div class="text-center py-8 text-zinc-500 text-sm">
@@ -206,6 +214,7 @@
                 @endif
             </div>
 
+            @if(auth()->user()->hasRole('Super Admin'))
             <!-- Geographic Coverage Map -->
             <div class="p-5 bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm">
                 <h3 class="text-base font-bold text-zinc-900 dark:text-white mb-2">Campaign Geographic Coverage</h3>
@@ -217,9 +226,11 @@
                     <span class="text-[10px] text-zinc-500 mt-1">Anaocha · Awka N. · Awka S. · Dunukofia · Idemili N. · Idemili S. · Njikoka</span>
                 </div>
             </div>
+            @endif
         </div>
     </div>
 
+    @if(auth()->user()->hasRole('Super Admin'))
     <!-- Recruitment Statistics Section -->
     <div class="mt-6">
         <h2 class="text-lg font-bold text-zinc-900 dark:text-white mb-4">Recruitment Statistics</h2>
@@ -298,4 +309,5 @@
             </div>
         </div>
     </div>
+    @endif
 </div>

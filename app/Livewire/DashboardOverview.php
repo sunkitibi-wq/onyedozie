@@ -31,74 +31,99 @@ class DashboardOverview extends Component
 
     public function loadData()
     {
-        // Stats
-        $this->stats = [
-            'total_members' => User::count(),
-            'volunteers' => User::whereHas('roles', fn($q) => $q->where('name', 'Volunteer'))->count(),
-            'coordinators' => User::whereHas('roles', fn($q) => $q->whereIn('name', ['LGA Coordinator', 'Ward Coordinator', 'Polling Unit Coordinator']))->count(),
-            'active_agents' => User::where('last_seen_at', '>=', now()->subMinutes(30))->count(),
-            'pending_approvals' => User::where('status', 'pending_approval')->count(),
-            'upcoming_events' => Event::where('date', '>=', now())->count(),
-            'total_incidents' => Incident::count(),
-            'total_results' => Result::count(),
-            'total_doors' => DoorKnock::count(),
-            'total_recruits' => \App\Models\LeaderboardPoint::where('source_type', 'recruitment')->count(),
-            'monthly_recruits' => \App\Models\LeaderboardPoint::where('source_type', 'recruitment')
-                ->whereMonth('earned_at', now()->month)
-                ->whereYear('earned_at', now()->year)
-                ->count(),
-        ];
-
-        // Pending approvals list
-        $this->pendingUsers = User::where('status', 'pending_approval')
-            ->with(['lga', 'ward', 'pollingUnit'])
-            ->latest()
-            ->limit(10)
-            ->get();
-
-        // Recent incidents
-        $this->recentIncidents = Incident::with(['user'])
-            ->latest()
-            ->limit(5)
-            ->get();
-
-        // Recent results
-        $this->recentResults = Result::with(['user', 'pollingUnit', 'entries'])
-            ->latest()
-            ->limit(5)
-            ->get();
-
-        // Top Recruiters Overall
-        $this->topRecruiters = User::whereHas('leaderboardPoints', function ($q) {
-                $q->where('source_type', 'recruitment');
-            })
-            ->withCount(['leaderboardPoints as recruits_count' => function ($query) {
-                $query->where('source_type', 'recruitment');
-            }])
-            ->orderByDesc('recruits_count')
-            ->limit(5)
-            ->get();
-
-        // Top Recruiters This Month
-        $this->monthlyTopRecruiters = User::whereHas('leaderboardPoints', function ($q) {
-                $q->where('source_type', 'recruitment')
-                  ->whereMonth('earned_at', now()->month)
-                  ->whereYear('earned_at', now()->year);
-            })
-            ->withCount(['leaderboardPoints as recruits_count' => function ($query) {
-                $query->where('source_type', 'recruitment')
-                      ->whereMonth('earned_at', now()->month)
-                      ->whereYear('earned_at', now()->year);
-            }])
-            ->orderByDesc('recruits_count')
-            ->limit(5)
-            ->get();
+        $user = auth()->user();
+        $isSuperAdmin = $user->hasRole('Super Admin');
 
         // Current user stats
-        $this->myPoints = auth()->user()->points;
-        $this->myRecruits = \App\Models\LeaderboardPoint::where('user_id', auth()->id())
+        $this->myPoints = $user->points;
+        $this->myRecruits = \App\Models\LeaderboardPoint::where('user_id', $user->id)
             ->where('source_type', 'recruitment')
             ->count();
+
+        if ($isSuperAdmin) {
+            // Stats
+            $this->stats = [
+                'total_members' => User::count(),
+                'volunteers' => User::whereHas('roles', fn($q) => $q->where('name', 'Volunteer'))->count(),
+                'coordinators' => User::whereHas('roles', fn($q) => $q->whereIn('name', ['LGA Coordinator', 'Ward Coordinator', 'Polling Unit Coordinator']))->count(),
+                'active_agents' => User::where('last_seen_at', '>=', now()->subMinutes(30))->count(),
+                'pending_approvals' => User::where('status', 'pending_approval')->count(),
+                'upcoming_events' => Event::where('date', '>=', now())->count(),
+                'total_incidents' => Incident::count(),
+                'total_results' => Result::count(),
+                'total_doors' => DoorKnock::count(),
+                'total_recruits' => \App\Models\LeaderboardPoint::where('source_type', 'recruitment')->count(),
+                'monthly_recruits' => \App\Models\LeaderboardPoint::where('source_type', 'recruitment')
+                    ->whereMonth('earned_at', now()->month)
+                    ->whereYear('earned_at', now()->year)
+                    ->count(),
+            ];
+
+            // Pending approvals list
+            $this->pendingUsers = User::where('status', 'pending_approval')
+                ->with(['lga', 'ward', 'pollingUnit'])
+                ->latest()
+                ->limit(10)
+                ->get();
+
+            // Recent incidents
+            $this->recentIncidents = Incident::with(['user'])
+                ->latest()
+                ->limit(5)
+                ->get();
+
+            // Recent results
+            $this->recentResults = Result::with(['user', 'pollingUnit', 'entries'])
+                ->latest()
+                ->limit(5)
+                ->get();
+
+            // Top Recruiters Overall
+            $this->topRecruiters = User::whereHas('leaderboardPoints', function ($q) {
+                    $q->where('source_type', 'recruitment');
+                })
+                ->withCount(['leaderboardPoints as recruits_count' => function ($query) {
+                    $query->where('source_type', 'recruitment');
+                }])
+                ->orderByDesc('recruits_count')
+                ->limit(5)
+                ->get();
+
+            // Top Recruiters This Month
+            $this->monthlyTopRecruiters = User::whereHas('leaderboardPoints', function ($q) {
+                    $q->where('source_type', 'recruitment')
+                      ->whereMonth('earned_at', now()->month)
+                      ->whereYear('earned_at', now()->year);
+                })
+                ->withCount(['leaderboardPoints as recruits_count' => function ($query) {
+                    $query->where('source_type', 'recruitment')
+                          ->whereMonth('earned_at', now()->month)
+                          ->whereYear('earned_at', now()->year);
+                }])
+                ->orderByDesc('recruits_count')
+                ->limit(5)
+                ->get();
+        } else {
+            // General stats should be empty
+            $this->stats = [];
+            $this->pendingUsers = collect();
+            $this->topRecruiters = collect();
+            $this->monthlyTopRecruiters = collect();
+
+            // Only their own incidents
+            $this->recentIncidents = Incident::where('user_id', $user->id)
+                ->with(['user'])
+                ->latest()
+                ->limit(5)
+                ->get();
+
+            // Only their own results
+            $this->recentResults = Result::where('user_id', $user->id)
+                ->with(['user', 'pollingUnit', 'entries'])
+                ->latest()
+                ->limit(5)
+                ->get();
+        }
     }
 
     public function approveUser($userId)
