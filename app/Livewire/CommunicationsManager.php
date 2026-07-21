@@ -16,6 +16,10 @@ class CommunicationsManager extends Component
     use WithPagination, WithFileUploads;
 
     public $activeTab = 'whatsapp';
+    public $socialViewMode = 'feed'; // feed or calendar
+
+    public $calendarMonth;
+    public $calendarYear;
 
     // WhatsApp Broadcast Form Fields
     public $broadcastMessage = '';
@@ -40,6 +44,9 @@ class CommunicationsManager extends Component
         $this->lgas = Lga::orderBy('name')->get();
         $this->roles = Role::orderBy('name')->get();
         $this->postScheduledAt = now()->addHours(1)->format('Y-m-d\TH:i'); // default to 1 hour from now
+
+        $this->calendarMonth = now()->month;
+        $this->calendarYear = now()->year;
     }
 
     public function sendWhatsappBroadcast()
@@ -137,11 +144,116 @@ class CommunicationsManager extends Component
         session()->flash('message', 'WhatsApp Broadcast has been re-queued for sending.');
     }
 
+    public function deleteScheduledPost(ScheduledPost $post)
+    {
+        if ($post->status === 'scheduled') {
+            $post->delete();
+            session()->flash('message', 'Scheduled post has been deleted.');
+        }
+    }
+
+    public function nextMonth()
+    {
+        if ($this->calendarMonth == 12) {
+            $this->calendarMonth = 1;
+            $this->calendarYear++;
+        } else {
+            $this->calendarMonth++;
+        }
+    }
+
+    public function prevMonth()
+    {
+        if ($this->calendarMonth == 1) {
+            $this->calendarMonth = 12;
+            $this->calendarYear--;
+        } else {
+            $this->calendarMonth--;
+        }
+    }
+
+    public function getCalendarDaysProperty()
+    {
+        $days = [];
+        $firstDayOfMonth = \Carbon\Carbon::createFromDate($this->calendarYear, $this->calendarMonth, 1);
+        $daysInMonth = $firstDayOfMonth->daysInMonth;
+        
+        // Find what day of the week the month starts on (0 = Sunday)
+        $startDayOfWeek = $firstDayOfMonth->dayOfWeek;
+        
+        // Pad beginning of calendar with previous month's days
+        if ($startDayOfWeek > 0) {
+            $prevMonth = $firstDayOfMonth->copy()->subMonth();
+            $prevMonthDays = $prevMonth->daysInMonth;
+            
+            for ($i = $startDayOfWeek - 1; $i >= 0; $i--) {
+                $date = $prevMonth->copy()->day($prevMonthDays - $i);
+                $days[] = [
+                    'date' => $date->format('Y-m-d'),
+                    'day' => $date->day,
+                    'is_current_month' => false,
+                    'posts' => []
+                ];
+            }
+        }
+        
+        // Add current month's days
+        for ($day = 1; $day <= $daysInMonth; $day++) {
+            $date = \Carbon\Carbon::createFromDate($this->calendarYear, $this->calendarMonth, $day);
+            $days[] = [
+                'date' => $date->format('Y-m-d'),
+                'day' => $day,
+                'is_current_month' => true,
+                'posts' => []
+            ];
+        }
+        
+        // Pad end of calendar with next month's days to complete the grid (usually 42 cells total, or just fill the last week)
+        $remainingCells = 42 - count($days);
+        // If it can fit in 35 cells, do 35
+        if (count($days) <= 35) {
+            $remainingCells = 35 - count($days);
+        }
+
+        if ($remainingCells > 0) {
+            $nextMonth = $firstDayOfMonth->copy()->addMonth();
+            for ($day = 1; $day <= $remainingCells; $day++) {
+                $date = $nextMonth->copy()->day($day);
+                $days[] = [
+                    'date' => $date->format('Y-m-d'),
+                    'day' => $day,
+                    'is_current_month' => false,
+                    'posts' => []
+                ];
+            }
+        }
+        
+        // Fetch posts for the entire visible grid
+        $startDate = collect($days)->first()['date'];
+        $endDate = collect($days)->last()['date'];
+        
+        $posts = ScheduledPost::whereBetween('scheduled_at', [
+            $startDate . ' 00:00:00',
+            $endDate . ' 23:59:59'
+        ])->get();
+        
+        // Attach posts to respective days
+        foreach ($days as &$dayObj) {
+            $dayDate = $dayObj['date'];
+            $dayObj['posts'] = $posts->filter(function($post) use ($dayDate) {
+                return $post->scheduled_at->format('Y-m-d') === $dayDate;
+            })->values()->all();
+        }
+        
+        return $days;
+    }
+
     public function render()
     {
         return view('livewire.communications-manager', [
             'broadcasts' => WhatsappBroadcast::latest()->paginate(10, ['*'], 'broadcastPage'),
             'posts' => ScheduledPost::latest()->paginate(10, ['*'], 'postPage'),
+            'calendarDays' => $this->calendarDays,
         ]);
     }
 }

@@ -160,6 +160,18 @@ class UserManagement extends Component
             $user->syncRoles([$this->selectedRole]);
         }
 
+        // Award 10 points to the currently authenticated user (recruiter)
+        $recruiter = auth()->user();
+        if ($recruiter) {
+            \App\Models\LeaderboardPoint::create([
+                'user_id' => $recruiter->id,
+                'points' => 10,
+                'source_type' => 'recruitment',
+                'source_id' => $user->id,
+                'earned_at' => now(),
+            ]);
+        }
+
         \App\Models\ActivityLog::log(
             "Created new campaign user account for {$user->name} as {$this->selectedRole}",
             $user
