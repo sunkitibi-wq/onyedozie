@@ -19,6 +19,18 @@
         </button>
     </div>
 
+    <!-- Search Bar -->
+    <div class="mb-2 mt-4">
+        <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <svg class="h-5 w-5 text-zinc-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd" />
+                </svg>
+            </div>
+            <input wire:model.live.debounce.300ms="search" type="text" class="block w-full pl-10 pr-3 py-2 border border-zinc-200 dark:border-zinc-800 rounded-lg leading-5 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white placeholder-zinc-500 focus:outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500 sm:text-sm transition duration-150 ease-in-out" placeholder="Search LGAs, Wards, or Polling Units...">
+        </div>
+    </div>
+
     <!-- LGA TAB -->
     @if($activeTab === 'lgas')
         <div class="grid grid-cols-1 {{ auth()->user()->hasRole('Super Admin') ? 'lg:grid-cols-3' : '' }} gap-6">
@@ -48,16 +60,16 @@
                                         <td class="py-3 text-right">
                                             <button 
                                                 wire:click="editLga({{ $lga->id }})" 
-                                                class="text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300 font-semibold text-xs border border-green-200 dark:border-green-800/60 bg-green-50/50 dark:bg-green-950/20 px-2.5 py-1 rounded-md transition-colors shadow-sm mr-1"
+                                                class="text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300 font-semibold text-xs border border-green-200 dark:border-green-800/60 bg-green-50/50 dark:bg-green-950/20 p-1.5 rounded-md transition-colors shadow-sm mr-1 inline-flex items-center justify-center" title="Edit"
                                             >
-                                                Edit
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" /></svg>
                                             </button>
                                             <button 
                                                 wire:click="deleteLga({{ $lga->id }})" 
                                                 wire:confirm="Are you sure you want to delete the LGA '{{ $lga->name }}'? This will permanently delete all of its associated Wards and Polling Units."
-                                                class="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300 font-semibold text-xs border border-red-200 dark:border-red-800/60 bg-red-50/50 dark:bg-red-950/20 px-2.5 py-1 rounded-md transition-colors shadow-sm"
+                                                class="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300 font-semibold text-xs border border-red-200 dark:border-red-800/60 bg-red-50/50 dark:bg-red-950/20 p-1.5 rounded-md transition-colors shadow-sm inline-flex items-center justify-center" title="Delete"
                                             >
-                                                Delete
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" /></svg>
                                             </button>
                                         </td>
                                     @endif
@@ -134,16 +146,16 @@
                                         <td class="py-3 text-right">
                                             <button 
                                                 wire:click="editWard({{ $ward->id }})" 
-                                                class="text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300 font-semibold text-xs border border-green-200 dark:border-green-800/60 bg-green-50/50 dark:bg-green-950/20 px-2.5 py-1 rounded-md transition-colors shadow-sm mr-1"
+                                                class="text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300 font-semibold text-xs border border-green-200 dark:border-green-800/60 bg-green-50/50 dark:bg-green-950/20 p-1.5 rounded-md transition-colors shadow-sm mr-1 inline-flex items-center justify-center" title="Edit"
                                             >
-                                                Edit
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" /></svg>
                                             </button>
                                             <button 
                                                 wire:click="deleteWard({{ $ward->id }})" 
                                                 wire:confirm="Are you sure you want to delete the Ward '{{ $ward->name }}'? This will permanently delete all of its associated Polling Units."
-                                                class="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300 font-semibold text-xs border border-red-200 dark:border-red-800/60 bg-red-50/50 dark:bg-red-950/20 px-2.5 py-1 rounded-md transition-colors shadow-sm"
+                                                class="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300 font-semibold text-xs border border-red-200 dark:border-red-800/60 bg-red-50/50 dark:bg-red-950/20 p-1.5 rounded-md transition-colors shadow-sm inline-flex items-center justify-center" title="Delete"
                                             >
-                                                Delete
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" /></svg>
                                             </button>
                                         </td>
                                     @endif
@@ -244,16 +256,16 @@
                                         <td class="py-3 text-right">
                                             <button 
                                                 wire:click="editPu({{ $pu->id }})" 
-                                                class="text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300 font-semibold text-xs border border-green-200 dark:border-green-800/60 bg-green-50/50 dark:bg-green-950/20 px-2.5 py-1 rounded-md transition-colors shadow-sm mr-1"
+                                                class="text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300 font-semibold text-xs border border-green-200 dark:border-green-800/60 bg-green-50/50 dark:bg-green-950/20 p-1.5 rounded-md transition-colors shadow-sm mr-1 inline-flex items-center justify-center" title="Edit"
                                             >
-                                                Edit
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" /></svg>
                                             </button>
                                             <button 
                                                 wire:click="deletePu({{ $pu->id }})" 
                                                 wire:confirm="Are you sure you want to delete the Polling Unit '{{ $pu->name }}'?"
-                                                class="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300 font-semibold text-xs border border-red-200 dark:border-red-800/60 bg-red-50/50 dark:bg-red-950/20 px-2.5 py-1 rounded-md transition-colors shadow-sm"
+                                                class="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300 font-semibold text-xs border border-red-200 dark:border-red-800/60 bg-red-50/50 dark:bg-red-950/20 p-1.5 rounded-md transition-colors shadow-sm inline-flex items-center justify-center" title="Delete"
                                             >
-                                                Delete
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" /></svg>
                                             </button>
                                         </td>
                                     @endif

@@ -13,6 +13,7 @@ class LgaManagement extends Component
     use WithPagination;
 
     public $activeTab = 'lgas'; // lgas, wards, pus
+    public $search = '';
     
     // Form fields
     public $lgaName;
@@ -46,7 +47,16 @@ class LgaManagement extends Component
         $this->cancelEditLga();
         $this->cancelEditWard();
         $this->cancelEditPu();
-        $this->resetPage();
+        $this->resetPage('lgasPage');
+        $this->resetPage('wardsPage');
+        $this->resetPage('pusPage');
+    }
+
+    public function updatingSearch()
+    {
+        $this->resetPage('lgasPage');
+        $this->resetPage('wardsPage');
+        $this->resetPage('pusPage');
     }
 
     // LGA Edit Methods
@@ -248,10 +258,39 @@ class LgaManagement extends Component
 
     public function render()
     {
+        $lgasQuery = Lga::withCount(['wards', 'users']);
+        if ($this->search) {
+            $lgasQuery->where('name', 'like', '%' . $this->search . '%');
+        }
+
+        $wardsQuery = Ward::with(['lga'])->withCount(['pollingUnits']);
+        if ($this->search) {
+            $wardsQuery->where(function($q) {
+                $q->where('name', 'like', '%' . $this->search . '%')
+                  ->orWhereHas('lga', function ($q2) {
+                      $q2->where('name', 'like', '%' . $this->search . '%');
+                  });
+            });
+        }
+
+        $pusQuery = PollingUnit::with(['ward.lga']);
+        if ($this->search) {
+            $pusQuery->where(function($q) {
+                $q->where('name', 'like', '%' . $this->search . '%')
+                  ->orWhere('code', 'like', '%' . $this->search . '%')
+                  ->orWhereHas('ward', function ($q2) {
+                      $q2->where('name', 'like', '%' . $this->search . '%')
+                        ->orWhereHas('lga', function ($q3) {
+                            $q3->where('name', 'like', '%' . $this->search . '%');
+                        });
+                  });
+            });
+        }
+
         return view('livewire.lga-management', [
-            'lgas' => Lga::withCount(['wards', 'users'])->paginate(10, ['*'], 'lgasPage'),
-            'wards' => Ward::with(['lga'])->withCount(['pollingUnits'])->paginate(15, ['*'], 'wardsPage'),
-            'pus' => PollingUnit::with(['ward.lga'])->paginate(20, ['*'], 'pusPage'),
+            'lgas' => $lgasQuery->paginate(10, ['*'], 'lgasPage'),
+            'wards' => $wardsQuery->paginate(15, ['*'], 'wardsPage'),
+            'pus' => $pusQuery->paginate(20, ['*'], 'pusPage'),
             'allLgas' => Lga::all(),
             'allWards' => Ward::all(),
         ]);

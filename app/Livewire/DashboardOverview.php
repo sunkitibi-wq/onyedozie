@@ -17,6 +17,8 @@ class DashboardOverview extends Component
     public $pendingUsers = [];
     public $recentIncidents = [];
     public $recentResults = [];
+    public $topRecruiters = [];
+    public $monthlyTopRecruiters = [];
 
     public function mount()
     {
@@ -36,6 +38,11 @@ class DashboardOverview extends Component
             'total_incidents' => Incident::count(),
             'total_results' => Result::count(),
             'total_doors' => DoorKnock::count(),
+            'total_recruits' => \App\Models\LeaderboardPoint::where('source_type', 'recruitment')->count(),
+            'monthly_recruits' => \App\Models\LeaderboardPoint::where('source_type', 'recruitment')
+                ->whereMonth('earned_at', now()->month)
+                ->whereYear('earned_at', now()->year)
+                ->count(),
         ];
 
         // Pending approvals list
@@ -54,6 +61,32 @@ class DashboardOverview extends Component
         // Recent results
         $this->recentResults = Result::with(['user', 'pollingUnit', 'entries'])
             ->latest()
+            ->limit(5)
+            ->get();
+
+        // Top Recruiters Overall
+        $this->topRecruiters = User::whereHas('leaderboardPoints', function ($q) {
+                $q->where('source_type', 'recruitment');
+            })
+            ->withCount(['leaderboardPoints as recruits_count' => function ($query) {
+                $query->where('source_type', 'recruitment');
+            }])
+            ->orderByDesc('recruits_count')
+            ->limit(5)
+            ->get();
+
+        // Top Recruiters This Month
+        $this->monthlyTopRecruiters = User::whereHas('leaderboardPoints', function ($q) {
+                $q->where('source_type', 'recruitment')
+                  ->whereMonth('earned_at', now()->month)
+                  ->whereYear('earned_at', now()->year);
+            })
+            ->withCount(['leaderboardPoints as recruits_count' => function ($query) {
+                $query->where('source_type', 'recruitment')
+                      ->whereMonth('earned_at', now()->month)
+                      ->whereYear('earned_at', now()->year);
+            }])
+            ->orderByDesc('recruits_count')
             ->limit(5)
             ->get();
     }
