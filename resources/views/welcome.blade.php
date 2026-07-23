@@ -367,7 +367,7 @@
             </p>
 
             <div class="flex flex-wrap gap-4 pt-4">
-                <a href="{{ asset('downloads/onyendozi.apk') }}" class="bg-primary text-on-primary px-8 py-4 font-label-md hover:bg-primary-container transition-all flex items-center gap-3 shadow-lg rounded-xl" download>
+                <a href="{{ asset('downloads/onyendozi1.apk') }}" class="bg-primary text-on-primary px-8 py-4 font-label-md hover:bg-primary-container transition-all flex items-center gap-3 shadow-lg rounded-xl" download>
                     <span class="material-symbols-outlined text-2xl">android</span>
                     <div>
                         <span class="block text-left text-[10px] uppercase font-bold tracking-wider opacity-85 leading-none">Download for Android</span>
