@@ -41,7 +41,7 @@ Route::prefix('v1')->group(function () {
         Route::get('members/nearby', [MemberController::class, 'nearby']);
         Route::post('members/recruit', [MemberController::class, 'recruit']);
         Route::get('members/{id}', [MemberController::class, 'show']);
-        Route::put('members/{id}', [MemberController::class, 'update']);
+        Route::match(['put', 'post'], 'members/{id}', [MemberController::class, 'update']);
 
         // Events
         Route::get('events', [EventController::class, 'index']);

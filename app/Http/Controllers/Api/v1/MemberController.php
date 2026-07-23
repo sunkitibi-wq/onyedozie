@@ -106,6 +106,7 @@ class MemberController extends Controller
             'ward_id' => 'nullable|exists:wards,id',
             'polling_unit_id' => 'nullable|exists:polling_units,id',
             'occupation' => 'nullable|string|max:255',
+            'passport' => 'nullable|image|max:2048',
         ]);
 
         if ($validator->fails()) {
@@ -146,6 +147,11 @@ class MemberController extends Controller
 
         if ($request->has('occupation')) {
             $user->occupation = $request->occupation;
+        }
+
+        if ($request->hasFile('passport')) {
+            $path = $request->file('passport')->store('passports', 'public');
+            $user->passport_path = '/storage/' . $path;
         }
 
         $user->save();
