@@ -1,5 +1,8 @@
 import 'dart:async';
+import 'dart:io';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart';
 import '../../core/providers.dart';
@@ -51,6 +54,17 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
   List<dynamic> _profileWards = [];
   List<dynamic> _profilePollingUnits = [];
   bool _isUpdatingProfile = false;
+  File? _profileImageFile;
+
+  Future<void> _pickProfileImage() async {
+    final ImagePicker picker = ImagePicker();
+    final XFile? image = await picker.pickImage(source: ImageSource.gallery);
+    if (image != null) {
+      setState(() {
+        _profileImageFile = File(image.path);
+      });
+    }
+  }
 
   List<dynamic> _lgas = [];
   bool _isLoadingGeo = false;
@@ -2555,15 +2569,27 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
       }
 
       final client = ref.read(apiClientProvider);
-      final response = await client.put('/members/$userId', data: {
+      
+      final formDataMap = <String, dynamic>{
         'name': _profileNameController.text.trim(),
         'phone': _profilePhoneController.text.trim(),
         if (_profilePasswordController.text.isNotEmpty)
           'password': _profilePasswordController.text.trim(),
-        'lga_id': _profileSelectedLgaId,
-        'ward_id': _profileSelectedWardId,
-        'polling_unit_id': _profileSelectedPuId,
-      });
+      };
+      if (_profileSelectedLgaId != null) formDataMap['lga_id'] = _profileSelectedLgaId;
+      if (_profileSelectedWardId != null) formDataMap['ward_id'] = _profileSelectedWardId;
+      if (_profileSelectedPuId != null) formDataMap['polling_unit_id'] = _profileSelectedPuId;
+
+      final formData = FormData.fromMap(formDataMap);
+
+      if (_profileImageFile != null) {
+        formData.files.add(MapEntry(
+          'passport',
+          await MultipartFile.fromFile(_profileImageFile!.path),
+        ));
+      }
+
+      final response = await client.post('/members/$userId', data: formData);
 
       if (response.data['success'] == true) {
         final updatedUser = response.data['data'];
@@ -2661,21 +2687,27 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                 CircleAvatar(
                   radius: 50,
                   backgroundColor: const Color(0xFF4361EE),
-                  child: Text(
-                    (authState.userName ?? 'U').substring(0, 1).toUpperCase(),
-                    style: const TextStyle(fontSize: 40, color: Colors.white, fontWeight: FontWeight.bold),
-                  ),
+                  backgroundImage: _profileImageFile != null ? FileImage(_profileImageFile!) : null,
+                  child: _profileImageFile == null
+                      ? Text(
+                          (authState.userName ?? 'U').substring(0, 1).toUpperCase(),
+                          style: const TextStyle(fontSize: 40, color: Colors.white, fontWeight: FontWeight.bold),
+                        )
+                      : null,
                 ),
                 Positioned(
                   bottom: 0,
                   right: 0,
-                  child: Container(
-                    padding: const EdgeInsets.all(4),
-                    decoration: const BoxDecoration(
-                      color: Color(0xFFBBD4FF),
-                      shape: BoxShape.circle,
+                  child: GestureDetector(
+                    onTap: _pickProfileImage,
+                    child: Container(
+                      padding: const EdgeInsets.all(4),
+                      decoration: const BoxDecoration(
+                        color: Color(0xFFBBD4FF),
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(Icons.edit, size: 18, color: Color(0xFF3451DB)),
                     ),
-                    child: const Icon(Icons.edit, size: 18, color: Color(0xFF3451DB)),
                   ),
                 ),
               ],
