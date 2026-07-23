@@ -18,6 +18,7 @@ class StorageService {
   static const String _keyPuId = 'user_pu_id';
   static const String _keyOnboardingCompleted = 'onboarding_completed';
   static const String _keyPhoneVerified = 'user_phone_verified';
+  static const String _keyPassportUrl = 'user_passport_url';
 
   final SharedPreferences _prefs;
   final FlutterSecureStorage _secureStorage;
@@ -47,6 +48,7 @@ class StorageService {
     int? lgaId,
     int? wardId,
     int? puId,
+    String? passportUrl,
   }) async {
     // Persist token securely
     await _secureStorage.write(key: _keyToken, value: token);
@@ -73,6 +75,11 @@ class StorageService {
     } else {
       await _prefs.remove(_keyPuId);
     }
+    if (passportUrl != null && passportUrl.isNotEmpty) {
+      await _prefs.setString(_keyPassportUrl, passportUrl);
+    } else {
+      await _prefs.remove(_keyPassportUrl);
+    }
   }
 
   /// Synchronous — returns from the in-memory cache populated by [init].
@@ -85,6 +92,7 @@ class StorageService {
   int? getLgaId() => _prefs.getInt(_keyLgaId);
   int? getWardId() => _prefs.getInt(_keyWardId);
   int? getPollingUnitId() => _prefs.getInt(_keyPuId);
+  String? getPassportUrl() => _prefs.getString(_keyPassportUrl);
   bool isPhoneVerified() => _prefs.getBool(_keyPhoneVerified) ?? false;
 
   Future<void> setPhoneVerified(bool verified) async {
@@ -108,5 +116,6 @@ class StorageService {
     await _prefs.remove(_keyWardId);
     await _prefs.remove(_keyPuId);
     await _prefs.remove(_keyPhoneVerified);
+    await _prefs.remove(_keyPassportUrl);
   }
 }

@@ -420,6 +420,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
           lgaId: _toInt(userData['lga_id']),
           wardId: _toInt(userData['ward_id']),
           puId: _toInt(userData['polling_unit_id']),
+          passportUrl: userData['passport_path']?.toString(),
         );
       }
     } catch (_) {}
@@ -2606,6 +2607,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
           lgaId: _toInt(updatedUser['lga_id']),
           wardId: _toInt(updatedUser['ward_id']),
           puId: _toInt(updatedUser['polling_unit_id']),
+          passportUrl: updatedUser['passport_path']?.toString(),
         );
 
         ScaffoldMessenger.of(context).showSnackBar(
@@ -2676,6 +2678,10 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
       }
     }
 
+    final storage = ref.read(storageServiceProvider);
+    final String? passportUrl = storage.getPassportUrl();
+    final String host = ref.read(apiClientProvider).baseUrl.replaceAll('/api/v1', '');
+
     return SingleChildScrollView(
       padding: const EdgeInsets.all(24.0),
       child: Column(
@@ -2687,8 +2693,10 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                 CircleAvatar(
                   radius: 50,
                   backgroundColor: const Color(0xFF4361EE),
-                  backgroundImage: _profileImageFile != null ? FileImage(_profileImageFile!) : null,
-                  child: _profileImageFile == null
+                  backgroundImage: _profileImageFile != null 
+                    ? FileImage(_profileImageFile!) 
+                    : (passportUrl != null ? NetworkImage(host + passportUrl) as ImageProvider : null),
+                  child: (_profileImageFile == null && passportUrl == null)
                       ? Text(
                           (authState.userName ?? 'U').substring(0, 1).toUpperCase(),
                           style: const TextStyle(fontSize: 40, color: Colors.white, fontWeight: FontWeight.bold),
