@@ -115,7 +115,7 @@
                             <tr class="border-b border-zinc-100 dark:border-zinc-800/50 hover:bg-zinc-50/50 dark:hover:bg-zinc-800/10">
                                 <td class="py-3 pr-4 font-semibold text-zinc-900 dark:text-white flex items-center gap-3">
                                     @if($user->passport_path)
-                                        <img src="{{ asset('storage/' . $user->passport_path) }}" class="w-8 h-8 rounded-full object-cover border border-zinc-200 dark:border-zinc-700" alt="Passport">
+                                        <img src="{{ asset($user->passport_path) }}" class="w-8 h-8 rounded-full object-cover border border-zinc-200 dark:border-zinc-700" alt="Passport">
                                     @else
                                         <div class="w-8 h-8 rounded-full bg-zinc-150 dark:bg-zinc-850 flex items-center justify-center text-xs font-bold text-zinc-500">
                                             {{ $user->initials() }}

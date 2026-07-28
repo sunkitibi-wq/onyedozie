@@ -70,7 +70,7 @@ class LocationTracking extends Component
                 'last_ping_human' => $lastPing ? $lastPing->diffForHumans() : 'Never',
                 'is_online' => $isOnline,
                 'initials' => $user->initials(),
-                'passport' => $user->passport_path ? asset('storage/' . $user->passport_path) : null,
+                'passport' => $user->passport_path ? asset($user->passport_path) : null,
             ];
         });
 

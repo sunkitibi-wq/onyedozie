@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:dio/dio.dart';
 import 'storage.dart';
@@ -46,10 +45,10 @@ class ApiClient {
           connectTimeout: const Duration(seconds: 60),
           receiveTimeout: const Duration(seconds: 60),
           headers: {
-            'Content-Type': 'application/json',
             'Accept': 'application/json',
-            // If debugging on Android with local port 80/443 (Herd), we set the Host header
-            // so Nginx knows which project/site to route the request to.
+            // When sending multipart form data, Dio will set the correct
+            // Content-Type header automatically. Forcing application/json
+            // here breaks file uploads.
             if (kDebugMode &&
                 defaultTargetPlatform == TargetPlatform.android &&
                 (baseUrl ?? _defaultBaseUrl).contains('10.0.2.2'))
