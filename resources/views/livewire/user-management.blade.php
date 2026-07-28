@@ -1,8 +1,13 @@
 <div class="space-y-6">
     <!-- Notifications -->
     @if (session()->has('message'))
-        <div class="p-4 text-sm text-green-800 bg-green-50 rounded-lg dark:bg-zinc-900 dark:text-green-400 border border-green-200 dark:border-green-800" role="alert">
+        <div class="p-4 text-sm text-green-800 bg-green-50 rounded-lg dark:bg-zinc-900 dark:text-green-400 border border-green-200 dark:border-green-800 mb-4" role="alert">
             {{ session('message') }}
+        </div>
+    @endif
+    @if (session()->has('error'))
+        <div class="p-4 text-sm text-red-800 bg-red-50 rounded-lg dark:bg-zinc-900 dark:text-red-400 border border-red-200 dark:border-red-800 mb-4" role="alert">
+            {{ session('error') }}
         </div>
     @endif
 
@@ -26,6 +31,38 @@
                         </svg>
                         New User
                     </button>
+                </div>
+            </div>
+
+            <!-- Bulk Upload Section -->
+            <div class="flex flex-wrap items-center justify-between gap-4 bg-zinc-50 dark:bg-zinc-800/50 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 mb-6" x-data="{ showUpload: false }">
+                <div class="flex-1 w-full md:w-auto">
+                    <h4 class="text-sm font-bold text-zinc-900 dark:text-white">Bulk Supporter Upload</h4>
+                    <p class="text-xs text-zinc-500">Import campaign members from a CSV template.</p>
+                </div>
+                
+                <div class="flex items-center gap-2 w-full md:w-auto">
+                    <button wire:click="downloadCsvTemplate" class="px-3 py-1.5 bg-zinc-200 hover:bg-zinc-300 dark:bg-zinc-700 dark:hover:bg-zinc-600 text-zinc-800 dark:text-zinc-200 rounded-lg text-xs font-semibold whitespace-nowrap">
+                        Download Template
+                    </button>
+                    
+                    <button @click="showUpload = !showUpload" class="px-3 py-1.5 bg-zinc-800 hover:bg-zinc-900 dark:bg-zinc-100 dark:hover:bg-zinc-200 text-white dark:text-zinc-900 rounded-lg text-xs font-semibold whitespace-nowrap">
+                        Import CSV
+                    </button>
+                </div>
+
+                <div x-show="showUpload" style="display: none;" class="w-full basis-full mt-2 border-t border-zinc-200 dark:border-zinc-700 pt-4">
+                    <form wire:submit.prevent="processBulkUpload" class="flex flex-col sm:flex-row items-start sm:items-end gap-3">
+                        <div class="flex-1 w-full">
+                            <label class="block text-xs font-semibold text-zinc-500 uppercase mb-1">Select CSV File</label>
+                            <input type="file" wire:model="bulkUploadFile" accept=".csv" class="w-full px-3 py-1.5 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 rounded-lg text-xs text-zinc-900 dark:text-white focus:outline-none">
+                            @error('bulkUploadFile') <span class="text-xs text-red-600 mt-1 block">{{ $message }}</span> @enderror
+                        </div>
+                        <button type="submit" class="w-full sm:w-auto px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg text-sm font-semibold whitespace-nowrap" wire:loading.attr="disabled">
+                            <span wire:loading.remove wire:target="processBulkUpload">Upload & Process</span>
+                            <span wire:loading wire:target="processBulkUpload">Processing...</span>
+                        </button>
+                    </form>
                 </div>
             </div>
 

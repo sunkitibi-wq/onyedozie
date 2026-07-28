@@ -11,6 +11,8 @@ use Livewire\WithPagination;
 use Livewire\WithFileUploads;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\UsersImport;
 
 class UserManagement extends Component
 {
@@ -30,6 +32,9 @@ class UserManagement extends Component
     public $selectedRole = '';
     public $passport;
     public $passportPath;
+    
+    // Bulk Upload
+    public $bulkUploadFile;
 
     // Dynamic Lists
     public $wards = [];
@@ -232,6 +237,45 @@ class UserManagement extends Component
 
             session()->flash('message', "User status updated to {$newStatus}.");
         }
+    }
+
+    public function downloadCsvTemplate()
+    {
+        $headers = [
+            'Cache-Control'       => 'must-revalidate, post-check=0, pre-check=0',
+            'Content-type'        => 'text/csv',
+            'Content-Disposition' => 'attachment; filename=supporters_template.csv',
+            'Expires'             => '0',
+            'Pragma'              => 'public'
+        ];
+        
+        $columns = ['name', 'phone', 'email', 'occupation', 'role', 'lga', 'ward', 'polling_unit'];
+        
+        $callback = function() use($columns) {
+            $file = fopen('php://output', 'w');
+            fputcsv($file, $columns);
+            // Sample row
+            fputcsv($file, ['John Doe', '08012345678', 'john@example.com', 'Teacher', 'Field Agent', 'Awka South', 'Amawbia I', 'Central School']);
+            fclose($file);
+        };
+        
+        return response()->stream($callback, 200, $headers);
+    }
+    
+    public function processBulkUpload()
+    {
+        $this->validate([
+            'bulkUploadFile' => 'required|mimes:csv,txt|max:5120', // 5MB Max
+        ]);
+
+        try {
+            Excel::import(new UsersImport, $this->bulkUploadFile);
+            session()->flash('message', 'Bulk upload processed successfully.');
+        } catch (\Exception $e) {
+            session()->flash('error', 'Error processing bulk upload: ' . $e->getMessage());
+        }
+
+        $this->bulkUploadFile = null;
     }
 
     public function render()

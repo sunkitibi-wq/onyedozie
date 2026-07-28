@@ -36,10 +36,17 @@ return [
     ],
 
     'whatsapp' => [
+        'driver' => env('WHATSAPP_DRIVER', 'meta'),
         'phone_number_id' => env('WHATSAPP_PHONE_NUMBER_ID'),
         'access_token' => env('WHATSAPP_ACCESS_TOKEN'),
         'app_secret' => env('WHATSAPP_APP_SECRET'),
         'verify_token' => env('WHATSAPP_WEBHOOK_VERIFY_TOKEN', 'onyendozi-whatsapp-token-2026'),
+    ],
+
+    'twilio' => [
+        'account_sid' => env('TWILIO_ACCOUNT_SID'),
+        'auth_token' => env('TWILIO_AUTH_TOKEN'),
+        'whatsapp_from' => env('TWILIO_WHATSAPP_FROM'),
     ],
 
 ];
