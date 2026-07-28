@@ -298,6 +298,67 @@
     </div>
 </section>
 
+<!-- Featured Video Section -->
+<section class="py-24 bg-surface">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 text-primary rounded-full">
+                    <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                    <span class="font-label-md uppercase tracking-wider">Featured Story</span>
+                </div>
+                <h2 class="font-headline-lg text-headline-lg text-primary font-bold">Watch the Onyendozi Connect Video</h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                    Gain a deeper understanding of our mission, community impact, and the people-driven leadership that is transforming Anambra Central.
+                </p>
+                <ul class="space-y-4">
+                    <li class="flex gap-3">
+                        <span class="material-symbols-outlined text-primary">play_circle</span>
+                        <span class="text-body-md text-on-surface-variant">Hear from Hon. Ferdinand Dozie Nwankwo on his vision for inclusive governance.</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="material-symbols-outlined text-primary">groups</span>
+                        <span class="text-body-md text-on-surface-variant">See our community initiatives and the real impact of our campaigns.</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="material-symbols-outlined text-primary">insights</span>
+                        <span class="text-body-md text-on-surface-variant">Learn how the campaign is connecting citizens to development and services.</span>
+                    </li>
+                </ul>
+                <a href="https://youtu.be/Z3BJZ0y-O7Y?si=rdl7QS4xtQJcwyfc" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 bg-primary text-on-primary px-8 py-4 rounded-xl font-label-md hover:bg-primary-container transition-all shadow-lg">
+                    Watch on YouTube
+                    <span class="material-symbols-outlined">open_in_new</span>
+                </a>
+            </div>
+            <div class="bg-black/80 rounded-3xl overflow-hidden shadow-2xl border border-outline-variant">
+                <div class="aspect-video bg-black">
+                    <iframe class="w-full h-full"
+                        src="https://www.youtube.com/embed/Z3BJZ0y-O7Y"
+                        title="Onyendozi Connect Video"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Link Section -->
+<section class="py-24 bg-surface-container-low border-t border-outline-variant/30">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
+        <span class="inline-flex items-center gap-2 px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm uppercase tracking-widest font-semibold">Gallery</span>
+        <h2 class="font-headline-lg text-headline-lg text-primary font-bold mt-6">Visit Our Full Gallery</h2>
+        <p class="font-body-md text-body-md text-on-surface-variant max-w-3xl mx-auto mt-4 leading-relaxed">
+            View the complete collection of photos and videos that showcase our work, community outreach, and campaign moments.
+        </p>
+        <a href="{{ route('gallery') }}" class="inline-flex items-center gap-3 mt-8 bg-primary text-on-primary px-8 py-4 rounded-full font-label-md hover:bg-primary-container transition-all shadow-lg">
+            Explore the Gallery
+            <span class="material-symbols-outlined">arrow_forward</span>
+        </a>
+    </div>
+</section>
+
 <!-- App Promotion Section -->
 <section id="app-download-section" class="py-24 bg-surface-container-low border-t border-outline-variant/30">
     <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
