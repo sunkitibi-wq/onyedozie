@@ -15,15 +15,16 @@
             <div class="group overflow-hidden rounded-3xl border border-outline-variant bg-white shadow-sm hover:shadow-lg transition-shadow duration-300">
                 <div class="aspect-video bg-black overflow-hidden">
                     <iframe class="w-full h-full"
-                        src="https://www.youtube.com/embed/E9yLf10FtvI"
-                        title="Onyendozi Connect Video 1"
+                        src="https://www.youtube.com/embed/Z3BJZ0y-O7Y?si=9_YKLO05PSIDqYLc"
+                        title="Trailer of Hon Dozie Nwankwo Hosting Soludo in Enugwu Ukwu"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen>
                     </iframe>
                 </div>
                 <div class="p-6">
-                    <h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Onyendozi Campaign Highlight</h2>
-                    <p class="mt-3 text-body-md text-on-surface-variant">A closer look at our campaign engagement and community outreach efforts.</p>
+                    <h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">
+                        Trailer of Hon Dozie Nwankwo Hosting Soludo in Enugwu Ukwu</h2>
+                    
                 </div>
             </div>
 
@@ -31,29 +32,34 @@
                 <div class="aspect-video bg-black overflow-hidden">
                     <iframe class="w-full h-full"
                         src="https://www.youtube.com/embed/RtXwij-tZHo"
-                        title="Onyendozi Connect Video 2"
+                        title="COMMISSIONING OF HON FERDINAND DOZIE NWANKWO CENTRE FOR DEVELOPMENT AND ICT
+"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen>
                     </iframe>
                 </div>
                 <div class="p-6">
-                    <h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Campaign Update</h2>
-                    <p class="mt-3 text-body-md text-on-surface-variant">Updates from the field and key program announcements.</p>
+                    <h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">
+                        COMMISSIONING OF HON FERDINAND DOZIE NWANKWO CENTRE FOR DEVELOPMENT AND ICTe</h2>
+                   
                 </div>
             </div>
+
+            
 
             <div class="group overflow-hidden rounded-3xl border border-outline-variant bg-white shadow-sm hover:shadow-lg transition-shadow duration-300">
                 <div class="aspect-video bg-black overflow-hidden">
                     <iframe class="w-full h-full"
                         src="https://www.youtube.com/embed/E9yLf10FtvI"
-                        title="Onyendozi Connect Video 3"
+                        title="Watch Onyendozi as he Steals the Show at Soludo/Ibezim Rally with Powerful Speech & Dance Moves"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen>
                     </iframe>
                 </div>
                 <div class="p-6">
-                    <h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Community Program Feature</h2>
-                    <p class="mt-3 text-body-md text-on-surface-variant">A feature spotlighting our work with local communities and stakeholders.</p>
+                    <h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Watch Onyendozi as he Steals the Show at Soludo/Ibezim Rally with Powerful Speech & Dance Moves
+</h2>
+                    
                 </div>
             </div>
         </div>
