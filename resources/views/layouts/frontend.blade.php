@@ -63,25 +63,7 @@
 
                     <a class="font-label-md {{ Route::is('vision') ? 'text-primary font-bold' : 'text-on-surface hover:text-primary' }} transition-all" href="{{ route('vision') }}">Our Vision</a>
                     <a class="font-label-md {{ Route::is('achievements') ? 'text-primary font-bold' : 'text-on-surface hover:text-primary' }} transition-all" href="{{ route('achievements') }}">Achievements</a>
-                    <div class="relative inline-block text-left" x-data="{ open: false }" @click.outside="open = false" @close.stop="open = false">
-                        <button @click="open = !open" class="flex items-center gap-1 font-label-md {{ (Route::is('gallery') || Route::is('video-gallery') || Route::is('image-gallery')) ? 'text-primary font-bold' : 'text-on-surface hover:text-primary' }} transition-all cursor-pointer">
-                            <span>Gallery</span>
-                            <span class="material-symbols-outlined text-sm transition-transform duration-200" :class="open ? 'rotate-180' : ''">keyboard_arrow_down</span>
-                        </button>
-                        <div x-show="open"
-                             x-transition:enter="transition ease-out duration-100"
-                             x-transition:enter-start="opacity-0 scale-95"
-                             x-transition:enter-end="opacity-100 scale-100"
-                             x-transition:leave="transition ease-in duration-75"
-                             x-transition:leave-start="opacity-100 scale-100"
-                             x-transition:leave-end="opacity-0 scale-95"
-                             class="absolute left-0 mt-2 w-64 bg-surface rounded-lg shadow-lg border border-outline-variant/30 py-2 z-50"
-                             style="display: none;">
-                            <a class="block px-4 py-2 text-body-md text-on-surface hover:bg-surface-container hover:text-primary transition-all {{ Route::is('gallery') ? 'font-bold text-primary' : '' }}" href="{{ route('gallery') }}">All Galleries</a>
-                            <a class="block px-4 py-2 text-body-md text-on-surface hover:bg-surface-container hover:text-primary transition-all {{ Route::is('video-gallery') ? 'font-bold text-primary' : '' }}" href="{{ route('video-gallery') }}">Video Gallery</a>
-                            <a class="block px-4 py-2 text-body-md text-on-surface hover:bg-surface-container hover:text-primary transition-all {{ Route::is('image-gallery') ? 'font-bold text-primary' : '' }}" href="{{ route('image-gallery') }}">Image Gallery</a>
-                        </div>
-                    </div>
+                  
                     <a class="font-label-md {{ Route::is('updates') || Route::is('updates.detail') ? 'text-primary font-bold' : 'text-on-surface hover:text-primary' }} transition-all" href="{{ route('updates') }}">News & Updates</a>
                     <a class="font-label-md {{ Route::is('join') ? 'text-primary font-bold' : 'text-on-surface hover:text-primary' }} transition-all" href="{{ route('join') }}">Join the Movement</a>
                 </div>

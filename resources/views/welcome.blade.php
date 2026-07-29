@@ -108,7 +108,7 @@
                 </div>
                 <div class="lg:col-span-5 relative mt-12 lg:mt-0">
                     <div class="aspect-square bg-surface-container-high relative overflow-hidden shadow-2xl rounded-2xl border-4 border-white">
-                        <img class="object-cover w-full h-full" alt="Medical mission in rural community" src="{{ asset('images/gallery/medical.jpeg') }}"/>
+                        <img class="object-cover w-full h-full" alt="Medical mission in rural community" src="{{ asset('images/onye.jpeg') }}"/>
                         <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-primary/95 via-primary/50 to-transparent text-on-primary">
                             <p class="font-headline-md text-headline-md italic">"Every constituent deserves standard care."</p>
                         </div>
@@ -244,7 +244,7 @@
         
         <div class="grid grid-cols-2 gap-4 relative mt-12 lg:mt-0">
             <div class="pt-12">
-                <img class="w-full aspect-[3/4] object-cover shadow-xl rounded-xl border-4 border-white" alt="Dozie Nwankwo engaging elders" src="{{ asset('images/gallery/medical.jpeg') }}"/>
+                <img class="w-full aspect-[3/4] object-cover shadow-xl rounded-xl border-4 border-white" alt="Dozie Nwankwo engaging elders" src="{{ asset('images/onye.jpeg') }}"/>
             </div>
             <div>
                 <img class="w-full aspect-[3/4] object-cover shadow-xl rounded-xl border-4 border-white" alt="Dozie Nwankwo addressing youth" src="{{ asset('images/do2.jpg')}}"/>
